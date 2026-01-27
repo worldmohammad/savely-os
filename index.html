@@ -263,7 +263,8 @@
                     <i data-lucide="star" class="w-5 h-5 text-orange-500"></i>
                     <span data-i18n="btn_star_github">Star on GitHub</span>
                 </a>
-                <a href="https://digitalyar.company" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                <!-- Updated dynamic link for company site -->
+                <a href="https://digitalyar.company" data-i18n-href="company_url" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
                     <i data-lucide="globe" class="w-5 h-5"></i>
                     <span data-i18n="btn_visit_site">Visit DigitalYarCo</span>
                 </a>
@@ -276,7 +277,8 @@
         <p data-i18n="footer_copy">© 2026 Savely. Developed by DigitalYarCo.</p>
         <div class="flex justify-center gap-6 mt-4">
             <a href="https://github.com/worldmohammad" class="hover:text-white transition-colors">GitHub Profile</a>
-            <a href="https://digitalyar.company" class="hover:text-white transition-colors">DigitalYarCo</a>
+            <!-- Updated dynamic link for company site -->
+            <a href="https://digitalyar.company" data-i18n-href="company_url" class="hover:text-white transition-colors">DigitalYarCo</a>
         </div>
     </footer>
 
@@ -346,6 +348,9 @@
                 btn_star_github: "Star on GitHub",
                 btn_visit_site: "Visit DigitalYarCo",
                 
+                // Company Link - English
+                company_url: "https://digitalyar.company",
+                
                 footer_copy: "© 2026 Savely. Developed by DigitalYarCo."
             },
             fa: {
@@ -408,6 +413,9 @@
                 btn_star_github: "ستاره دادن در گیت‌هاب",
                 btn_visit_site: "سایت دیجیتال‌یار",
 
+                // Company Link - Persian
+                company_url: "https://digitalyarco.ir/",
+
                 footer_copy: "© ۲۰۲۶ سیولی. توسعه داده شده توسط دیجیتال‌یار."
             }
         };
@@ -435,6 +443,14 @@
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
                     element.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Update Link Hrefs
+            document.querySelectorAll('[data-i18n-href]').forEach(element => {
+                const key = element.getAttribute('data-i18n-href');
+                if (translations[currentLang][key]) {
+                    element.setAttribute('href', translations[currentLang][key]);
                 }
             });
         }
