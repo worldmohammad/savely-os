@@ -25,10 +25,12 @@
 
 <p>
 <img src="https://www.google.com/search?q=https://img.shields.io/github/v/release/worldmohammad/savely-os%3Fstyle%3Dflat-square%26color%3Dorange" alt="Release">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Platform-Windows%2520%257C%2520Web-blue%3Fstyle%3Dflat-square" alt="Platform">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/License-Proprietary-red%3Fstyle%3Dflat-square" alt="License">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Offline-100%2525-green%3Fstyle%3Dflat-square" alt="Offline">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Platform-Windows%2520(10%252F11)-blue%3Fstyle%3Dflat-square%26logo%3Dwindows" alt="Platform">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/License-Freeware-green%3Fstyle%3Dflat-square" alt="License">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Offline-100%2525-success%3Fstyle%3Dflat-square" alt="Offline">
 </p>
+
+<!-- Place your dashboard screenshot here in screenshots/dashboard.png -->
 
 <img src="https://www.google.com/search?q=https://via.placeholder.com/1000x600/1f2937/fb923c%3Ftext%3DSavely%2BDashboard%2BScreenshot" alt="Savely Dashboard" style="border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
 
@@ -36,19 +38,19 @@
 
 🚀 About The Project
 
-Savely is a comprehensive personal management dashboard designed to replace multiple disjointed apps (Todoist, Notion, Excel, Wallet) with a single, cohesive ecosystem.
+Savely is a powerful, standalone personal management software for Windows. It replaces multiple disjointed apps (Todoist, Notion, Excel, Wallet) with a single, cohesive ecosystem that lives directly on your PC.
 
-Built with a philosophy of "Privacy First", Savely operates 100% offline. Your financial data, personal journals, and passwords never leave your device. It leverages LocalStorage and IndexedDB with military-grade encryption for sensitive data.
+Built with a philosophy of "Privacy First", Savely operates 100% offline. Your financial data, personal journals, and passwords never leave your device.
 
 Why Savely?
 
+📦 Portable & Easy: No installation wizard required. Just download and run.
+
 🔒 Zero Tracking: No servers, no analytics, no cloud leaks.
 
-⚡ Blazing Fast: Built with React & Vite for instant interactions.
+⚡ Blazing Fast: Optimized for Windows 10 and 11.
 
 🌍 Bilingual: Native support for English (LTR) and Persian (RTL).
-
-🎨 Beautiful UI: Modern design with Dark/Light mode support.
 
 ✨ Features
 
@@ -126,70 +128,43 @@ Theming: Customizable colors and dark mode.
 
 Shortcuts: Cmd+K command palette.
 
-🛠️ Built With
+💻 How to Use (Installation)
 
-React.js - UI Library
+Savely is designed to be simple and portable.
 
-TypeScript - Type Safety
+Download: Go to the Releases Page and download the latest .exe or .zip file.
 
-Tailwind CSS - Styling
+Run: Double-click Savely.exe.
 
-Vite - Build Tool
+Enjoy: No setup or internet connection required.
 
-Zustand - State Management
-
-💻 Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-Prerequisites
-
-Node.js (v18 or higher)
-
-npm or yarn
-
-Installation
-
-Clone the repo:
-
-git clone [https://github.com/worldmohammad/savely-os.git](https://github.com/worldmohammad/savely-os.git)
-
-
-Install NPM packages:
-
-npm install
-
-
-Start the development server:
-
-npm run dev
-
+Note: Since this is a new software, Windows SmartScreen might show a warning. Click "More Info" -> "Run Anyway" to proceed.
 
 <div id="-persian-description" dir="rtl" align="right">
 
 🇮🇷 توضیحات فارسی
 
-سیولی (Savely) یک دستیار هوشمند و سیستم‌عامل شخصی است که تمام ابزارهای مورد نیاز برای مدیریت زندگی دیجیتال شما را در یک داشبورد یکپارچه جمع‌آوری کرده است.
+سیولی (Savely) یک نرم‌افزار مدیریت شخصی تحت ویندوز است که تمام ابزارهای مورد نیاز برای مدیریت زندگی دیجیتال شما را در یک داشبورد یکپارچه جمع‌آوری کرده است.
 
-برخلاف سرویس‌های ابری که اطلاعات شما را در سرورهای خود ذخیره می‌کنند، سیولی ۱۰۰٪ آفلاین است. این یعنی داده‌های مالی، رمزهای عبور و یادداشت‌های شخصی شما فقط و فقط روی کامپیوتر خودتان ذخیره می‌شود.
+برخلاف سرویس‌های ابری، سیولی ۱۰۰٪ آفلاین است و نیاز به هیچ‌گونه نصب پیچیده‌ای ندارد. کافیست فایل را دانلود و اجرا کنید.
 
 ویژگی‌های کلیدی برای کاربران ایرانی:
+
+✅ بدون نیاز به نصب: نسخه پرتابل (Portable) و سبک.
 
 ✅ تقویم شمسی: پشتیبانی کامل از تاریخ و تقویم جلالی در تمام بخش‌ها.
 
 ✅ راست‌چین (RTL): رابط کاربری استاندارد و بومی‌سازی شده.
 
-✅ بدون تحریم: چون آفلاین است، هیچ‌گاه قطع نمی‌شود.
+✅ بدون تحریم: چون آفلاین است، همیشه و همه‌جا کار می‌کند.
 
-ماژول‌ها:
+راهنمای دانلود و اجرا:
 
-۱. مدیریت وظایف: تابلوی کانبان و ماتریس آیزنهاور.
-۲. حسابداری شخصی: مدیریت درآمد و هزینه بدون نیاز به اتصال بانکی.
-۳. کیف پول رمزها: ذخیره امن پسوردها با رمزنگاری پیشرفته.
-۴. دفتر سلامت: پایش وزن، فشار خون و یادآور دارو.
-۵. تمرکز: تایمر پومودورو با صداهای محیطی (باران، شب و...).
+۱. به بخش Releases (دانلود) بروید.
+۲. آخرین نسخه فایل .exe را دانلود کنید.
+۳. روی فایل کلیک کنید تا برنامه اجرا شود. (نیاز به اینترنت ندارد).
 
-📥 دانلود آخرین نسخه ویندوز
+📥 دانلود مستقیم آخرین نسخه
 
 </div>
 
