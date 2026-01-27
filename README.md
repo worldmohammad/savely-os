@@ -16,7 +16,7 @@
 
 <p>
 <a href="https://worldmohammad.github.io/savely-os/">🌐 Website & Demo</a> •
-<a href="https://www.google.com/search?q=https://github.com/worldmohammad/savely-os/releases/latest">⬇️ Download for Windows</a> •
+<a href="https://www.google.com/url?sa=E&source=gmail&q=https://github.com/worldmohammad/savely-os/releases/latest">⬇️ Download for Windows</a> •
 <a href="#-features">✨ Features</a> •
 <a href="#-persian-description">🇮🇷 توضیحات فارسی</a>
 </p>
