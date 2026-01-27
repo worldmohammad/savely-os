@@ -23,6 +23,9 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .tech-badge {
+            @apply px-3 py-1 rounded-full bg-gray-800 border border-gray-700 text-xs text-gray-400 font-mono;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white lang-en antialiased selection:bg-orange-500 selection:text-white">
@@ -40,9 +43,8 @@
                 
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#features" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_features">Features</a>
-                    <a href="#security" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_security">Security</a>
-                    <!-- Changed link to external GitHub releases -->
-                    <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_download">Download</a>
+                    <a href="#modules" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_modules">Modules</a>
+                    <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_download">Download</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -50,8 +52,7 @@
                         <i data-lucide="languages" class="w-4 h-4 text-orange-500"></i>
                         <span id="lang-label" class="text-sm font-bold">FA</span>
                     </button>
-                    <!-- Changed link to external GitHub releases -->
-                    <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="hidden md:flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-orange-600/20">
+                    <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="hidden md:flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-orange-600/20">
                         <i data-lucide="download" class="w-4 h-4"></i>
                         <span data-i18n="btn_get_free">Get for Free</span>
                     </a>
@@ -69,96 +70,176 @@
                 <span data-i18n="hero_badge">v1.0 Now Available for Windows</span>
             </div>
             
-            <h1 class="text-5xl lg:text-7xl font-black mb-8 leading-tight">
-                <span data-i18n="hero_title_1">Organize Your Life.</span><br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500" data-i18n="hero_title_2">Securely & Offline.</span>
+            <h1 class="text-4xl lg:text-7xl font-black mb-8 leading-tight">
+                <span data-i18n="hero_title_1">Your Personal OS.</span><br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500" data-i18n="hero_title_2">All Digital Life in One Place.</span>
             </h1>
             
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="hero_desc">
-                The all-in-one personal dashboard for your finances, tasks, passwords, and health. No subscriptions, no cloud tracking. Your data stays on your device.
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed" data-i18n="hero_desc">
+                Manage tasks, notes, finance, health, and passwords completely offline and secure. Free your mind and take back control of your life.
             </p>
             
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <!-- Changed link to external GitHub releases -->
-                <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all transform hover:-translate-y-1 shadow-xl">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+                <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all transform hover:-translate-y-1 shadow-xl">
                     <i data-lucide="microsoft" class="w-5 h-5"></i>
                     <span data-i18n="btn_download_win">Download for Windows</span>
                 </a>
-                <a href="#features" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
-                    <span data-i18n="btn_learn_more">Explore Features</span>
+                <a href="#modules" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                    <span data-i18n="btn_learn_more">Explore Modules</span>
                 </a>
             </div>
 
-            <!-- Dashboard Preview Image -->
-            <div class="mt-20 relative mx-auto max-w-5xl">
-                <div class="absolute inset-0 bg-orange-500 blur-3xl opacity-20 -z-10"></div>
-                <img src="https://via.placeholder.com/1200x800/1f2937/fb923c?text=Savely+Dashboard+Preview" alt="Savely Dashboard" class="rounded-3xl border border-gray-700 shadow-2xl w-full">
+            <!-- System Specs & Info (Replaced Image) -->
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card p-8 md:p-12 rounded-[2.5rem] border-t border-white/10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-20">
+                        <i data-lucide="cpu" class="w-32 h-32 text-orange-500"></i>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left relative z-10">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                                <i data-lucide="monitor" class="w-6 h-6 text-blue-400"></i>
+                                <span data-i18n="sys_req_title">System Requirements</span>
+                            </h3>
+                            <ul class="space-y-4 text-gray-300">
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span data-i18n="sys_os">Windows 10 & 11 (64-bit)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span data-i18n="sys_ram">Minimum 4GB RAM</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                                    <span data-i18n="sys_storage">100MB Free Disk Space</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                                <i data-lucide="code-2" class="w-6 h-6 text-purple-400"></i>
+                                <span data-i18n="tech_specs_title">Technical Specs</span>
+                            </h3>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">TypeScript</span>
+                                <span class="tech-badge">TailwindCSS</span>
+                                <span class="tech-badge">PWA Ready</span>
+                                <span class="tech-badge">Local Storage</span>
+                                <span class="tech-badge">JSON Encrypted</span>
+                            </div>
+                            <p class="text-gray-400 text-sm leading-relaxed" data-i18n="tech_desc">
+                                Built with modern web technologies. 100% Offline architecture ensures no data ever leaves your device without your permission.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Grid -->
-    <section id="features" class="py-24 bg-gray-800/50">
+    <!-- Comprehensive Modules Grid -->
+    <section id="modules" class="py-24 bg-gray-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-black mb-4" data-i18n="features_title">Everything You Need in One Place</h2>
-                <p class="text-gray-400" data-i18n="features_subtitle">Stop switching between 10 different apps.</p>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-bold mb-4">
+                    <span data-i18n="badge_modules">12+ Professional Modules</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-black mb-4" data-i18n="features_title">Complete Digital Life Management</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="features_subtitle">Replace Todoist, Notion, Wallet, and Excel with one unified dashboard.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="glass-card p-8 rounded-3xl hover:border-orange-500/50 transition-all group">
-                    <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="wallet" class="w-7 h-7 text-blue-400"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Productivity Group -->
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-blue-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-blue-500/10 rounded-xl"><i data-lucide="check-square" class="w-6 h-6 text-blue-400"></i></div>
+                        <span class="text-xs font-bold text-blue-500 uppercase">Productivity</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="feat_finance_title">Finance Tracker</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="feat_finance_desc">Track income, expenses, and subscriptions. Visualize your spending habits with beautiful charts without connecting to banks.</p>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_tasks_title">Task Management</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_tasks_desc">Kanban boards, Eisenhower Matrix, Subtasks, and Recurring tasks.</p>
                 </div>
 
-                <!-- Feature 2 -->
-                <div class="glass-card p-8 rounded-3xl hover:border-orange-500/50 transition-all group">
-                    <div class="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="lock" class="w-7 h-7 text-green-400"></i>
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-yellow-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-yellow-500/10 rounded-xl"><i data-lucide="file-text" class="w-6 h-6 text-yellow-400"></i></div>
+                        <span class="text-xs font-bold text-yellow-500 uppercase">Knowledge</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="feat_pass_title">Password Vault</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="feat_pass_desc">Securely store your passwords locally. Encrypted with military-grade standards. No cloud leaks, ever.</p>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_notes_title">Pro Notes</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_notes_desc">Rich Text & Markdown support. Wiki-style linking [[link]] and templates.</p>
                 </div>
 
-                <!-- Feature 3 -->
-                <div class="glass-card p-8 rounded-3xl hover:border-orange-500/50 transition-all group">
-                    <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="check-square" class="w-7 h-7 text-purple-400"></i>
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-purple-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-purple-500/10 rounded-xl"><i data-lucide="clock" class="w-6 h-6 text-purple-400"></i></div>
+                        <span class="text-xs font-bold text-purple-500 uppercase">Focus</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="feat_tasks_title">Smart Tasks</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="feat_tasks_desc">Organize your day with Kanban boards and Eisenhower matrix. Never miss a deadline again.</p>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_focus_title">Focus Room</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_focus_desc">Pomodoro timer with ambient soundscapes (Rain, Night, White Noise).</p>
                 </div>
 
-                <!-- Feature 4 -->
-                <div class="glass-card p-8 rounded-3xl hover:border-orange-500/50 transition-all group">
-                    <div class="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="heart" class="w-7 h-7 text-red-400"></i>
+                <!-- Finance Group -->
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-green-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-green-500/10 rounded-xl"><i data-lucide="wallet" class="w-6 h-6 text-green-400"></i></div>
+                        <span class="text-xs font-bold text-green-500 uppercase">Finance</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="feat_health_title">Health Journal</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="feat_health_desc">Log your mood, sleep, water intake, and workouts. Get insights into your physical and mental well-being.</p>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_finance_title">Personal Accounting</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_finance_desc">Manage accounts, budgets, recurring transactions, and visual reports.</p>
                 </div>
 
-                <!-- Feature 5 -->
-                <div class="glass-card p-8 rounded-3xl hover:border-orange-500/50 transition-all group">
-                    <div class="w-14 h-14 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="file-text" class="w-7 h-7 text-yellow-400"></i>
+                <!-- Security Group -->
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-red-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-red-500/10 rounded-xl"><i data-lucide="shield-check" class="w-6 h-6 text-red-400"></i></div>
+                        <span class="text-xs font-bold text-red-500 uppercase">Security</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="feat_notes_title">Secure Notes</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="feat_notes_desc">Write thoughts, diaries, or ideas. Lock sensitive notes with a master password for extra privacy.</p>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_pass_title">Password Vault</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_pass_desc">Military-grade encryption for passwords. Password generator included.</p>
                 </div>
 
-                <!-- Feature 6 -->
-                <div class="glass-card p-8 rounded-3xl hover:border-orange-500/50 transition-all group">
-                    <div class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="wifi-off" class="w-7 h-7 text-teal-400"></i>
+                <!-- Wellness Group -->
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-pink-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-pink-500/10 rounded-xl"><i data-lucide="heart" class="w-6 h-6 text-pink-400"></i></div>
+                        <span class="text-xs font-bold text-pink-500 uppercase">Wellness</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="feat_offline_title">100% Offline</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="feat_offline_desc">Savely works without internet. Your data is yours. We don't track, sell, or see your information.</p>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_health_title">Health Tracker</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_health_desc">Track Weight, BMI, Blood Pressure, Sleep, and Medication reminders.</p>
                 </div>
+
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-orange-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-orange-500/10 rounded-xl"><i data-lucide="book-open" class="w-6 h-6 text-orange-400"></i></div>
+                        <span class="text-xs font-bold text-orange-500 uppercase">Journal</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_journal_title">Mood Journal</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_journal_desc">Daily diary with Mood Tracker, Photo Gallery, and "On This Day" flashbacks.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-cyan-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-cyan-500/10 rounded-xl"><i data-lucide="target" class="w-6 h-6 text-cyan-400"></i></div>
+                        <span class="text-xs font-bold text-cyan-500 uppercase">Goals</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_goals_title">Goals & Habits</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_goals_desc">Vision boards, Habit streaks, and Milestones tracking.</p>
+                </div>
+
+                <!-- Web Group -->
+                <div class="glass-card p-6 rounded-3xl hover:bg-gray-800 transition-all group border-l-4 border-l-indigo-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-indigo-500/10 rounded-xl"><i data-lucide="cloud-sun" class="w-6 h-6 text-indigo-400"></i></div>
+                        <span class="text-xs font-bold text-indigo-500 uppercase">Utilities</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="feat_web_title">Web Tools</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-i18n="feat_web_desc">Weather forecast, Offline Bookmarks, Contacts CRM, and Universal Calendar.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -174,12 +255,11 @@
             <p class="text-gray-400 mb-8 max-w-lg mx-auto" data-i18n="connect_desc">Follow the repository to get notified about new releases, updates, and templates.</p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <!-- Added direct download button here as well -->
-                <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all">
+                <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all">
                      <i data-lucide="download" class="w-5 h-5 text-gray-900"></i>
                     <span data-i18n="btn_download_latest">Download Latest v1.0</span>
                 </a>
-                <a href="https://github.com/worldmohammad/savely" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                <a href="https://github.com/worldmohammad/savely-os" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
                     <i data-lucide="star" class="w-5 h-5 text-orange-500"></i>
                     <span data-i18n="btn_star_github">Star on GitHub</span>
                 </a>
@@ -208,31 +288,58 @@
         const translations = {
             en: {
                 nav_features: "Features",
-                nav_security: "Security",
+                nav_modules: "Modules",
                 nav_download: "Download",
+                nav_security: "Security",
                 btn_get_free: "Get for Free",
                 hero_badge: "v1.0 Now Available for Windows",
-                hero_title_1: "Organize Your Life.",
-                hero_title_2: "Securely & Offline.",
-                hero_desc: "The all-in-one personal dashboard for your finances, tasks, passwords, and health. No subscriptions, no cloud tracking. Your data stays on your device.",
+                hero_title_1: "Your Personal OS.",
+                hero_title_2: "All Digital Life in One Place.",
+                hero_desc: "Manage tasks, notes, finance, health, and passwords completely offline and secure. Free your mind and take back control of your life.",
                 btn_download_win: "Download for Windows",
-                btn_learn_more: "Explore Features",
-                features_title: "Everything You Need in One Place",
-                features_subtitle: "Stop switching between 10 different apps.",
-                feat_finance_title: "Finance Tracker",
-                feat_finance_desc: "Track income, expenses, and subscriptions. Visualize your spending habits with beautiful charts without connecting to banks.",
-                feat_pass_title: "Password Vault",
-                feat_pass_desc: "Securely store your passwords locally. Encrypted with military-grade standards. No cloud leaks, ever.",
-                feat_tasks_title: "Smart Tasks",
-                feat_tasks_desc: "Organize your day with Kanban boards and Eisenhower matrix. Never miss a deadline again.",
-                feat_health_title: "Health Journal",
-                feat_health_desc: "Log your mood, sleep, water intake, and workouts. Get insights into your physical and mental well-being.",
-                feat_notes_title: "Secure Notes",
-                feat_notes_desc: "Write thoughts, diaries, or ideas. Lock sensitive notes with a master password for extra privacy.",
-                feat_offline_title: "100% Offline",
-                feat_offline_desc: "Savely works without internet. Your data is yours. We don't track, sell, or see your information.",
+                btn_learn_more: "Explore Modules",
                 
-                // New GitHub Section
+                // Specs
+                sys_req_title: "System Requirements",
+                sys_os: "Windows 10 & 11 (64-bit)",
+                sys_ram: "Minimum 4GB RAM",
+                sys_storage: "100MB Free Disk Space",
+                tech_specs_title: "Technical Specs",
+                tech_desc: "Built with modern web technologies (React, TypeScript). 100% Offline architecture ensures no data ever leaves your device without your permission.",
+
+                // Modules
+                badge_modules: "12+ Professional Modules",
+                features_title: "Complete Digital Life Management",
+                features_subtitle: "Replace Todoist, Notion, Wallet, and Excel with one unified dashboard.",
+                
+                feat_tasks_title: "Task Management",
+                feat_tasks_desc: "Kanban boards, Eisenhower Matrix, Subtasks, and Recurring tasks.",
+                
+                feat_notes_title: "Pro Notes",
+                feat_notes_desc: "Rich Text & Markdown support. Wiki-style linking [[link]] and templates.",
+                
+                feat_focus_title: "Focus Room",
+                feat_focus_desc: "Pomodoro timer with ambient soundscapes (Rain, Night, White Noise).",
+                
+                feat_finance_title: "Personal Accounting",
+                feat_finance_desc: "Manage accounts, budgets, recurring transactions, and visual reports.",
+                
+                feat_pass_title: "Password Vault",
+                feat_pass_desc: "Military-grade encryption for passwords. Password generator included.",
+                
+                feat_health_title: "Health Tracker",
+                feat_health_desc: "Track Weight, BMI, Blood Pressure, Sleep, and Medication reminders.",
+                
+                feat_journal_title: "Mood Journal",
+                feat_journal_desc: "Daily diary with Mood Tracker, Photo Gallery, and 'On This Day' flashbacks.",
+                
+                feat_goals_title: "Goals & Habits",
+                feat_goals_desc: "Vision boards, Habit streaks, and Milestones tracking.",
+                
+                feat_web_title: "Web Tools",
+                feat_web_desc: "Weather forecast, Offline Bookmarks, Contacts CRM, and Universal Calendar.",
+
+                // GitHub Section
                 connect_title: "Stay Updated on GitHub",
                 connect_desc: "Follow the repository to get notified about new releases, updates, and templates.",
                 btn_download_latest: "Download Latest v1.0",
@@ -243,31 +350,58 @@
             },
             fa: {
                 nav_features: "امکانات",
-                nav_security: "امنیت",
+                nav_modules: "ماژول‌ها",
                 nav_download: "دانلود",
+                nav_security: "امنیت",
                 btn_get_free: "دریافت رایگان",
                 hero_badge: "نسخه ۱.۰ برای ویندوز منتشر شد",
-                hero_title_1: "زندگی خود را منظم کنید.",
-                hero_title_2: "امن و کاملاً آفلاین.",
-                hero_desc: "داشبورد مدیریت شخصی همه‌کاره برای امور مالی، وظایف، رمزهای عبور و سلامت شما. بدون حق اشتراک، بدون ردیابی ابری. داده‌های شما فقط روی دستگاه شما می‌ماند.",
+                hero_title_1: "سیستم عامل شخصی شما.",
+                hero_title_2: "تمام زندگی دیجیتال در یک جا.",
+                hero_desc: "مدیریت وظایف، یادداشت‌ها، امور مالی، سلامتی و رمزهای عبور به صورت کاملاً آفلاین و امن. ذهن خود را آزاد کنید و کنترل زندگی‌تان را پس بگیرید.",
                 btn_download_win: "دانلود نسخه ویندوز",
-                btn_learn_more: "مشاهده امکانات",
-                features_title: "همه چیز در یک مکان",
-                features_subtitle: "دیگر نیازی به نصب ۱۰ اپلیکیشن مختلف ندارید.",
-                feat_finance_title: "مدیریت مالی",
-                feat_finance_desc: "درآمدها، هزینه‌ها و اشتراک‌ها را ردیابی کنید. بدون نیاز به اتصال بانکی، نمودارهای زیبای مخارج خود را ببینید.",
-                feat_pass_title: "کیف پول رمزها",
-                feat_pass_desc: "رمزهای خود را به صورت محلی ذخیره کنید. رمزگذاری شده با استانداردهای نظامی. بدون هیچگونه درز اطلاعات به اینترنت.",
-                feat_tasks_title: "مدیریت وظایف هوشمند",
-                feat_tasks_desc: "کارهای روزانه را با تابلوی کانبان و ماتریس آیزنهاور مدیریت کنید. هرگز ضرب‌الاجلی را فراموش نکنید.",
-                feat_health_title: "دفتر سلامت",
-                feat_health_desc: "خلق و خو، خواب، مصرف آب و تمرینات ورزشی را ثبت کنید. وضعیت سلامت جسمی و روحی خود را تحلیل کنید.",
-                feat_notes_title: "یادداشت‌های امن",
-                feat_notes_desc: "افکار، خاطرات و ایده‌های خود را بنویسید. یادداشت‌های حساس را با رمز عبور اصلی قفل کنید.",
-                feat_offline_title: "۱۰۰٪ آفلاین",
-                feat_offline_desc: "سیولی بدون اینترنت کار می‌کند. داده‌های شما متعلق به شماست. ما اطلاعات شما را نمی‌بینیم و نمی‌فروشیم.",
+                btn_learn_more: "مشاهده ماژول‌ها",
                 
-                // New GitHub Section
+                // Specs
+                sys_req_title: "نیازمندی‌های سیستم",
+                sys_os: "ویندوز ۱۰ و ۱۱ (نسخه ۶۴ بیتی)",
+                sys_ram: "حداقل ۴ گیگابایت رم",
+                sys_storage: "۱۰۰ مگابایت فضای خالی",
+                tech_specs_title: "مشخصات فنی",
+                tech_desc: "ساخته شده با تکنولوژی‌های مدرن وب. معماری ۱۰۰٪ آفلاین تضمین می‌کند هیچ داده‌ای بدون اجازه شما از دستگاه خارج نمی‌شود.",
+
+                // Modules
+                badge_modules: "۱۲+ ماژول حرفه‌ای",
+                features_title: "مدیریت جامع زندگی دیجیتال",
+                features_subtitle: "جایگزینی کامل برای Todoist، Notion، Wallet و اکسل در یک داشبورد واحد.",
+                
+                feat_tasks_title: "مدیریت وظایف پیشرفته",
+                feat_tasks_desc: "تابلوهای کانبان، ماتریس آیزنهاور، زیروظایف و کارهای تکرارشونده.",
+                
+                feat_notes_title: "یادداشت‌برداری حرفه‌ای",
+                feat_notes_desc: "پشتیبانی از متن غنی و مارک‌داون. لینک‌دهی ویکی [[لینک]] و قالب‌های آماده.",
+                
+                feat_focus_title: "اتاق تمرکز",
+                feat_focus_desc: "تایمر پومودورو با صداهای محیطی (باران، شب، نویز سفید) برای تمرکز عمیق.",
+                
+                feat_finance_title: "حسابداری شخصی",
+                feat_finance_desc: "مدیریت حساب‌ها، بودجه‌بندی، تراکنش‌های هوشمند و گزارش‌های نموداری.",
+                
+                feat_pass_title: "صندوق امانات رمز",
+                feat_pass_desc: "رمزگذاری نظامی برای پسوردها. دارای تولیدکننده رمز عبور قوی.",
+                
+                feat_health_title: "ردیاب سلامت",
+                feat_health_desc: "پایش وزن، BMI، فشار خون، خواب و یادآوری مصرف داروها.",
+                
+                feat_journal_title: "دفتر خاطرات و حال خوب",
+                feat_journal_desc: "ثبت وقایع روزانه با ردیاب خلق‌وخو، گالری عکس و فلش‌بک «در چنین روزی».",
+                
+                feat_goals_title: "اهداف و عادت‌ها",
+                feat_goals_desc: "ویژن‌برد، پیگیری زنجیره عادت‌ها (Streak) و شکستن اهداف به مراحل کوچک.",
+                
+                feat_web_title: "ابزارهای وب و ارتباطات",
+                feat_web_desc: "هواشناسی دقیق، بوک‌مارک منیجر آفلاین، CRM مخاطبین و تقویم چندمنظوره.",
+                
+                // GitHub Section
                 connect_title: "آخرین اخبار در گیت‌هاب",
                 connect_desc: "برای اطلاع از انتشار نسخه‌های جدید و قالب‌ها، پروژه را در گیت‌هاب دنبال کنید.",
                 btn_download_latest: "دانلود نسخه ۱.۰",
