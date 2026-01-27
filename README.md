@@ -30,9 +30,9 @@
 <img src="https://www.google.com/search?q=https://img.shields.io/badge/Offline-100%2525-success%3Fstyle%3Dflat-square" alt="Offline">
 </p>
 
-<!-- Place your dashboard screenshot here in screenshots/dashboard.png -->
+<!-- Main Dashboard Screenshot -->
 
-<img src="https://www.google.com/search?q=https://via.placeholder.com/1000x600/1f2937/fb923c%3Ftext%3DSavely%2BDashboard%2BScreenshot" alt="Savely Dashboard" style="border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+<img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" width="100%" style="border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
 
 </div>
 
@@ -128,6 +128,18 @@ Theming: Customizable colors and dark mode.
 
 Shortcuts: Cmd+K command palette.
 
+📸 Module Previews
+
+<details open>
+<summary><strong>🌤️ Weather Module</strong></summary>
+
+
+
+
+
+<img src="screenshots/savely%20weather%20module.PNG" alt="Savely Weather Module" width="100%" style="border-radius: 8px; border: 1px solid #333;">
+</details>
+
 💻 How to Use (Installation)
 
 Savely is designed to be simple and portable.
@@ -148,7 +160,7 @@ Note: Since this is a new software, Windows SmartScreen might show a warning. Cl
 
 برخلاف سرویس‌های ابری، سیولی ۱۰۰٪ آفلاین است و نیاز به هیچ‌گونه نصب پیچیده‌ای ندارد. کافیست فایل را دانلود و اجرا کنید.
 
-ویژگی‌های کلیدی برای کاربران:
+ویژگی‌های کلیدی برای کاربران ایرانی:
 
 ✅ بدون نیاز به نصب: نسخه پرتابل (Portable) و سبک.
 
