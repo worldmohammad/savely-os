@@ -41,7 +41,8 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#features" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_features">Features</a>
                     <a href="#security" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_security">Security</a>
-                    <a href="#download" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_download">Download</a>
+                    <!-- Changed link to external GitHub releases -->
+                    <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" data-i18n="nav_download">Download</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -49,7 +50,8 @@
                         <i data-lucide="languages" class="w-4 h-4 text-orange-500"></i>
                         <span id="lang-label" class="text-sm font-bold">FA</span>
                     </button>
-                    <a href="#download" class="hidden md:flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-orange-600/20">
+                    <!-- Changed link to external GitHub releases -->
+                    <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="hidden md:flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-orange-600/20">
                         <i data-lucide="download" class="w-4 h-4"></i>
                         <span data-i18n="btn_get_free">Get for Free</span>
                     </a>
@@ -77,7 +79,8 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all transform hover:-translate-y-1 shadow-xl">
+                <!-- Changed link to external GitHub releases -->
+                <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all transform hover:-translate-y-1 shadow-xl">
                     <i data-lucide="microsoft" class="w-5 h-5"></i>
                     <span data-i18n="btn_download_win">Download for Windows</span>
                 </a>
@@ -160,20 +163,31 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="py-24 relative overflow-hidden">
+    <!-- Connect / GitHub Section -->
+    <section id="download" class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-orange-600/5"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             <div class="w-20 h-20 bg-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-orange-600/30">
-                <i data-lucide="mail" class="w-10 h-10 text-white"></i>
+                <i data-lucide="github" class="w-10 h-10 text-white"></i>
             </div>
-            <h2 class="text-3xl lg:text-4xl font-black mb-4" data-i18n="newsletter_title">Join the Savely Community</h2>
-            <p class="text-gray-400 mb-8 max-w-lg mx-auto" data-i18n="newsletter_desc">Get productivity tips, free templates, and be the first to know about new updates.</p>
+            <h2 class="text-3xl lg:text-4xl font-black mb-4" data-i18n="connect_title">Stay Updated on GitHub</h2>
+            <p class="text-gray-400 mb-8 max-w-lg mx-auto" data-i18n="connect_desc">Follow the repository to get notified about new releases, updates, and templates.</p>
             
-            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-2xl bg-gray-800 border border-gray-700 focus:border-orange-500 outline-none transition-all placeholder-gray-500" required>
-                <button type="submit" class="bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold hover:bg-gray-100 transition-colors" data-i18n="btn_subscribe">Subscribe</button>
-            </form>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <!-- Added direct download button here as well -->
+                <a href="https://github.com/worldmohammad/savely/releases/latest" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all">
+                     <i data-lucide="download" class="w-5 h-5 text-gray-900"></i>
+                    <span data-i18n="btn_download_latest">Download Latest v1.0</span>
+                </a>
+                <a href="https://github.com/worldmohammad/savely" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                    <i data-lucide="star" class="w-5 h-5 text-orange-500"></i>
+                    <span data-i18n="btn_star_github">Star on GitHub</span>
+                </a>
+                <a href="https://digitalyar.company" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-3 glass-card px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all">
+                    <i data-lucide="globe" class="w-5 h-5"></i>
+                    <span data-i18n="btn_visit_site">Visit DigitalYarCo</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -181,8 +195,7 @@
     <footer class="py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
         <p data-i18n="footer_copy">© 2026 Savely. Developed by DigitalYarCo.</p>
         <div class="flex justify-center gap-6 mt-4">
-            <a href="#" class="hover:text-white transition-colors">Twitter</a>
-            <a href="#" class="hover:text-white transition-colors">GitHub</a>
+            <a href="https://github.com/worldmohammad" class="hover:text-white transition-colors">GitHub Profile</a>
             <a href="https://digitalyar.company" class="hover:text-white transition-colors">DigitalYarCo</a>
         </div>
     </footer>
@@ -218,9 +231,14 @@
                 feat_notes_desc: "Write thoughts, diaries, or ideas. Lock sensitive notes with a master password for extra privacy.",
                 feat_offline_title: "100% Offline",
                 feat_offline_desc: "Savely works without internet. Your data is yours. We don't track, sell, or see your information.",
-                newsletter_title: "Join the Savely Community",
-                newsletter_desc: "Get productivity tips, free templates, and be the first to know about new updates.",
-                btn_subscribe: "Subscribe",
+                
+                // New GitHub Section
+                connect_title: "Stay Updated on GitHub",
+                connect_desc: "Follow the repository to get notified about new releases, updates, and templates.",
+                btn_download_latest: "Download Latest v1.0",
+                btn_star_github: "Star on GitHub",
+                btn_visit_site: "Visit DigitalYarCo",
+                
                 footer_copy: "© 2026 Savely. Developed by DigitalYarCo."
             },
             fa: {
@@ -248,9 +266,14 @@
                 feat_notes_desc: "افکار، خاطرات و ایده‌های خود را بنویسید. یادداشت‌های حساس را با رمز عبور اصلی قفل کنید.",
                 feat_offline_title: "۱۰۰٪ آفلاین",
                 feat_offline_desc: "سیولی بدون اینترنت کار می‌کند. داده‌های شما متعلق به شماست. ما اطلاعات شما را نمی‌بینیم و نمی‌فروشیم.",
-                newsletter_title: "به جامعه کاربران سیولی بپیوندید",
-                newsletter_desc: "قالب‌های رایگان، نکات بهره‌وری و اخبار آپدیت‌های جدید را در ایمیل خود دریافت کنید.",
-                btn_subscribe: "عضویت",
+                
+                // New GitHub Section
+                connect_title: "آخرین اخبار در گیت‌هاب",
+                connect_desc: "برای اطلاع از انتشار نسخه‌های جدید و قالب‌ها، پروژه را در گیت‌هاب دنبال کنید.",
+                btn_download_latest: "دانلود نسخه ۱.۰",
+                btn_star_github: "ستاره دادن در گیت‌هاب",
+                btn_visit_site: "سایت دیجیتال‌یار",
+
                 footer_copy: "© ۲۰۲۶ سیولی. توسعه داده شده توسط دیجیتال‌یار."
             }
         };
