@@ -182,11 +182,11 @@ Note: Since this is a new software, Windows SmartScreen might show a warning. Cl
 
 🤝 Contact & Support
 
-Developed with ❤️ by Alipour (DigitalYarCo).
+Developed with ❤️ by Alipour.
 
-Website: digitalyar.company
+Email: worldmohammad@gmail.com
 
-GitHub: @worldmohammad
+GitHub & Telegram: @worldmohammad
 
 <div align="center">
 <small>© 2026 Savely. All Rights Reserved.</small>
