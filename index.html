@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Savely - Your Personal Digital OS</title>
 <meta name="description" content="Savely is the ultimate secure, offline-first dashboard to manage your life, finances, tasks, and privacy. No subscriptions, no tracking.">
-<!-- Favicon: LayoutDashboard icon in Orange to match the brand -->
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>'>
+
+<!-- Favicon Updated: Shield with S -->
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><text x="12" y="15" fill="%23ea580c" font-family="Arial" font-weight="bold" font-size="10" text-anchor="middle">S</text></svg>'>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -33,21 +35,11 @@
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
     }
     
-    /* Orange/Amber Gradient matching your original design */
     .hero-bg {
         background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.1) 0%, rgba(17, 24, 39, 0) 70%),
                     radial-gradient(circle at 80% 0%, rgba(245, 158, 11, 0.1) 0%, rgba(255, 255, 255, 0) 50%);
     }
 
-    .stat-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1);
-    }
-
-    /* Image Containers */
     .app-screenshot {
         box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
         border-radius: 16px;
@@ -56,12 +48,25 @@
         transition: transform 0.5s ease;
     }
     .app-screenshot:hover {
-        transform: scale(1.02);
+        transform: scale(1.01);
     }
     
-    /* RTL Adjustments */
     body.lang-fa .lucide-arrow-right { transform: rotate(180deg); }
     body.lang-fa .font-mono { font-family: 'Inter', monospace; direction: ltr; display: inline-block; }
+
+    /* Logo Styling */
+    .logo-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo-s {
+        position: absolute;
+        font-weight: 900;
+        font-family: sans-serif;
+        line-height: 1;
+    }
 </style>
 </head>
 <body class="lang-en bg-slate-50 text-slate-900 transition-colors duration-300 overflow-x-hidden">
@@ -71,9 +76,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <!-- Logo Updated to Orange & Layout Dashboard -->
-                    <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-2 rounded-lg shadow-lg shadow-orange-500/30">
-                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <!-- Integrated Logo: Shield + S -->
+                    <div class="logo-container bg-gradient-to-br from-orange-500 to-amber-600 text-white p-1.5 rounded-lg shadow-lg shadow-orange-500/30 w-9 h-9">
+                        <i data-lucide="shield" class="w-full h-full fill-orange-400/20"></i>
+                        <span class="logo-s text-sm">S</span>
                     </div>
                     <span class="font-bold text-xl tracking-tight text-slate-800">Savely</span>
                 </div>
@@ -95,7 +101,6 @@
     <section class="pt-32 pb-20 hero-bg relative overflow-hidden min-h-screen flex flex-col justify-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             
-            <!-- Version Badge (Auto-updated) -->
             <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-orange-100 text-orange-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group animate-fade-in-up">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -114,7 +119,7 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <a id="download-btn-hero" href="https://github.com/worldmohammad/savely-os/releases/latest" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1 download-link">
+                <a id="download-btn-hero" href="#" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1 download-link">
                     <i data-lucide="download" class="w-5 h-5"></i>
                     <span data-i18n="btn_download">Download for Windows</span>
                 </a>
@@ -124,7 +129,6 @@
                 </a>
             </div>
 
-            <!-- Stats Bar -->
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16 border-t border-slate-200/60 pt-8">
                 <div class="text-center">
                     <div id="stat-downloads" class="text-3xl font-bold text-slate-900 mb-1">...</div>
@@ -140,7 +144,6 @@
                 </div>
             </div>
 
-            <!-- Main Dashboard Screenshot -->
             <div class="relative max-w-6xl mx-auto animate-float px-4">
                 <div class="absolute inset-0 bg-orange-500 blur-[120px] opacity-15 rounded-full pointer-events-none"></div>
                 <img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" class="relative rounded-2xl shadow-2xl border-4 border-white/80 w-full app-screenshot">
@@ -148,7 +151,7 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Detailed Features -->
     <section id="features" class="py-24 bg-white overflow-hidden relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
             
@@ -160,23 +163,11 @@
                         <span data-i18n="tag_productivity">Second Brain</span>
                     </div>
                     <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_notes_title">Pro Notes & Knowledge Base</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_notes_desc">
-                        A powerful editor supporting both Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                         <div class="flex items-center gap-3 text-slate-700 bg-slate-50 p-3 rounded-lg">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500"></i>
-                            <span data-i18n="feat_notes_li1" class="font-medium">Markdown Support</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-700 bg-slate-50 p-3 rounded-lg">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500"></i>
-                            <span data-i18n="feat_notes_li2" class="font-medium">Wiki Linking</span>
-                        </div>
-                    </div>
+                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_notes_desc">Powerful editor supporting Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags.</p>
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-orange-500/10 rounded-full blur-3xl"></div>
-                    <img src="screenshots/savely note module.PNG" alt="Notes" class="relative app-screenshot w-full transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <img src="screenshots/savely note module.PNG" alt="Notes" class="relative app-screenshot w-full transform rotate-1 transition-transform">
                 </div>
             </div>
 
@@ -188,49 +179,11 @@
                         <span data-i18n="tag_finance">Financial Freedom</span>
                     </div>
                     <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_finance_title">Financial Command Center</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_finance_desc">
-                        Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <div class="bg-blue-100 p-1.5 rounded-md text-blue-600"><i data-lucide="pie-chart" class="w-5 h-5"></i></div>
-                            <span data-i18n="feat_finance_li2">Budgeting & Progress Bars</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <div class="bg-blue-100 p-1.5 rounded-md text-blue-600"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
-                            <span data-i18n="feat_finance_li3">Secure & Offline Data</span>
-                        </li>
-                    </ul>
+                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_finance_desc">Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits.</p>
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <img src="screenshots/savely financial module.PNG" alt="Finance" class="relative app-screenshot w-full transform -rotate-1 hover:rotate-0 transition-transform duration-500">
-                </div>
-            </div>
-
-            <!-- Web & Weather Combo -->
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="flex-1 space-y-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-sm font-bold shadow-sm">
-                        <i data-lucide="globe" class="w-4 h-4"></i>
-                        <span data-i18n="tag_web">Web & Utilities</span>
-                    </div>
-                    <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_web_title">Smart Bookmarks & Weather</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_web_desc">
-                        Organize your web life with a visual bookmark manager featuring card views and duplicate detection. Stay updated with a beautiful, real-time weather widget.
-                    </p>
-                    
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                         <div class="flex items-center gap-4 mb-3">
-                            <div class="bg-purple-100 p-2 rounded-lg text-purple-600"><i data-lucide="bookmark" class="w-6 h-6"></i></div>
-                            <h4 class="font-bold text-lg" data-i18n="feat_web_sub1">Visual Bookmarks</h4>
-                         </div>
-                         <p class="text-slate-600" data-i18n="feat_web_sub1_desc">Moodboard & Card views with auto-tagging.</p>
-                    </div>
-                </div>
-                <div class="flex-1 relative space-y-8">
-                    <img src="screenshots/savely bookmark module.PNG" alt="Bookmarks" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl z-10">
-                    <img src="screenshots/savely weather module.PNG" alt="Weather" class="relative app-screenshot w-3/4 ml-auto -mt-20 border-slate-200 z-20">
+                    <img src="screenshots/savely financial module.PNG" alt="Finance" class="relative app-screenshot w-full transform -rotate-1 transition-transform">
                 </div>
             </div>
 
@@ -246,7 +199,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Tasks -->
+                <!-- Modules -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="check-square" class="w-5 h-5"></i>
@@ -254,8 +207,6 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_tasks_title">Advanced Tasks</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_tasks_desc">Kanban boards, subtasks, and Eisenhower matrix prioritization.</p>
                 </div>
-
-                <!-- Focus -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="timer" class="w-5 h-5"></i>
@@ -263,8 +214,6 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_focus_title">Focus Room</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_focus_desc">Pomodoro timer with built-in ambient soundscapes (Rain, White Noise).</p>
                 </div>
-
-                <!-- Health -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="heart-pulse" class="w-5 h-5"></i>
@@ -272,44 +221,6 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_health_title">Health Tracker</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_health_desc">Track water, sleep, weight, blood pressure, and medication reminders.</p>
                 </div>
-
-                <!-- Journal -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="book-heart" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_journal_title">Mood Journal</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_journal_desc">Daily diary with mood tracking, photo gallery, and "On This Day" flashbacks.</p>
-                </div>
-
-                <!-- Goals -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="target" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_goals_title">Goals & Habits</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_goals_desc">Vision boards, habit streaks, milestones, and gratitude logging.</p>
-                </div>
-
-                <!-- Contacts -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="users" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_contacts_title">Contact 360 CRM</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_contacts_desc">Full relationship view: linked tasks, finance history, and notes per person.</p>
-                </div>
-
-                <!-- Calendar -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="calendar" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_calendar_title">Universal Calendar</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_calendar_desc">Month/Week/Day views. Supports Jalali & Gregorian.</p>
-                </div>
-
-                <!-- Passwords -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="key" class="w-5 h-5"></i>
@@ -328,16 +239,11 @@
             <h2 class="text-4xl font-bold mb-6" data-i18n="cta_title">Ready to Organize Your Life?</h2>
             <p class="text-slate-300 mb-10 text-xl" data-i18n="cta_desc">Join thousands of users who switched to a private, secure, and fast personal OS.</p>
             
-            <a id="download-btn-footer" href="https://github.com/worldmohammad/savely-os/releases/latest" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50 download-link">
+            <a id="download-btn-footer" href="#" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50 download-link">
                 <i data-lucide="download" class="w-7 h-7"></i>
                 <span data-i18n="btn_download_full">Download Installer</span>
                 <span class="bg-orange-800 text-orange-100 text-xs px-2 py-1 rounded version-text">v1.0.0</span>
             </a>
-            <div class="mt-8 flex justify-center gap-6 text-sm text-slate-400">
-                <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub1">Free & Open Source</span></span>
-                <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub2">Windows 10/11</span></span>
-                <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub3">No Credit Card</span></span>
-            </div>
         </div>
     </section>
 
@@ -345,9 +251,10 @@
     <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex justify-center items-center gap-2 mb-6">
-                <!-- Footer Logo Updated to Orange & Layout Dashboard -->
-                <div class="bg-orange-600 text-white p-1.5 rounded-lg">
-                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <!-- Integrated Logo: Shield + S -->
+                <div class="logo-container bg-orange-600 text-white p-1.5 rounded-lg w-10 h-10 shadow-lg shadow-orange-900/40">
+                    <i data-lucide="shield" class="w-full h-full"></i>
+                    <span class="logo-s text-sm">S</span>
                 </div>
                 <span class="font-bold text-white tracking-tight text-xl">Savely</span>
             </div>
@@ -369,59 +276,30 @@
                 hero_subtitle: "Your personal Digital HQ. Manage finances, tasks, health, and notes in one secure, offline-first dashboard. No subscriptions, no data tracking.",
                 btn_download: "Download for Windows",
                 btn_star_github: "Star on GitHub",
-                
                 stat_downloads: "Total Downloads",
                 stat_stars: "GitHub Stars",
                 stat_version: "Latest Version",
-
-                feat_notes_title: "Pro Notes & Knowledge Base",
-                feat_notes_desc: "A powerful editor supporting both Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags.",
-                feat_notes_li1: "Markdown Support",
-                feat_notes_li2: "Wiki Linking",
                 tag_productivity: "Second Brain",
-
-                feat_finance_title: "Financial Command Center",
-                feat_finance_desc: "Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits.",
-                feat_finance_li2: "Budgeting & Progress Bars",
-                feat_finance_li3: "Secure & Offline Data",
-                tag_finance: "Financial Freedom",
-
-                feat_web_title: "Smart Bookmarks & Weather",
-                feat_web_desc: "Organize your web life with a visual bookmark manager featuring card views and duplicate detection. Stay updated with a beautiful, real-time weather widget.",
-                feat_web_sub1: "Visual Bookmarks",
-                feat_web_sub1_desc: "Moodboard & Card views with auto-tagging.",
-                tag_web: "Web & Utilities",
-
+                feat_notes_title: "Pro Notes & Knowledge Base",
+                feat_notes_desc: "Powerful editor supporting Rich Text and Markdown. Organize with a nested folder tree and color tags.",
                 grid_title: "A Complete OS for Your Life",
                 grid_subtitle: "More than 13 integrated modules to handle every aspect of your digital routine.",
-
                 mod_tasks_title: "Advanced Tasks",
                 mod_tasks_desc: "Kanban boards, subtasks, and Eisenhower matrix prioritization.",
                 mod_focus_title: "Focus Room",
                 mod_focus_desc: "Pomodoro timer with built-in ambient soundscapes (Rain, White Noise).",
                 mod_health_title: "Health Tracker",
                 mod_health_desc: "Track water, sleep, weight, blood pressure, and medication reminders.",
-                mod_journal_title: "Mood Journal",
-                mod_journal_desc: "Daily diary with mood tracking, photo gallery, and 'On This Day' flashbacks.",
-                mod_goals_title: "Goals & Habits",
-                mod_goals_desc: "Vision boards, habit streaks, milestones, and gratitude logging.",
-                mod_contacts_title: "Contact 360 CRM",
-                mod_contacts_desc: "Full relationship view: linked tasks, finance history, and notes per person.",
-                mod_calendar_title: "Universal Calendar",
-                mod_calendar_desc: "Month/Week/Day views. Supports Jalali & Gregorian.",
                 mod_vault_title: "Password Vault",
                 mod_vault_desc: "AES Encrypted offline storage for credentials with a strong password generator.",
-
+                tag_finance: "Financial Freedom",
+                feat_finance_title: "Financial Command Center",
+                feat_finance_desc: "Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts.",
                 cta_title: "Ready to Organize Your Life?",
                 cta_desc: "Join thousands of users who switched to a private, secure, and fast personal OS.",
                 btn_download_full: "Download Installer",
-                cta_sub1: "Free & Open Source",
-                cta_sub2: "Windows 10/11",
-                cta_sub3: "No Credit Card",
-
-                btn_visit_site: "DigitalYar",
-                company_url: "https://digitalyar.company/",
-                footer_copy: "© 2026 Savely. Open Source Software. Developed by DigitalYar."
+                footer_copy: "© 2026 Savely. Open Source Software. Developed by DigitalYar.",
+                company_url: "https://digitalyar.company/"
             },
             fa: {
                 nav_github: "گیت‌هاب",
@@ -430,59 +308,30 @@
                 hero_subtitle: "دفتر مرکزی دیجیتال شما. مدیریت مالی، وظایف، سلامت و یادداشت‌ها در یک داشبورد امن و آفلاین. بدون اشتراک، بدون ردیابی.",
                 btn_download: "دانلود نسخه ویندوز",
                 btn_star_github: "ستاره دادن در گیت‌هاب",
-
                 stat_downloads: "مجموع دانلودها",
                 stat_stars: "ستاره‌های گیت‌هاب",
                 stat_version: "آخرین نسخه",
-
-                feat_notes_title: "یادداشت‌های حرفه‌ای و پایگاه دانش",
-                feat_notes_desc: "ویرایشگر قدرتمند با پشتیبانی از مارک‌داون. یادداشت‌ها را مانند یک ویکی شخصی با [[لینک]] به هم متصل کنید. سازماندهی با پوشه‌های تو در تو و تگ‌های رنگی.",
-                feat_notes_li1: "پشتیبانی از مارک‌داون",
-                feat_notes_li2: "لینک‌دهی ویکی",
                 tag_productivity: "مغز دوم",
-
-                feat_finance_title: "مرکز فرماندهی مالی",
-                feat_finance_desc: "مدیریت تمام دارایی‌ها در یک مکان. ثبت درآمد، هزینه و انتقال بین حساب‌ها (بانک، نقد، کریپتو). تعیین بودجه ماهانه و مشاهده عادات خرج کردن با نمودار.",
-                feat_finance_li2: "بودجه‌بندی و نوار پیشرفت",
-                feat_finance_li3: "داده‌های امن و آفلاین",
-                tag_finance: "آزادی مالی",
-
-                feat_web_title: "بوک‌مارک هوشمند و آب‌وهوا",
-                feat_web_desc: "زندگی وب خود را با مدیریت بوک‌مارک بصری (نمای کارت و مودبرد) و تشخیص لینک تکراری نظم دهید. با ویجت آب‌وهوای زنده و زیبا به‌روز بمانید.",
-                feat_web_sub1: "بوک‌مارک بصری",
-                feat_web_sub1_desc: "نمای کارتی و مودبرد با تگ‌گذاری خودکار.",
-                tag_web: "وب و ابزارها",
-
+                feat_notes_title: "یادداشت‌های حرفه‌ای و پایگاه دانش",
+                feat_notes_desc: "ویرایشگر قدرتمند با پشتیبانی از مارک‌داون. سازماندهی با پوشه‌های تو در تو و تگ‌های رنگی.",
                 grid_title: "سیستم‌عاملی کامل برای زندگی",
                 grid_subtitle: "بیش از ۱۳ ماژول یکپارچه برای مدیریت تمام جنبه‌های روتین دیجیتال شما.",
-
                 mod_tasks_title: "مدیریت وظایف پیشرفته",
                 mod_tasks_desc: "تابلو کانبان، زیر-وظایف و اولویت‌بندی ماتریس آیزنهاور.",
                 mod_focus_title: "اتاق تمرکز",
                 mod_focus_desc: "تایمر پومودورو با صداهای محیطی داخلی (باران، نویز سفید).",
                 mod_health_title: "ردیاب سلامت",
                 mod_health_desc: "ردیابی آب، خواب، وزن، فشار خون و یادآور دارو.",
-                mod_journal_title: "ژورنال و خلق‌وقو",
-                mod_journal_desc: "خاطرات روزانه با ردیابی حال (Mood)، گالری عکس و فلش‌بک.",
-                mod_goals_title: "اهداف و عادت‌ها",
-                mod_goals_desc: "ویژن‌برد، زنجیره عادت (Streak)، مایل‌ستون‌ها و شکرگزاری.",
-                mod_contacts_title: "مدیریت مخاطبین ۳۶۰",
-                mod_contacts_desc: "نمای کامل روابط: تسک‌ها، تاریخچه مالی و یادداشت‌های مرتبط با هر فرد.",
-                mod_calendar_title: "تقویم جهانی",
-                mod_calendar_desc: "نمای ماهانه/هفتگی/روزانه. پشتیبانی از تقویم شمسی و میلادی.",
                 mod_vault_title: "صندوق امانات رمز",
                 mod_vault_desc: "ذخیره آفلاین رمزها با رمزنگاری AES و تولیدکننده رمز قوی.",
-
+                tag_finance: "آزادی مالی",
+                feat_finance_title: "مرکز فرماندهی مالی",
+                feat_finance_desc: "مدیریت تمام دارایی‌ها در یک مکان. ثبت درآمد، هزینه و انتقال بین حساب‌ها.",
                 cta_title: "برای نظم دادن به زندگی آماده‌اید؟",
                 cta_desc: "به جمع هزاران کاربری بپیوندید که به یک سیستم‌عامل شخصی امن، سریع و خصوصی مهاجرت کرده‌اند.",
                 btn_download_full: "دانلود اینستالر",
-                cta_sub1: "رایگان و متن‌باز",
-                cta_sub2: "ویندوز ۱۰ و ۱۱",
-                cta_sub3: "بدون نیاز به کارت اعتباری",
-
-                btn_visit_site: "دیجیتال‌یار",
-                company_url: "https://digitalyarco.ir/",
-                footer_copy: "© ۲۰۲۶ سیولی. نرم‌افزار متن‌باز. توسعه داده شده توسط دیجیتال‌یار."
+                footer_copy: "© ۲۰۲۶ سیولی. نرم‌افزار متن‌باز. توسعه داده شده توسط دیجیتال‌یار.",
+                company_url: "https://digitalyarco.ir/"
             }
         };
 
@@ -492,95 +341,65 @@
 
         async function fetchGitHubStats() {
             try {
-                // 1. Fetch Repository Info (Stars)
                 const repoRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`);
                 if (repoRes.ok) {
                     const repoData = await repoRes.json();
                     document.getElementById('stat-stars').textContent = (repoData.stargazers_count || 0).toLocaleString();
-                } else {
-                    document.getElementById('stat-stars').textContent = "0";
                 }
 
-                // 2. Fetch Releases (Downloads & Latest Version)
                 const releasesRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases`);
                 if (releasesRes.ok) {
                     const releases = await releasesRes.json();
-                    
-                    // Calculate Total Downloads
                     let totalDownloads = 0;
                     releases.forEach(release => {
-                        release.assets.forEach(asset => {
-                            totalDownloads += asset.download_count;
-                        });
+                        release.assets.forEach(asset => { totalDownloads += asset.download_count; });
                     });
                     document.getElementById('stat-downloads').textContent = totalDownloads.toLocaleString();
 
-                    // Get Latest Release Info
                     if (releases.length > 0) {
                         const latestRelease = releases[0];
-                        const version = latestRelease.tag_name;
-                        
-                        // Update version text everywhere
-                        document.querySelectorAll('.version-text').forEach(el => {
-                            el.textContent = version;
-                        });
-
-                        // Update download links to the first .exe asset of the latest release
+                        document.querySelectorAll('.version-text').forEach(el => { el.textContent = latestRelease.tag_name; });
                         const exeAsset = latestRelease.assets.find(asset => asset.name.endsWith('.exe')) || latestRelease.assets[0];
                         if (exeAsset) {
-                            const downloadUrl = exeAsset.browser_download_url;
-                            document.querySelectorAll('.download-link').forEach(link => {
-                                link.href = downloadUrl;
-                            });
+                            document.querySelectorAll('.download-link').forEach(link => { link.href = exeAsset.browser_download_url; });
                         }
                     }
                 }
             } catch (error) {
                 console.warn("Failed to fetch GitHub stats:", error);
-                // Fallback values
-                document.getElementById('stat-downloads').textContent = "0";
                 document.getElementById('stat-stars').textContent = "0";
+                document.getElementById('stat-downloads').textContent = "0";
             }
         }
 
         // --- Language Logic ---
         let currentLang = 'en';
-
         function toggleLang() {
             currentLang = currentLang === 'en' ? 'fa' : 'en';
             const body = document.body;
             const langLabel = document.getElementById('lang-label');
             
             if (currentLang === 'fa') {
-                body.classList.remove('lang-en');
-                body.classList.add('lang-fa');
+                body.classList.remove('lang-en'); body.classList.add('lang-fa');
                 langLabel.textContent = "EN";
             } else {
-                body.classList.remove('lang-fa');
-                body.classList.add('lang-en');
+                body.classList.remove('lang-fa'); body.classList.add('lang-en');
                 langLabel.textContent = "FA";
             }
 
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    element.textContent = translations[currentLang][key];
-                }
+                if (translations[currentLang][key]) element.textContent = translations[currentLang][key];
             });
 
             document.querySelectorAll('[data-i18n-href]').forEach(element => {
                 const key = element.getAttribute('data-i18n-href');
-                if (translations[currentLang][key]) {
-                    element.href = translations[currentLang][key];
-                }
+                if (translations[currentLang][key]) element.href = translations[currentLang][key];
             });
         }
 
-        // --- Init ---
         lucide.createIcons();
         fetchGitHubStats();
-
     </script>
 </body>
 </html>
-
