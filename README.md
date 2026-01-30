@@ -28,11 +28,8 @@
   <img src="https://img.shields.io/badge/Offline-100%25-success?style=for-the-badge&logo=signal" alt="Offline">
 </p>
 
-<img
-  src="./screenshots/savely-dashboard.PNG"
-  alt="Savely Dashboard"
-  width="100%"
->
+![Savely Dashboard](screenshots/savely-dashboard.PNG)
+
 
 </div>
 
