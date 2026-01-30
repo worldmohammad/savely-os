@@ -1,193 +1,37 @@
 <div align="center">
+  <img src="logo.png" alt="Savely Logo" width="140" height="140">
 
-<img src="https://www.google.com/search?q=https://via.placeholder.com/150x150/f97316/ffffff%3Ftext%3DSavely" alt="Savely Logo" width="120" height="120" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);">
+  <h1 style="font-size: 3rem; margin-top: 1rem; color: #ea580c;">
+    Savely
+  </h1>
 
-<h1 style="font-size: 3rem; margin-top: 1rem;">Savely</h1>
+  <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+    <strong>Your Personal Digital OS. Secure, Offline, and All-in-One.</strong><br>
+    <em>سیستم عامل شخصی شما؛ امن، آفلاین و یکپارچه.</em>
+  </p>
 
-<p>
-<strong>Your Personal Digital HQ. Secure, Offline, and All-in-One.</strong>
+  <p>
+    <a href="https://worldmohammad.github.io/savely-os/">🌐 Website & Demo</a>
+    &nbsp;&nbsp;•&nbsp;&nbsp;
+    <a href="https://github.com/worldmohammad/savely-os/releases/latest">⬇️ Download for Windows</a>
+    &nbsp;&nbsp;•&nbsp;&nbsp;
+    <a href="#-features">✨ Features</a>
+    &nbsp;&nbsp;•&nbsp;&nbsp;
+    <a href="#-persian-description">🇮🇷 توضیحات فارسی</a>
+  </p>
 
+  <p>
+    <img src="https://img.shields.io/github/v/release/worldmohammad/savely-os?style=for-the-badge&color=orange&label=Version" alt="Release">
+    <img src="https://img.shields.io/badge/Platform-Windows%2010%2F11-blue?style=for-the-badge&logo=windows" alt="Platform">
+    <img src="https://img.shields.io/github/license/worldmohammad/savely-os?style=for-the-badge&color=green" alt="License">
+    <img src="https://img.shields.io/badge/Offline-100%25-success?style=for-the-badge&logo=signal" alt="Offline">
+  </p>
 
-
-
-
-<em>سیستم عامل شخصی شما؛ امن، آفلاین و یکپارچه.</em>
-</p>
-
-<p>
-<a href="https://worldmohammad.github.io/savely-os/">🌐 Website & Demo</a> •
-<a href="https://www.google.com/url?sa=E&source=gmail&q=https://github.com/worldmohammad/savely-os/releases/latest">⬇️ Download for Windows</a> •
-<a href="#-features">✨ Features</a> •
-<a href="#-persian-description">🇮🇷 توضیحات فارسی</a>
-</p>
-
-<!-- Badges -->
-
-<p>
-<img src="https://www.google.com/search?q=https://img.shields.io/github/v/release/worldmohammad/savely-os%3Fstyle%3Dflat-square%26color%3Dorange" alt="Release">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Platform-Windows%2520(10%252F11)-blue%3Fstyle%3Dflat-square%26logo%3Dwindows" alt="Platform">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/License-Freeware-green%3Fstyle%3Dflat-square" alt="License">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Offline-100%2525-success%3Fstyle%3Dflat-square" alt="Offline">
-</p>
-
-<!-- Main Dashboard Screenshot -->
-
-<img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" width="100%" style="border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-
+  <img
+    src="screenshots/savely-dashboard.PNG"
+    alt="Savely Dashboard"
+    width="100%"
+    style="border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 1px solid #e5e7eb;"
+  >
 </div>
-
-🚀 About The Project
-
-Savely is a powerful, standalone personal management software for Windows. It replaces multiple disjointed apps (Todoist, Notion, Excel, Wallet) with a single, cohesive ecosystem that lives directly on your PC.
-
-Built with a philosophy of "Privacy First", Savely operates 100% offline. Your financial data, personal journals, and passwords never leave your device.
-
-Why Savely?
-
-📦 Portable & Easy: No installation wizard required. Just download and run.
-
-🔒 Zero Tracking: No servers, no analytics, no cloud leaks.
-
-⚡ Blazing Fast: Optimized for Windows 10 and 11.
-
-🌍 Bilingual: Native support for English (LTR) and Persian (RTL).
-
-✨ Features
-
-Savely is packed with 12+ professional modules categorized for your life needs:
-
-🧠 Productivity
-
-💰 Finance
-
-Smart Tasks: Kanban, Eisenhower Matrix, and Recurring tasks.
-
-
-
-Pro Notes: Rich Text & Markdown support with wiki-linking.
-
-
-
-Focus Room: Pomodoro timer with ambient sounds.
-
-Accounting: Track income, expenses, and transfer.
-
-
-
-Budgeting: Visual budget limits and alerts.
-
-
-
-Reports: Interactive charts for financial analysis.
-
-❤️ Wellness
-
-🛡️ Security
-
-Health Tracker: Monitor Weight, BMI, Blood Pressure, & Sleep.
-
-
-
-Mood Journal: Daily diary with photos and mood graphs.
-
-
-
-Habits: Track streaks and daily goals.
-
-Password Vault: Securely store credentials (AES Encryption).
-
-
-
-Auto-Lock: App locks automatically after inactivity.
-
-
-
-Local Backup: Export/Import your entire digital life as JSON.
-
-🌐 Utilities
-
-⚙️ System
-
-Weather: Real-time forecast and animated widgets.
-
-
-
-Bookmarks: Offline bookmark manager.
-
-
-
-Contacts: A mini-CRM for your personal network.
-
-Universal Calendar: Gregorian & Persian (Jalali) support.
-
-
-
-Theming: Customizable colors and dark mode.
-
-
-
-Shortcuts: Cmd+K command palette.
-
-📸 Module Previews
-
-<details open>
-<summary><strong>🌤️ Weather Module</strong></summary>
-
-
-
-
-
-<img src="screenshots/savely%20weather%20module.PNG" alt="Savely Weather Module" width="100%" style="border-radius: 8px; border: 1px solid #333;">
-</details>
-
-💻 How to Use (Installation)
-
-Savely is designed to be simple and portable.
-
-Download: Go to the Releases Page and download the latest .exe or .zip file.
-
-Run: Double-click Savely.exe.
-
-Enjoy: No setup or internet connection required.
-
-Note: Since this is a new software, Windows SmartScreen might show a warning. Click "More Info" -> "Run Anyway" to proceed.
-
-<div id="-persian-description" dir="rtl" align="right">
-
-🇮🇷 توضیحات فارسی
-
-سیولی (Savely) یک نرم‌افزار مدیریت شخصی تحت ویندوز است که تمام ابزارهای مورد نیاز برای مدیریت زندگی دیجیتال شما را در یک داشبورد یکپارچه جمع‌آوری کرده است.
-
-برخلاف سرویس‌های ابری، سیولی ۱۰۰٪ آفلاین است و نیاز به هیچ‌گونه نصب پیچیده‌ای ندارد. کافیست فایل را دانلود و اجرا کنید.
-
-ویژگی‌های کلیدی برای کاربران ایرانی:
-
-✅ بدون نیاز به نصب: نسخه پرتابل (Portable) و سبک.
-
-✅ تقویم شمسی: پشتیبانی کامل از تاریخ و تقویم جلالی در تمام بخش‌ها.
-
-✅ راست‌چین (RTL): رابط کاربری استاندارد و بومی‌سازی شده.
-
-✅ بدون تحریم: چون آفلاین است، همیشه و همه‌جا کار می‌کند.
-
-راهنمای دانلود و اجرا:
-
-۱. به بخش Releases (دانلود) بروید.
-۲. آخرین نسخه فایل .exe را دانلود کنید.
-۳. روی فایل کلیک کنید تا برنامه اجرا شود. (نیاز به اینترنت ندارد).
-
-📥 دانلود مستقیم آخرین نسخه
-
-</div>
-
-🤝 Contact & Support
-
-Developed with ❤️ by Alipour.
-
-Email: worldmohammad@gmail.com
-
-GitHub & Telegram: @worldmohammad
-
-<div align="center">
-<small>© 2026 Savely. All Rights Reserved.</small>
-</div>
+🚀 About The ProjectSavely is a powerful, standalone personal management software designed specifically for Windows. It replaces the need for multiple disjointed apps (Todoist, Notion, Excel, Wallet) by providing a single, cohesive ecosystem that lives directly on your PC.Built with a philosophy of "Privacy First", Savely operates 100% offline. Your financial data, personal journals, and passwords never leave your device.Why Savely?📦 Portable & Easy: No complex installation wizard. Just download the .exe and run.🔒 Zero Tracking: No servers, no analytics, no cloud leaks. Your data is yours.⚡ Blazing Fast: Optimized for performance on Windows 10 and 11.🌍 Bilingual: Native support for English (LTR) and Persian (RTL) with auto-layout switching.✨ FeaturesSavely is packed with 13+ professional modules categorized to handle every aspect of your life:🧠 Productivity💰 FinanceSmart Tasks: Kanban boards, Sub-tasks, & Eisenhower Matrix.Accounting: Track income, expenses, and transfers (Bank/Cash/Crypto).Pro Notes: Markdown & Rich Text support with [[wiki-linking]].Budgeting: Set monthly limits with visual progress bars.Focus Room: Pomodoro timer with ambient sounds (Rain, White Noise).Assets: Net worth tracking and financial health analysis.❤️ Wellness & Life🛡️ Security & UtilitiesHealth Tracker: Monitor Sleep, Weight, BMI, and Water intake.Password Vault: AES-256 Encrypted offline credential storage.Mood Journal: Daily diary with photo gallery and mood graphing.Auto-Lock: Secures the app after inactivity.Habits: Streak tracking and daily goal milestones.Backups: One-click JSON Export/Import of your entire digital life.<details><summary><strong>📸 Click to view Module Screenshots</strong></summary>Weather & BookmarksNote Taking<img src="screenshots/savely weather module.PNG" width="100%" style="border-radius:8px"><img src="screenshots/savely note module.PNG" width="100%" style="border-radius:8px">Financial DashboardSettings<img src="screenshots/savely financial module.PNG" width="100%" style="border-radius:8px"><img src="screenshots/savely bookmark module.PNG" width="100%" style="border-radius:8px"></details>💻 InstallationSavely is designed to be portable.Go to the Releases Page.Download the latest Savely-Setup-x.x.x.exe or the portable .zip.Double-click to run.Note: Since this is open-source software, Windows SmartScreen might show a warning. Click "More Info" -> "Run Anyway" to proceed.<div id="-persian-description" dir="rtl" align="right"><h2>🇮🇷 توضیحات فارسی</h2><p><strong>سیولی (Savely)</strong> یک نرم‌افزار مدیریت شخصی تحت ویندوز است که تمام ابزارهای مورد نیاز برای مدیریت زندگی دیجیتال شما را در یک داشبورد یکپارچه و زیبا جمع‌آوری کرده است.</p><p>برخلاف سرویس‌های ابری مانند Notion یا Todoist، سیولی <strong>۱۰۰٪ آفلاین</strong> است. این یعنی داده‌های حساس مالی و شخصی شما هرگز از کامپیوترتان خارج نمی‌شوند.</p><h3>چرا سیولی؟</h3><ul><li>✅ <strong>بدون نیاز به نصب:</strong> نسخه پرتابل و سبک، آماده اجرا با یک کلیک.</li><li>✅ <strong>تقویم شمسی:</strong> پشتیبانی کامل از تاریخ و تقویم جلالی در تمام بخش‌ها (تسک‌ها، ژورنال، مالی).</li><li>✅ <strong>راست‌چین (RTL):</strong> رابط کاربری استاندارد و بومی‌سازی شده برای زبان فارسی.</li><li>✅ <strong>ضد تحریم:</strong> چون آفلاین است، همیشه و همه‌جا بدون نیاز به تغییر IP کار می‌کند.</li><li>✅ <strong>امنیت:</strong> قابلیت رمزگذاری روی برنامه و صندوق امانات برای پسوردها.</li></ul><h3>راهنمای دانلود و اجرا</h3><ol><li>به بخش <a href="https://www.google.com/search?q=https://github.com/worldmohammad/savely-os/releases/latest"><strong>Releases (دانلود)</strong></a> بروید.</li><li>آخرین نسخه فایل <code>.exe</code> را دانلود کنید.</li><li>روی فایل کلیک کنید تا برنامه اجرا شود (نیاز به اینترنت ندارد).</li></ol></div>🤝 Contact & SupportDeveloped with ❤️ by DigitalYar.Email: worldmohammad@gmail.comWebsite: DigitalYar CompanyGitHub: @worldmohammad<div align="center"><small>© 2026 Savely. Open Source Software.</small></div>
