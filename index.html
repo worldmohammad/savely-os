@@ -326,7 +326,8 @@
             
             <a id="download-btn-footer" href="https://github.com/worldmohammad/savely-os/releases/latest" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50 download-link">
                 <i data-lucide="download" class="w-7 h-7"></i>
-                <span data-i18n="btn_download_latest">Download v1.0 Installer</span>
+                <span data-i18n="btn_download_full">Download Installer</span>
+                <span class="bg-orange-800 text-orange-100 text-xs px-2 py-1 rounded version-text">v1.0.0</span>
             </a>
             <div class="mt-8 flex justify-center gap-6 text-sm text-slate-400">
                 <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub1">Free & Open Source</span></span>
@@ -348,7 +349,7 @@
             <p class="text-sm mb-8 max-w-md mx-auto leading-relaxed" data-i18n="footer_copy">© 2026 Savely. Open Source Software. Developed by DigitalYar.</p>
             <div class="flex justify-center gap-8">
                 <a href="https://github.com/worldmohammad/savely-os" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"><i data-lucide="github" class="w-6 h-6"></i></a>
-                <a href="https://digitalyarco.ir/" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-i18n-href="company_url"><i data-lucide="globe" class="w-6 h-6"></i></a>
+                <a href="https://digitalyar.company/" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-i18n-href="company_url" target="_blank"><i data-lucide="globe" class="w-6 h-6"></i></a>
             </div>
         </div>
     </footer>
@@ -408,13 +409,13 @@
 
                 cta_title: "Ready to Organize Your Life?",
                 cta_desc: "Join thousands of users who switched to a private, secure, and fast personal OS.",
-                btn_download_latest: "Download v1.0 Installer",
+                btn_download_full: "Download Installer",
                 cta_sub1: "Free & Open Source",
                 cta_sub2: "Windows 10/11",
                 cta_sub3: "No Credit Card",
 
                 btn_visit_site: "DigitalYar",
-                company_url: "https://digitalyarco.ir/",
+                company_url: "https://digitalyar.company/",
                 footer_copy: "© 2026 Savely. Open Source Software. Developed by DigitalYar."
             },
             fa: {
@@ -469,7 +470,7 @@
 
                 cta_title: "برای نظم دادن به زندگی آماده‌اید؟",
                 cta_desc: "به جمع هزاران کاربری بپیوندید که به یک سیستم‌عامل شخصی امن، سریع و خصوصی مهاجرت کرده‌اند.",
-                btn_download_latest: "دانلود اینستالر نسخه ۱.۰",
+                btn_download_full: "دانلود اینستالر",
                 cta_sub1: "رایگان و متن‌باز",
                 cta_sub2: "ویندوز ۱۰ و ۱۱",
                 cta_sub3: "بدون نیاز به کارت اعتباری",
@@ -490,7 +491,9 @@
                 const repoRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`);
                 if (repoRes.ok) {
                     const repoData = await repoRes.json();
-                    document.getElementById('stat-stars').textContent = (repoData.stargazers_count || 120).toLocaleString();
+                    document.getElementById('stat-stars').textContent = (repoData.stargazers_count || 0).toLocaleString();
+                } else {
+                    document.getElementById('stat-stars').textContent = "0";
                 }
 
                 // 2. Fetch Releases (Downloads & Latest Version)
@@ -505,7 +508,7 @@
                             totalDownloads += asset.download_count;
                         });
                     });
-                    document.getElementById('stat-downloads').textContent = totalDownloads > 0 ? totalDownloads.toLocaleString() : "1,250+";
+                    document.getElementById('stat-downloads').textContent = totalDownloads.toLocaleString();
 
                     // Get Latest Release Info
                     if (releases.length > 0) {
@@ -530,8 +533,8 @@
             } catch (error) {
                 console.warn("Failed to fetch GitHub stats:", error);
                 // Fallback values
-                document.getElementById('stat-downloads').textContent = "1,250+";
-                document.getElementById('stat-stars').textContent = "120+";
+                document.getElementById('stat-downloads').textContent = "0";
+                document.getElementById('stat-stars').textContent = "0";
             }
         }
 
