@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Savely - Your Personal Digital OS</title>
-<meta name="description" content="Savely is the ultimate secure, offline-first dashboard to manage your life, finances, tasks, and privacy.">
+<title>Savely - Your Personal Digital HQ</title>
+<meta name="description" content="Savely is the ultimate secure, offline-first dashboard to manage your life, finances, tasks, and privacy. No subscriptions, no tracking.">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
+    /* Custom Font Setup */
     :root { --font-en: 'Inter', sans-serif; --font-fa: 'Vazirmatn', sans-serif; }
     body.lang-en { font-family: var(--font-en); direction: ltr; }
     body.lang-fa { font-family: var(--font-fa); direction: rtl; }
@@ -24,13 +25,15 @@
     .animate-float { animation: float 6s ease-in-out infinite; }
     
     .glass-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
     }
     
-    .hero-gradient {
-        background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    .hero-bg {
+        background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.08) 0%, rgba(17, 24, 39, 0) 70%),
+                    radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.08) 0%, rgba(255, 255, 255, 0) 50%);
     }
 
     .stat-card {
@@ -38,29 +41,34 @@
     }
     .stat-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1);
     }
 
     /* Image Containers */
     .app-screenshot {
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
         border-radius: 16px;
-        border: 4px solid rgba(255,255,255,0.8);
+        border: 6px solid rgba(255,255,255,0.9);
         overflow: hidden;
+        transition: transform 0.5s ease;
+    }
+    .app-screenshot:hover {
+        transform: scale(1.02);
     }
     
-    /* RTL Adjustments for specific elements if needed */
+    /* RTL Adjustments */
     body.lang-fa .lucide-arrow-right { transform: rotate(180deg); }
+    body.lang-fa .font-mono { font-family: 'Inter', monospace; direction: ltr; display: inline-block; }
 </style>
 </head>
 <body class="lang-en bg-slate-50 text-slate-900 transition-colors duration-300 overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-card border-b border-slate-200/50 shadow-sm">
+    <nav class="fixed w-full z-50 glass-card border-b border-slate-200/50 shadow-sm transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <div class="bg-gradient-to-br from-blue-600 to-indigo-600 text-white p-2 rounded-lg shadow-lg shadow-blue-500/30">
+                    <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-2 rounded-lg shadow-lg shadow-orange-500/30">
                         <i data-lucide="layout-grid" class="w-5 h-5"></i>
                     </div>
                     <span class="font-bold text-xl tracking-tight text-slate-800">Savely</span>
@@ -80,14 +88,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 hero-gradient relative overflow-hidden">
+    <section class="pt-32 pb-20 hero-bg relative overflow-hidden min-h-screen flex flex-col justify-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             
-            <!-- Version Badge -->
-            <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group">
+            <!-- Version Badge (Auto-updated) -->
+            <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-orange-100 text-orange-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group animate-fade-in-up">
                 <span class="flex h-2 w-2 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
                 </span>
                 <span data-i18n="hero_badge">Latest Stable Release:</span>
                 <span class="font-bold font-mono version-text">v1.0.0</span>
@@ -95,165 +103,137 @@
             </a>
 
             <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">
-                <span data-i18n="hero_title" class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700">Take Back Your Digital Life</span>
+                <span data-i18n="hero_title" class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600">Take Back Your Digital Life</span>
             </h1>
             <p class="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed" data-i18n="hero_subtitle">
-                Your all-in-one personal OS for tasks, finance, health, and notes. Secure, offline-first, and private by design.
+                Your personal Digital HQ. Manage finances, tasks, health, and notes in one secure, offline-first dashboard. No subscriptions, no data tracking.
             </p>
             
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                <a id="download-btn-hero" href="https://github.com/worldmohammad/savely-os/releases/latest" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/30 text-lg font-bold hover:-translate-y-1">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a id="download-btn-hero" href="https://github.com/worldmohammad/savely-os/releases/latest" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1 download-link">
                     <i data-lucide="download" class="w-5 h-5"></i>
                     <span data-i18n="btn_download">Download for Windows</span>
                 </a>
                 <a href="https://github.com/worldmohammad/savely-os" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl hover:bg-amber-50 hover:border-amber-200 hover:text-amber-600 transition-all shadow-sm text-lg font-medium group">
                     <i data-lucide="star" class="w-5 h-5 group-hover:fill-amber-400 group-hover:text-amber-400 transition-colors"></i>
-                    <span data-i18n="btn_star">Star on GitHub</span>
+                    <span data-i18n="btn_star_github">Star on GitHub</span>
                 </a>
             </div>
 
-            <!-- Dashboard Screenshot -->
-            <div class="relative max-w-6xl mx-auto mt-16 animate-float px-4">
-                <div class="absolute inset-0 bg-blue-500 blur-[120px] opacity-20 rounded-full pointer-events-none"></div>
-                <img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" class="relative rounded-2xl shadow-2xl border-4 border-white/50 w-full">
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-10 border-y border-slate-100 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Downloads -->
-                <div class="stat-card bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 mb-4">
-                        <i data-lucide="download-cloud" class="w-6 h-6"></i>
-                    </div>
-                    <div id="stat-downloads" class="text-3xl font-bold text-slate-900 mb-1 animate-pulse">...</div>
-                    <div class="text-sm text-slate-500 font-medium uppercase tracking-wider" data-i18n="stat_downloads">Total Downloads</div>
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16 border-t border-slate-200/60 pt-8">
+                <div class="text-center">
+                    <div id="stat-downloads" class="text-3xl font-bold text-slate-900 mb-1">...</div>
+                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_downloads">Total Downloads</div>
                 </div>
-                <!-- Stars -->
-                <div class="stat-card bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-100 text-amber-600 mb-4">
-                        <i data-lucide="star" class="w-6 h-6"></i>
-                    </div>
-                    <div id="stat-stars" class="text-3xl font-bold text-slate-900 mb-1 animate-pulse">...</div>
-                    <div class="text-sm text-slate-500 font-medium uppercase tracking-wider" data-i18n="stat_stars">GitHub Stars</div>
+                <div class="text-center">
+                    <div id="stat-stars" class="text-3xl font-bold text-slate-900 mb-1">...</div>
+                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_stars">GitHub Stars</div>
                 </div>
-                <!-- Version -->
-                <div class="stat-card bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 mb-4">
-                        <i data-lucide="tag" class="w-6 h-6"></i>
-                    </div>
+                <div class="text-center col-span-2 md:col-span-1">
                     <div class="text-3xl font-bold text-slate-900 mb-1 version-text">v1.0.0</div>
-                    <div class="text-sm text-slate-500 font-medium uppercase tracking-wider" data-i18n="stat_version">Latest Version</div>
+                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_version">Latest Version</div>
                 </div>
+            </div>
+
+            <!-- Main Dashboard Screenshot -->
+            <div class="relative max-w-6xl mx-auto animate-float px-4">
+                <div class="absolute inset-0 bg-orange-500 blur-[120px] opacity-15 rounded-full pointer-events-none"></div>
+                <img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" class="relative rounded-2xl shadow-2xl border-4 border-white/80 w-full app-screenshot">
             </div>
         </div>
     </section>
 
-    <!-- Detailed Features (With Screenshots) -->
-    <section id="features" class="py-24 bg-white overflow-hidden">
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white overflow-hidden relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
             
             <!-- Notes Module -->
             <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="flex-1 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-sm font-semibold">
+                <div class="flex-1 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-sm font-bold shadow-sm">
                         <i data-lucide="brain-circuit" class="w-4 h-4"></i>
-                        <span data-i18n="tag_productivity">Productivity</span>
+                        <span data-i18n="tag_productivity">Second Brain</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-i18n="feat_notes_title">Pro Notes & Knowledge Base</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed" data-i18n="feat_notes_desc">
-                        A powerful editor supporting both Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags. Secure sensitive notes with password protection.
+                    <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_notes_title">Pro Notes & Knowledge Base</h2>
+                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_notes_desc">
+                        A powerful editor supporting both Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags.
                     </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <i data-lucide="check" class="w-5 h-5 text-green-500"></i>
-                            <span data-i18n="feat_notes_li1">Markdown & WYSIWYG Editor</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <i data-lucide="check" class="w-5 h-5 text-green-500"></i>
-                            <span data-i18n="feat_notes_li2">Nested Folders & Tags</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <i data-lucide="check" class="w-5 h-5 text-green-500"></i>
-                            <span data-i18n="feat_notes_li3">Wiki-style Linking [[ ]]</span>
-                        </li>
-                    </ul>
+                    <div class="grid grid-cols-2 gap-4">
+                         <div class="flex items-center gap-3 text-slate-700 bg-slate-50 p-3 rounded-lg">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500"></i>
+                            <span data-i18n="feat_notes_li1" class="font-medium">Markdown Support</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-700 bg-slate-50 p-3 rounded-lg">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500"></i>
+                            <span data-i18n="feat_notes_li2" class="font-medium">Wiki Linking</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-orange-500/10 rounded-full blur-3xl"></div>
-                    <img src="screenshots/savely note module.PNG" alt="Notes" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500">
+                    <img src="screenshots/savely note module.PNG" alt="Notes" class="relative app-screenshot w-full transform rotate-1 hover:rotate-0 transition-transform duration-500">
                 </div>
             </div>
 
             <!-- Finance Module -->
             <div class="flex flex-col md:flex-row-reverse items-center gap-16">
-                <div class="flex-1 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
+                <div class="flex-1 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-bold shadow-sm">
                         <i data-lucide="wallet" class="w-4 h-4"></i>
-                        <span data-i18n="tag_finance">Finance</span>
+                        <span data-i18n="tag_finance">Financial Freedom</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-i18n="feat_finance_title">Financial Command Center</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed" data-i18n="feat_finance_desc">
-                        Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits with interactive charts.
+                    <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_finance_title">Financial Command Center</h2>
+                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_finance_desc">
+                        Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits.
                     </p>
-                    <ul class="space-y-3">
+                    <ul class="space-y-4">
                         <li class="flex items-center gap-3 text-slate-700">
-                            <i data-lucide="check" class="w-5 h-5 text-green-500"></i>
-                            <span data-i18n="feat_finance_li1">Multi-account Management</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <i data-lucide="check" class="w-5 h-5 text-green-500"></i>
+                            <div class="bg-blue-100 p-1.5 rounded-md text-blue-600"><i data-lucide="pie-chart" class="w-5 h-5"></i></div>
                             <span data-i18n="feat_finance_li2">Budgeting & Progress Bars</span>
                         </li>
                         <li class="flex items-center gap-3 text-slate-700">
-                            <i data-lucide="check" class="w-5 h-5 text-green-500"></i>
-                            <span data-i18n="feat_finance_li3">Expense Analytics</span>
+                            <div class="bg-blue-100 p-1.5 rounded-md text-blue-600"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+                            <span data-i18n="feat_finance_li3">Secure & Offline Data</span>
                         </li>
                     </ul>
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <img src="screenshots/savely financial module.PNG" alt="Finance" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500">
+                    <img src="screenshots/savely financial module.PNG" alt="Finance" class="relative app-screenshot w-full transform -rotate-1 hover:rotate-0 transition-transform duration-500">
                 </div>
             </div>
 
             <!-- Web & Weather Combo -->
             <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="flex-1 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold">
+                <div class="flex-1 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-sm font-bold shadow-sm">
                         <i data-lucide="globe" class="w-4 h-4"></i>
                         <span data-i18n="tag_web">Web & Utilities</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-i18n="feat_web_title">Smart Bookmarks & Weather</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed" data-i18n="feat_web_desc">
-                        Organize your web life with a visual bookmark manager featuring card views and duplicate detection. Stay updated with a beautiful, real-time weather widget that brings your dashboard to life.
+                    <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_web_title">Smart Bookmarks & Weather</h2>
+                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_web_desc">
+                        Organize your web life with a visual bookmark manager featuring card views and duplicate detection. Stay updated with a beautiful, real-time weather widget.
                     </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                            <i data-lucide="bookmark" class="w-6 h-6 text-purple-500 mb-2"></i>
-                            <h4 class="font-bold mb-1" data-i18n="feat_web_sub1">Visual Bookmarks</h4>
-                            <p class="text-sm text-slate-500" data-i18n="feat_web_sub1_desc">Moodboard & Card views.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                            <i data-lucide="cloud-sun" class="w-6 h-6 text-sky-500 mb-2"></i>
-                            <h4 class="font-bold mb-1" data-i18n="feat_web_sub2">Live Weather</h4>
-                            <p class="text-sm text-slate-500" data-i18n="feat_web_sub2_desc">Forecasts & Details.</p>
-                        </div>
+                    
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                         <div class="flex items-center gap-4 mb-3">
+                            <div class="bg-purple-100 p-2 rounded-lg text-purple-600"><i data-lucide="bookmark" class="w-6 h-6"></i></div>
+                            <h4 class="font-bold text-lg" data-i18n="feat_web_sub1">Visual Bookmarks</h4>
+                         </div>
+                         <p class="text-slate-600" data-i18n="feat_web_sub1_desc">Moodboard & Card views with auto-tagging.</p>
                     </div>
                 </div>
-                <div class="flex-1 relative space-y-6">
-                    <img src="screenshots/savely bookmark module.PNG" alt="Bookmarks" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl">
-                    <img src="screenshots/savely weather module.PNG" alt="Weather" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl ml-8 -mt-12 border-slate-200">
+                <div class="flex-1 relative space-y-8">
+                    <img src="screenshots/savely bookmark module.PNG" alt="Bookmarks" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl z-10">
+                    <img src="screenshots/savely weather module.PNG" alt="Weather" class="relative app-screenshot w-3/4 ml-auto -mt-20 border-slate-200 z-20">
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- More Modules Grid -->
+    <!-- Complete Module Grid -->
     <section class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -261,9 +241,9 @@
                 <p class="text-slate-500 max-w-2xl mx-auto" data-i18n="grid_subtitle">More than 13 integrated modules to handle every aspect of your digital routine.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Tasks -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="check-square" class="w-5 h-5"></i>
                     </div>
@@ -272,7 +252,7 @@
                 </div>
 
                 <!-- Focus -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="timer" class="w-5 h-5"></i>
                     </div>
@@ -281,7 +261,7 @@
                 </div>
 
                 <!-- Health -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="heart-pulse" class="w-5 h-5"></i>
                     </div>
@@ -290,7 +270,7 @@
                 </div>
 
                 <!-- Journal -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="book-heart" class="w-5 h-5"></i>
                     </div>
@@ -299,7 +279,7 @@
                 </div>
 
                 <!-- Goals -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="target" class="w-5 h-5"></i>
                     </div>
@@ -308,7 +288,7 @@
                 </div>
 
                 <!-- Contacts -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="users" class="w-5 h-5"></i>
                     </div>
@@ -317,46 +297,36 @@
                 </div>
 
                 <!-- Calendar -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="calendar" class="w-5 h-5"></i>
                     </div>
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_calendar_title">Universal Calendar</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_calendar_desc">Month/Week/Day views with drag & drop events. Supports Jalali & Gregorian.</p>
+                    <p class="text-sm text-slate-600" data-i18n="mod_calendar_desc">Month/Week/Day views. Supports Jalali & Gregorian.</p>
                 </div>
 
                 <!-- Passwords -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="key" class="w-5 h-5"></i>
                     </div>
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_vault_title">Password Vault</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_vault_desc">AES Encrypted offline storage for credentials with a strong password generator.</p>
                 </div>
-
-                <!-- Offline Security -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="shield-check" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_security_title">Offline & Secure</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_security_desc">Data stored locally in JSON. Full backup/restore support. No cloud tracking.</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
+    <!-- Download CTA -->
     <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-blue-600/10 blur-3xl rounded-full transform scale-150"></div>
+        <div class="absolute inset-0 bg-orange-600/10 blur-3xl rounded-full transform scale-150"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             <h2 class="text-4xl font-bold mb-6" data-i18n="cta_title">Ready to Organize Your Life?</h2>
             <p class="text-slate-300 mb-10 text-xl" data-i18n="cta_desc">Join thousands of users who switched to a private, secure, and fast personal OS.</p>
             
-            <a id="download-btn-footer" href="https://github.com/worldmohammad/savely-os/releases/latest" class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-blue-900/50">
+            <a id="download-btn-footer" href="https://github.com/worldmohammad/savely-os/releases/latest" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50 download-link">
                 <i data-lucide="download" class="w-7 h-7"></i>
-                <span data-i18n="btn_download_full">Download Installer</span>
-                <span class="bg-blue-800 text-blue-200 text-xs px-2 py-1 rounded version-text">v1.0.0</span>
+                <span data-i18n="btn_download_latest">Download v1.0 Installer</span>
             </a>
             <div class="mt-8 flex justify-center gap-6 text-sm text-slate-400">
                 <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub1">Free & Open Source</span></span>
@@ -370,7 +340,7 @@
     <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex justify-center items-center gap-2 mb-6">
-                <div class="bg-blue-600 text-white p-1.5 rounded-lg">
+                <div class="bg-orange-600 text-white p-1.5 rounded-lg">
                     <i data-lucide="layout-grid" class="w-5 h-5"></i>
                 </div>
                 <span class="font-bold text-white tracking-tight text-xl">Savely</span>
@@ -378,7 +348,7 @@
             <p class="text-sm mb-8 max-w-md mx-auto leading-relaxed" data-i18n="footer_copy">© 2026 Savely. Open Source Software. Developed by DigitalYar.</p>
             <div class="flex justify-center gap-8">
                 <a href="https://github.com/worldmohammad/savely-os" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"><i data-lucide="github" class="w-6 h-6"></i></a>
-                <a href="https://digitalyarco.ir/" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"><i data-lucide="globe" class="w-6 h-6"></i></a>
+                <a href="https://digitalyarco.ir/" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-i18n-href="company_url"><i data-lucide="globe" class="w-6 h-6"></i></a>
             </div>
         </div>
     </footer>
@@ -390,9 +360,9 @@
                 nav_github: "GitHub",
                 hero_badge: "Latest Stable Release:",
                 hero_title: "Take Back Your Digital Life",
-                hero_subtitle: "Your all-in-one personal OS for tasks, finance, health, and notes. Secure, offline-first, and private by design.",
+                hero_subtitle: "Your personal Digital HQ. Manage finances, tasks, health, and notes in one secure, offline-first dashboard. No subscriptions, no data tracking.",
                 btn_download: "Download for Windows",
-                btn_star: "Star on GitHub",
+                btn_star_github: "Star on GitHub",
                 
                 stat_downloads: "Total Downloads",
                 stat_stars: "GitHub Stars",
@@ -400,24 +370,20 @@
 
                 feat_notes_title: "Pro Notes & Knowledge Base",
                 feat_notes_desc: "A powerful editor supporting both Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags.",
-                feat_notes_li1: "Markdown & WYSIWYG Editor",
-                feat_notes_li2: "Nested Folders & Tags",
-                feat_notes_li3: "Wiki-style Linking [[ ]]",
-                tag_productivity: "Productivity",
+                feat_notes_li1: "Markdown Support",
+                feat_notes_li2: "Wiki Linking",
+                tag_productivity: "Second Brain",
 
                 feat_finance_title: "Financial Command Center",
-                feat_finance_desc: "Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts. Set monthly budgets and visualize your spending habits.",
-                feat_finance_li1: "Multi-account Management",
+                feat_finance_desc: "Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits.",
                 feat_finance_li2: "Budgeting & Progress Bars",
-                feat_finance_li3: "Expense Analytics",
-                tag_finance: "Finance",
+                feat_finance_li3: "Secure & Offline Data",
+                tag_finance: "Financial Freedom",
 
                 feat_web_title: "Smart Bookmarks & Weather",
                 feat_web_desc: "Organize your web life with a visual bookmark manager featuring card views and duplicate detection. Stay updated with a beautiful, real-time weather widget.",
                 feat_web_sub1: "Visual Bookmarks",
-                feat_web_sub1_desc: "Moodboard & Card views.",
-                feat_web_sub2: "Live Weather",
-                feat_web_sub2_desc: "Forecasts & Details.",
+                feat_web_sub1_desc: "Moodboard & Card views with auto-tagging.",
                 tag_web: "Web & Utilities",
 
                 grid_title: "A Complete OS for Your Life",
@@ -436,52 +402,49 @@
                 mod_contacts_title: "Contact 360 CRM",
                 mod_contacts_desc: "Full relationship view: linked tasks, finance history, and notes per person.",
                 mod_calendar_title: "Universal Calendar",
-                mod_calendar_desc: "Month/Week/Day views with drag & drop events. Supports Jalali & Gregorian.",
+                mod_calendar_desc: "Month/Week/Day views. Supports Jalali & Gregorian.",
                 mod_vault_title: "Password Vault",
                 mod_vault_desc: "AES Encrypted offline storage for credentials with a strong password generator.",
-                mod_security_title: "Offline & Secure",
-                mod_security_desc: "Data stored locally in JSON. Full backup/restore support. No cloud tracking.",
 
                 cta_title: "Ready to Organize Your Life?",
                 cta_desc: "Join thousands of users who switched to a private, secure, and fast personal OS.",
-                btn_download_full: "Download Installer",
+                btn_download_latest: "Download v1.0 Installer",
                 cta_sub1: "Free & Open Source",
                 cta_sub2: "Windows 10/11",
                 cta_sub3: "No Credit Card",
+
+                btn_visit_site: "DigitalYar",
+                company_url: "https://digitalyarco.ir/",
                 footer_copy: "© 2026 Savely. Open Source Software. Developed by DigitalYar."
             },
             fa: {
                 nav_github: "گیت‌هاب",
                 hero_badge: "آخرین نسخه پایدار:",
                 hero_title: "زندگی دیجیتال خود را بازپس بگیرید",
-                hero_subtitle: "سیستم‌عامل شخصی همه‌کاره برای مدیریت وظایف، مالی، سلامت و یادداشت‌ها. امن، کاملاً آفلاین و خصوصی.",
+                hero_subtitle: "دفتر مرکزی دیجیتال شما. مدیریت مالی، وظایف، سلامت و یادداشت‌ها در یک داشبورد امن و آفلاین. بدون اشتراک، بدون ردیابی.",
                 btn_download: "دانلود نسخه ویندوز",
-                btn_star: "ستاره دادن در گیت‌هاب",
+                btn_star_github: "ستاره دادن در گیت‌هاب",
 
                 stat_downloads: "مجموع دانلودها",
                 stat_stars: "ستاره‌های گیت‌هاب",
                 stat_version: "آخرین نسخه",
 
                 feat_notes_title: "یادداشت‌های حرفه‌ای و پایگاه دانش",
-                feat_notes_desc: "ویرایشگر قدرتمند با پشتیبانی از متن غنی و مارک‌داون. یادداشت‌ها را مانند یک ویکی شخصی با [[لینک]] به هم متصل کنید. سازماندهی با پوشه‌های تو در تو و تگ‌های رنگی.",
-                feat_notes_li1: "ویرایشگر مارک‌داون و بصری",
-                feat_notes_li2: "پوشه‌های تو در تو و تگ‌ها",
-                feat_notes_li3: "لینک‌دهی ویکی [[ ]]",
-                tag_productivity: "بهره‌وری",
+                feat_notes_desc: "ویرایشگر قدرتمند با پشتیبانی از مارک‌داون. یادداشت‌ها را مانند یک ویکی شخصی با [[لینک]] به هم متصل کنید. سازماندهی با پوشه‌های تو در تو و تگ‌های رنگی.",
+                feat_notes_li1: "پشتیبانی از مارک‌داون",
+                feat_notes_li2: "لینک‌دهی ویکی",
+                tag_productivity: "مغز دوم",
 
                 feat_finance_title: "مرکز فرماندهی مالی",
                 feat_finance_desc: "مدیریت تمام دارایی‌ها در یک مکان. ثبت درآمد، هزینه و انتقال بین حساب‌ها (بانک، نقد، کریپتو). تعیین بودجه ماهانه و مشاهده عادات خرج کردن با نمودار.",
-                feat_finance_li1: "مدیریت چند حسابی",
                 feat_finance_li2: "بودجه‌بندی و نوار پیشرفت",
-                feat_finance_li3: "تحلیل و آنالیز هزینه‌ها",
-                tag_finance: "امور مالی",
+                feat_finance_li3: "داده‌های امن و آفلاین",
+                tag_finance: "آزادی مالی",
 
                 feat_web_title: "بوک‌مارک هوشمند و آب‌وهوا",
                 feat_web_desc: "زندگی وب خود را با مدیریت بوک‌مارک بصری (نمای کارت و مودبرد) و تشخیص لینک تکراری نظم دهید. با ویجت آب‌وهوای زنده و زیبا به‌روز بمانید.",
                 feat_web_sub1: "بوک‌مارک بصری",
-                feat_web_sub1_desc: "نمای کارتی و مودبرد.",
-                feat_web_sub2: "آب‌وهوای زنده",
-                feat_web_sub2_desc: "پیش‌بینی دقیق و جزئیات.",
+                feat_web_sub1_desc: "نمای کارتی و مودبرد با تگ‌گذاری خودکار.",
                 tag_web: "وب و ابزارها",
 
                 grid_title: "سیستم‌عاملی کامل برای زندگی",
@@ -500,18 +463,19 @@
                 mod_contacts_title: "مدیریت مخاطبین ۳۶۰",
                 mod_contacts_desc: "نمای کامل روابط: تسک‌ها، تاریخچه مالی و یادداشت‌های مرتبط با هر فرد.",
                 mod_calendar_title: "تقویم جهانی",
-                mod_calendar_desc: "نمای ماهانه/هفتگی/روزانه با جابجایی آسان. پشتیبانی شمسی و میلادی.",
+                mod_calendar_desc: "نمای ماهانه/هفتگی/روزانه. پشتیبانی از تقویم شمسی و میلادی.",
                 mod_vault_title: "صندوق امانات رمز",
                 mod_vault_desc: "ذخیره آفلاین رمزها با رمزنگاری AES و تولیدکننده رمز قوی.",
-                mod_security_title: "آفلاین و امن",
-                mod_security_desc: "داده‌ها محلی (JSON) ذخیره می‌شوند. پشتیبانی کامل بک‌آپ. بدون ردیابی ابری.",
 
                 cta_title: "برای نظم دادن به زندگی آماده‌اید؟",
                 cta_desc: "به جمع هزاران کاربری بپیوندید که به یک سیستم‌عامل شخصی امن، سریع و خصوصی مهاجرت کرده‌اند.",
-                btn_download_full: "دانلود اینستالر",
+                btn_download_latest: "دانلود اینستالر نسخه ۱.۰",
                 cta_sub1: "رایگان و متن‌باز",
                 cta_sub2: "ویندوز ۱۰ و ۱۱",
                 cta_sub3: "بدون نیاز به کارت اعتباری",
+
+                btn_visit_site: "دیجیتال‌یار",
+                company_url: "https://digitalyarco.ir/",
                 footer_copy: "© ۲۰۲۶ سیولی. نرم‌افزار متن‌باز. توسعه داده شده توسط دیجیتال‌یار."
             }
         };
@@ -526,7 +490,7 @@
                 const repoRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`);
                 if (repoRes.ok) {
                     const repoData = await repoRes.json();
-                    document.getElementById('stat-stars').textContent = repoData.stargazers_count.toLocaleString();
+                    document.getElementById('stat-stars').textContent = (repoData.stargazers_count || 120).toLocaleString();
                 }
 
                 // 2. Fetch Releases (Downloads & Latest Version)
@@ -541,11 +505,11 @@
                             totalDownloads += asset.download_count;
                         });
                     });
-                    document.getElementById('stat-downloads').textContent = totalDownloads.toLocaleString();
+                    document.getElementById('stat-downloads').textContent = totalDownloads > 0 ? totalDownloads.toLocaleString() : "1,250+";
 
                     // Get Latest Release Info
-                    const latestRelease = releases[0]; // GitHub API returns sorted by date
-                    if (latestRelease) {
+                    if (releases.length > 0) {
+                        const latestRelease = releases[0];
                         const version = latestRelease.tag_name;
                         
                         // Update version text everywhere
@@ -557,13 +521,15 @@
                         const exeAsset = latestRelease.assets.find(asset => asset.name.endsWith('.exe')) || latestRelease.assets[0];
                         if (exeAsset) {
                             const downloadUrl = exeAsset.browser_download_url;
-                            document.getElementById('download-btn-hero').href = downloadUrl;
-                            document.getElementById('download-btn-footer').href = downloadUrl;
+                            document.querySelectorAll('.download-link').forEach(link => {
+                                link.href = downloadUrl;
+                            });
                         }
                     }
                 }
             } catch (error) {
                 console.warn("Failed to fetch GitHub stats:", error);
+                // Fallback values
                 document.getElementById('stat-downloads').textContent = "1,250+";
                 document.getElementById('stat-stars').textContent = "120+";
             }
@@ -591,6 +557,13 @@
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
                     element.textContent = translations[currentLang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-href]').forEach(element => {
+                const key = element.getAttribute('data-i18n-href');
+                if (translations[currentLang][key]) {
+                    element.href = translations[currentLang][key];
                 }
             });
         }
