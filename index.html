@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Savely - Your Personal Digital OS</title>
 <meta name="description" content="Savely is the ultimate secure, offline-first dashboard to manage your life, finances, tasks, and privacy. No subscriptions, no tracking.">
-<!-- Favicon: LayoutDashboard icon in Orange to match the brand -->
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>'>
+<!-- Favicon: Updated to Orange Shield with 'S' inside -->
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="%23ffedd5"/><text x="12" y="16" font-family="sans-serif" font-size="14" font-weight="bold" fill="%23ea580c" stroke="none" text-anchor="middle">S</text></svg>'>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -71,9 +71,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <!-- Logo Updated to Orange & Layout Dashboard -->
-                    <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-2 rounded-lg shadow-lg shadow-orange-500/30">
-                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <!-- Logo Updated: Shield with 'S' inside (from Settings About Tab) -->
+                    <div class="relative w-10 h-10 flex items-center justify-center bg-orange-100 rounded-xl shadow-sm overflow-hidden">
+                        <i data-lucide="shield" class="w-8 h-8 text-orange-500 fill-orange-200/50 absolute"></i>
+                        <span class="relative z-10 font-bold text-orange-600 text-lg leading-none mt-0.5">S</span>
                     </div>
                     <span class="font-bold text-xl tracking-tight text-slate-800">Savely</span>
                 </div>
@@ -345,9 +346,10 @@
     <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex justify-center items-center gap-2 mb-6">
-                <!-- Footer Logo Updated to Orange & Layout Dashboard -->
-                <div class="bg-orange-600 text-white p-1.5 rounded-lg">
-                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <!-- Footer Logo Updated: Shield with 'S' -->
+                <div class="relative w-8 h-8 flex items-center justify-center bg-orange-600 rounded-lg overflow-hidden">
+                    <i data-lucide="shield" class="w-6 h-6 text-white fill-orange-500 absolute"></i>
+                    <span class="relative z-10 font-bold text-orange-900 text-sm leading-none mt-0.5">S</span>
                 </div>
                 <span class="font-bold text-white tracking-tight text-xl">Savely</span>
             </div>
@@ -583,4 +585,3 @@
     </script>
 </body>
 </html>
-
