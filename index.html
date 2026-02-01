@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Savely - Your Personal Digital OS</title>
 <meta name="description" content="Savely is the ultimate secure, offline-first dashboard to manage your life, finances, tasks, and privacy. No subscriptions, no tracking.">
+<!-- Favicon -->
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="%23ffedd5"/><text x="12" y="16" font-family="sans-serif" font-size="14" font-weight="bold" fill="%23ea580c" stroke="none" text-anchor="middle">S</text></svg>'>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -55,6 +56,7 @@
 </head>
 <body class="lang-en bg-slate-50 text-slate-900 transition-colors duration-300 overflow-x-hidden">
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-card border-b border-slate-200/50 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
@@ -79,9 +81,11 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="pt-32 pb-20 hero-bg relative overflow-hidden min-h-screen flex flex-col justify-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             
+            <!-- Version Badge (Auto-updated from GitHub) -->
             <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-orange-100 text-orange-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group animate-fade-in-up">
                 <span class="flex h-2 w-2 relative">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -100,6 +104,7 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <!-- Download Link updates automatically -->
                 <a id="download-btn-hero" href="https://github.com/worldmohammad/savely-os/releases/latest" class="download-link w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1">
                     <i data-lucide="download" class="w-5 h-5"></i>
                     <span data-i18n="btn_download">Download for Windows</span>
@@ -110,6 +115,7 @@
                 </a>
             </div>
 
+            <!-- Stats Bar (Auto-updated from GitHub) -->
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16 border-t border-slate-200/60 pt-8">
                 <div class="text-center">
                     <div id="stat-downloads" class="text-3xl font-bold text-slate-900 mb-1">...</div>
@@ -125,16 +131,20 @@
                 </div>
             </div>
 
+            <!-- Dashboard Screenshot -->
             <div class="relative max-w-6xl mx-auto animate-float px-4">
                 <div class="absolute inset-0 bg-orange-500 blur-[120px] opacity-15 rounded-full pointer-events-none"></div>
+                <!-- Corrected Image Name: Using hyphens and .PNG -->
                 <img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" class="relative rounded-2xl shadow-2xl border-4 border-white/80 w-full app-screenshot">
             </div>
         </div>
     </section>
 
+    <!-- Features Section -->
     <section id="features" class="py-24 bg-white overflow-hidden relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
             
+            <!-- Notes Module -->
             <div class="flex flex-col md:flex-row items-center gap-16">
                 <div class="flex-1 space-y-8">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-sm font-bold shadow-sm">
@@ -158,10 +168,12 @@
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-orange-500/10 rounded-full blur-3xl"></div>
-                    <img src="screenshots/savely note module.PNG" alt="Notes" class="relative app-screenshot w-full transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <!-- Corrected Image Name: Using hyphens and .PNG -->
+                    <img src="screenshots/savely-note-module.PNG" alt="Notes" class="relative app-screenshot w-full transform rotate-1 hover:rotate-0 transition-transform duration-500">
                 </div>
             </div>
 
+            <!-- Finance Module -->
             <div class="flex flex-col md:flex-row-reverse items-center gap-16">
                 <div class="flex-1 space-y-8">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-bold shadow-sm">
@@ -185,10 +197,12 @@
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <img src="screenshots/savely financial module.PNG" alt="Finance" class="relative app-screenshot w-full transform -rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <!-- Corrected Image Name: Using hyphens and .PNG -->
+                    <img src="screenshots/savely-financial-module.PNG" alt="Finance" class="relative app-screenshot w-full transform -rotate-1 hover:rotate-0 transition-transform duration-500">
                 </div>
             </div>
 
+            <!-- Web & Weather Combo -->
             <div class="flex flex-col md:flex-row items-center gap-16">
                 <div class="flex-1 space-y-8">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-sm font-bold shadow-sm">
@@ -209,14 +223,16 @@
                     </div>
                 </div>
                 <div class="flex-1 relative space-y-8">
-                    <img src="screenshots/savely bookmark module.PNG" alt="Bookmarks" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl z-10">
-                    <img src="screenshots/savely weather module.PNG" alt="Weather" class="relative app-screenshot w-3/4 ml-auto -mt-20 border-slate-200 z-20">
+                    <!-- Corrected Image Names: Using hyphens and .PNG -->
+                    <img src="screenshots/savely-bookmark-module.PNG" alt="Bookmarks" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl z-10">
+                    <img src="screenshots/savely-weather-module.PNG" alt="Weather" class="relative app-screenshot w-3/4 ml-auto -mt-20 border-slate-200 z-20">
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!-- Complete Module Grid -->
     <section class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -225,6 +241,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Tasks -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="check-square" class="w-5 h-5"></i>
@@ -232,6 +249,8 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_tasks_title">Advanced Tasks</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_tasks_desc">Kanban boards, subtasks, and Eisenhower matrix prioritization.</p>
                 </div>
+
+                <!-- Focus -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="timer" class="w-5 h-5"></i>
@@ -239,6 +258,8 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_focus_title">Focus Room</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_focus_desc">Pomodoro timer with built-in ambient soundscapes (Rain, White Noise).</p>
                 </div>
+
+                <!-- Health -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="heart-pulse" class="w-5 h-5"></i>
@@ -246,6 +267,8 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_health_title">Health Tracker</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_health_desc">Track water, sleep, weight, blood pressure, and medication reminders.</p>
                 </div>
+
+                <!-- Journal -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="book-heart" class="w-5 h-5"></i>
@@ -253,6 +276,8 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_journal_title">Mood Journal</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_journal_desc">Daily diary with mood tracking, photo gallery, and "On This Day" flashbacks.</p>
                 </div>
+
+                <!-- Goals -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="target" class="w-5 h-5"></i>
@@ -260,6 +285,8 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_goals_title">Goals & Habits</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_goals_desc">Vision boards, habit streaks, milestones, and gratitude logging.</p>
                 </div>
+
+                <!-- Contacts -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="users" class="w-5 h-5"></i>
@@ -267,6 +294,8 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_contacts_title">Contact 360 CRM</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_contacts_desc">Full relationship view: linked tasks, finance history, and notes per person.</p>
                 </div>
+
+                <!-- Calendar -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="calendar" class="w-5 h-5"></i>
@@ -274,6 +303,8 @@
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_calendar_title">Universal Calendar</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_calendar_desc">Month/Week/Day views. Supports Jalali & Gregorian.</p>
                 </div>
+
+                <!-- Passwords -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
                     <div class="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="key" class="w-5 h-5"></i>
@@ -285,6 +316,7 @@
         </div>
     </section>
 
+    <!-- Download CTA -->
     <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-orange-600/10 blur-3xl rounded-full transform scale-150"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
@@ -304,6 +336,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex justify-center items-center gap-2 mb-6">
@@ -424,7 +457,7 @@
                 mod_focus_desc: "تایمر پومودورو با صداهای محیطی داخلی (باران، نویز سفید).",
                 mod_health_title: "ردیاب سلامت",
                 mod_health_desc: "ردیابی آب، خواب، وزن، فشار خون و یادآور دارو.",
-                mod_journal_title: "خاطره نویسی و خلق‌وقو",
+                mod_journal_title: "ژورنال و خلق‌وقو",
                 mod_journal_desc: "خاطرات روزانه با ردیابی حال (Mood)، گالری عکس و فلش‌بک.",
                 mod_goals_title: "اهداف و عادت‌ها",
                 mod_goals_desc: "ویژن‌برد، زنجیره عادت (Streak)، مایل‌ستون‌ها و شکرگزاری.",
@@ -437,7 +470,7 @@
 
                 cta_title: "برای نظم دادن به زندگی آماده‌اید؟",
                 cta_desc: "به جمع هزاران کاربری بپیوندید که به یک سیستم‌عامل شخصی امن، سریع و خصوصی مهاجرت کرده‌اند.",
-                btn_download_full: "دانلود فایل نصبی",
+                btn_download_full: "دانلود اینستالر",
                 cta_sub1: "رایگان و متن‌باز",
                 cta_sub2: "ویندوز ۱۰ و ۱۱",
                 cta_sub3: "بدون نیاز به کارت اعتباری",
