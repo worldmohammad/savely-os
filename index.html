@@ -104,8 +104,8 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <!-- Download Link updates automatically -->
-                <a id="download-btn-hero" href="https://github.com/worldmohammad/savely-os/releases/latest" class="download-link w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1">
+                <!-- دکمه‌های دانلود متصل به مودال -->
+                <a href="javascript:void(0)" onclick="openModal()" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1">
                     <i data-lucide="download" class="w-5 h-5"></i>
                     <span data-i18n="btn_download">Download for Windows</span>
                 </a>
@@ -134,7 +134,6 @@
             <!-- Dashboard Screenshot -->
             <div class="relative max-w-6xl mx-auto animate-float px-4">
                 <div class="absolute inset-0 bg-orange-500 blur-[120px] opacity-15 rounded-full pointer-events-none"></div>
-                <!-- Corrected Image Name: Using hyphens and .PNG -->
                 <img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" class="relative rounded-2xl shadow-2xl border-4 border-white/80 w-full app-screenshot">
             </div>
         </div>
@@ -168,7 +167,6 @@
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-orange-500/10 rounded-full blur-3xl"></div>
-                    <!-- Corrected Image Name: Using hyphens and .PNG -->
                     <img src="screenshots/savely-note-module.PNG" alt="Notes" class="relative app-screenshot w-full transform rotate-1 hover:rotate-0 transition-transform duration-500">
                 </div>
             </div>
@@ -197,7 +195,6 @@
                 </div>
                 <div class="flex-1 relative">
                     <div class="absolute -inset-4 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <!-- Corrected Image Name: Using hyphens and .PNG -->
                     <img src="screenshots/savely-financial-module.PNG" alt="Finance" class="relative app-screenshot w-full transform -rotate-1 hover:rotate-0 transition-transform duration-500">
                 </div>
             </div>
@@ -223,7 +220,6 @@
                     </div>
                 </div>
                 <div class="flex-1 relative space-y-8">
-                    <!-- Corrected Image Names: Using hyphens and .PNG -->
                     <img src="screenshots/savely-bookmark-module.PNG" alt="Bookmarks" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl z-10">
                     <img src="screenshots/savely-weather-module.PNG" alt="Weather" class="relative app-screenshot w-3/4 ml-auto -mt-20 border-slate-200 z-20">
                 </div>
@@ -232,12 +228,12 @@
         </div>
     </section>
 
-    <!-- Complete Module Grid -->
+    <!-- Complete Module Grid (Updated with 12 items) -->
     <section class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="grid_title">A Complete OS for Your Life</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto" data-i18n="grid_subtitle">More than 13 integrated modules to handle every aspect of your digital routine.</p>
+                <p class="text-slate-500 max-w-2xl mx-auto" data-i18n="grid_subtitle">More than 16 integrated modules to handle every aspect of your digital routine.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -306,12 +302,49 @@
 
                 <!-- Passwords -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center mb-4">
+                    <div class="w-10 h-10 bg-slate-200 text-slate-700 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="key" class="w-5 h-5"></i>
                     </div>
                     <h3 class="font-bold text-lg mb-2" data-i18n="mod_vault_title">Password Vault</h3>
                     <p class="text-sm text-slate-600" data-i18n="mod_vault_desc">AES Encrypted offline storage for credentials with a strong password generator.</p>
                 </div>
+
+                <!-- New Feature 1: File Manager -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="folder-open" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_files_title">File Manager</h3>
+                    <p class="text-sm text-slate-600" data-i18n="mod_files_desc">Secure document storage and categorization directly on your server.</p>
+                </div>
+
+                <!-- New Feature 2: Link Shortener -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
+                    <div class="w-10 h-10 bg-sky-100 text-sky-600 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="link" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_links_title">Link Shortener</h3>
+                    <p class="text-sm text-slate-600" data-i18n="mod_links_desc">Create and track custom short links easily.</p>
+                </div>
+
+                <!-- New Feature 3: 2FA -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
+                    <div class="w-10 h-10 bg-violet-100 text-violet-600 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_2fa_title">2FA Security</h3>
+                    <p class="text-sm text-slate-600" data-i18n="mod_2fa_desc">Double your account security with Two-Factor Authentication.</p>
+                </div>
+
+                <!-- New Feature 4: Active Sessions -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
+                    <div class="w-10 h-10 bg-fuchsia-100 text-fuchsia-600 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="monitor-smartphone" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_sessions_title">Active Sessions</h3>
+                    <p class="text-sm text-slate-600" data-i18n="mod_sessions_desc">Monitor and manage logged-in devices remotely.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -323,7 +356,7 @@
             <h2 class="text-4xl font-bold mb-6" data-i18n="cta_title">Ready to Organize Your Life?</h2>
             <p class="text-slate-300 mb-10 text-xl" data-i18n="cta_desc">Join thousands of users who switched to a private, secure, and fast personal OS.</p>
             
-            <a id="download-btn-footer" href="https://github.com/worldmohammad/savely-os/releases/latest" class="download-link inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50">
+            <a href="javascript:void(0)" onclick="openModal()" class="inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50">
                 <i data-lucide="download" class="w-7 h-7"></i>
                 <span data-i18n="btn_download_full">Download Installer</span>
                 <span class="bg-orange-800 text-orange-100 text-xs px-2 py-1 rounded version-text">v1.76.0</span>
@@ -350,10 +383,58 @@
             <div class="flex justify-center gap-8">
                 <a href="https://github.com/worldmohammad/savely-os" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" target="_blank"><i data-lucide="github" class="w-6 h-6"></i></a>
                 <a href="mailto:worldmohammad@gmail.com" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"><i data-lucide="mail" class="w-6 h-6"></i></a>
-                <a href="https://digitalyar.company/" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-i18n-href="company_url" target="_blank"><i data-lucide="globe" class="w-6 h-6"></i></a>
+                <a href="https://digitalyarco.ir/" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-i18n-href="company_url" target="_blank"><i data-lucide="globe" class="w-6 h-6"></i></a>
             </div>
         </div>
     </footer>
+
+    <!-- Download Modal (Form) -->
+    <div id="download-modal" class="fixed inset-0 hidden items-center justify-center" style="z-index: 99999;">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
+        <div class="relative w-full max-w-md mx-4 bg-white rounded-3xl p-8 border border-slate-200 shadow-2xl transform transition-all text-slate-800">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="download-cloud" class="w-6 h-6 text-orange-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-2" data-i18n="modal_title">Get Free Version</h3>
+                <p class="text-sm text-slate-500" data-i18n="modal_desc">Please fill out this short form to download the latest release.</p>
+            </div>
+
+            <form action="download.php" method="POST" class="space-y-4">
+                <!-- Fullname Field -->
+                <div>
+                    <input type="text" name="fullname" required placeholder="Your Full Name" data-i18n-placeholder="modal_name" class="w-full border border-slate-300 rounded-xl px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition">
+                </div>
+                
+                <!-- Email Field (With Pattern Validation) -->
+                <div>
+                    <input type="email" name="email" required placeholder="Your Email Address" data-i18n-placeholder="modal_email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" class="w-full border border-slate-300 rounded-xl px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition text-left" dir="ltr">
+                </div>
+                
+                <!-- Source Field (Dynamic Translation) -->
+                <div class="relative">
+                    <select name="source" id="source-select" required class="w-full appearance-none border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition bg-white cursor-pointer">
+                        <!-- Options populated via JS depending on language -->
+                    </select>
+                    <!-- Chevron icon for select -->
+                    <div class="pointer-events-none absolute right-4 top-[14px] text-slate-400 rtl:right-auto rtl:left-4">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3.5 rounded-xl font-bold flex justify-center items-center gap-2 mt-2 transition-all">
+                    <i data-lucide="arrow-right" class="w-5 h-5 rtl:rotate-180"></i>
+                    <span data-i18n="modal_submit">Submit & Download</span>
+                </button>
+            </form>
+            <p class="text-[11px] text-slate-400 text-center mt-4" data-i18n="modal_secure">Your data is safe with us.</p>
+        </div>
+    </div>
 
     <script>
         // --- Translations ---
@@ -389,7 +470,7 @@
                 tag_web: "Web & Utilities",
 
                 grid_title: "A Complete OS for Your Life",
-                grid_subtitle: "More than 13 integrated modules to handle every aspect of your digital routine.",
+                grid_subtitle: "More than 16 integrated modules to handle every aspect of your digital routine.",
 
                 mod_tasks_title: "Advanced Tasks",
                 mod_tasks_desc: "Kanban boards, subtasks, and Eisenhower matrix prioritization.",
@@ -407,6 +488,16 @@
                 mod_calendar_desc: "Month/Week/Day views. Supports Jalali & Gregorian.",
                 mod_vault_title: "Password Vault",
                 mod_vault_desc: "AES Encrypted offline storage for credentials with a strong password generator.",
+                
+                // New Modules (EN)
+                mod_files_title: "File Manager",
+                mod_files_desc: "Secure document storage and categorization directly on your server.",
+                mod_links_title: "Link Shortener",
+                mod_links_desc: "Create and track custom short links easily.",
+                mod_2fa_title: "2FA Security",
+                mod_2fa_desc: "Double your account security with Two-Factor Authentication.",
+                mod_sessions_title: "Active Sessions",
+                mod_sessions_desc: "Monitor and manage logged-in devices remotely.",
 
                 cta_title: "Ready to Organize Your Life?",
                 cta_desc: "Join thousands of users who switched to a private, secure, and fast personal OS.",
@@ -416,8 +507,27 @@
                 cta_sub3: "No Credit Card",
 
                 btn_visit_site: "Website",
-                company_url: "https://digitalyar.company/",
-                footer_copy: "© 2026 Savely. Open Source Software. Developed by Mohammad Alipour."
+                company_url: "https://digitalyarco.ir/",
+                footer_copy: "© 2026 Savely. Open Source Software. Developed by Mohammad Alipour.",
+
+                // Modal Translations (EN)
+                modal_title: "Get Free Version",
+                modal_desc: "Please fill out this short form to download the latest release.",
+                modal_name: "Your Full Name",
+                modal_email: "Your Email Address",
+                modal_submit: "Submit & Download",
+                modal_secure: "Your data is safe with us.",
+                modal_options: [
+                    {value: "", text: "How did you hear about Savely?", disabled: true},
+                    {value: "Search Engine", text: "Search Engine (Google, Bing)"},
+                    {value: "Virgool", text: "Virgool"},
+                    {value: "LinkedIn", text: "LinkedIn"},
+                    {value: "Twitter", text: "Twitter (X)"},
+                    {value: "GitHub", text: "GitHub"},
+                    {value: "YouTube", text: "YouTube"},
+                    {value: "Aparat", text: "Aparat"},
+                    {value: "Forums", text: "Internet Forums"}
+                ]
             },
             fa: {
                 nav_github: "گیت‌هاب",
@@ -450,7 +560,7 @@
                 tag_web: "وب و ابزارها",
 
                 grid_title: "سیستم‌عاملی کامل برای زندگی",
-                grid_subtitle: "بیش از ۱۳ ماژول یکپارچه برای مدیریت تمام جنبه‌های روتین دیجیتال شما.",
+                grid_subtitle: "بیش از ۱۶ ماژول یکپارچه برای مدیریت تمام جنبه‌های روتین دیجیتال شما.",
 
                 mod_tasks_title: "مدیریت وظایف پیشرفته",
                 mod_tasks_desc: "تابلو کانبان، زیر-وظایف و اولویت‌بندی ماتریس آیزنهاور.",
@@ -468,6 +578,16 @@
                 mod_calendar_desc: "نمای ماهانه/هفتگی/روزانه. پشتیبانی از تقویم شمسی و میلادی.",
                 mod_vault_title: "صندوق امانات رمز",
                 mod_vault_desc: "ذخیره آفلاین رمزها با رمزنگاری AES و تولیدکننده رمز قوی.",
+                
+                // New Modules (FA)
+                mod_files_title: "فایل‌منیجر اختصاصی",
+                mod_files_desc: "ذخیره و دسته‌بندی امن اسناد مستقیماً روی سرور شما.",
+                mod_links_title: "کوتاه‌کننده لینک",
+                mod_links_desc: "ساخت لینک‌های کوتاه اختصاصی و رهگیری کلیک‌ها.",
+                mod_2fa_title: "تایید دو مرحله‌ای",
+                mod_2fa_desc: "امنیت حساب خود را با تایید دو مرحله‌ای (2FA) دوچندان کنید.",
+                mod_sessions_title: "نشست‌های فعال",
+                mod_sessions_desc: "مشاهده و مدیریت دستگاه‌های متصل به حساب کاربری.",
 
                 cta_title: "برای نظم دادن به زندگی آماده‌اید؟",
                 cta_desc: "به جمع هزاران کاربری بپیوندید که به یک سیستم‌عامل شخصی امن، سریع و خصوصی مهاجرت کرده‌اند.",
@@ -478,7 +598,26 @@
 
                 btn_visit_site: "دیجیتال‌یار",
                 company_url: "https://digitalyarco.ir/",
-                footer_copy: "© ۲۰۲۶ سیولی. نرم‌افزار متن‌باز. توسعه داده شده توسط دیجیتال‌یار."
+                footer_copy: "© ۲۰۲۶ سیولی. نرم‌افزار متن‌باز. توسعه داده شده توسط دیجیتال‌یار.",
+
+                // Modal Translations (FA)
+                modal_title: "دریافت نسخه رایگان",
+                modal_desc: "برای دانلود آخرین نسخه، فرم کوتاه زیر را تکمیل کنید.",
+                modal_name: "نام و نام خانوادگی شما",
+                modal_email: "ایمیل شما (مثال: name@email.com)",
+                modal_submit: "ثبت و شروع دانلود",
+                modal_secure: "اطلاعات شما نزد ما محفوظ است.",
+                modal_options: [
+                    {value: "", text: "نحوه آشنایی با سیولی؟", disabled: true},
+                    {value: "موتور جستجو", text: "موتور جستجو (گوگل، بینگ)"},
+                    {value: "ویرگول", text: "ویرگول"},
+                    {value: "لینکدین", text: "لینکدین"},
+                    {value: "توییتر", text: "توییتر (X)"},
+                    {value: "گیت‌هاب", text: "گیت‌هاب"},
+                    {value: "یوتیوب", text: "یوتیوب"},
+                    {value: "آپارات", text: "آپارات"},
+                    {value: "انجمن های اینترنتی", text: "انجمن های اینترنتی"}
+                ]
             }
         };
 
@@ -520,15 +659,6 @@
                         document.querySelectorAll('.version-text').forEach(el => {
                             el.textContent = version;
                         });
-
-                        // Update download links to the first .exe asset of the latest release
-                        const exeAsset = latestRelease.assets.find(asset => asset.name.endsWith('.exe')) || latestRelease.assets[0];
-                        if (exeAsset) {
-                            const downloadUrl = exeAsset.browser_download_url;
-                            document.querySelectorAll('.download-link').forEach(link => {
-                                link.href = downloadUrl;
-                            });
-                        }
                     }
                 }
             } catch (error) {
@@ -537,8 +667,25 @@
             }
         }
 
-        // --- Language Logic ---
+        // --- Language & Translation Logic ---
         let currentLang = 'en';
+
+        function updateModalOptions() {
+            const select = document.getElementById('source-select');
+            select.innerHTML = '';
+            translations[currentLang].modal_options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt.value;
+                option.textContent = opt.text;
+                if(opt.disabled) {
+                    option.disabled = true;
+                    option.selected = true;
+                    // Styling for disabled option
+                    option.style.color = '#94a3b8';
+                }
+                select.appendChild(option);
+            });
+        }
 
         function toggleLang() {
             currentLang = currentLang === 'en' ? 'fa' : 'en';
@@ -555,6 +702,7 @@
                 langLabel.textContent = "FA";
             }
 
+            // Update text contents
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
@@ -562,17 +710,55 @@
                 }
             });
 
+            // Update links
             document.querySelectorAll('[data-i18n-href]').forEach(element => {
                 const key = element.getAttribute('data-i18n-href');
                 if (translations[currentLang][key]) {
                     element.href = translations[currentLang][key];
                 }
             });
+
+            // Update Input Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLang][key]) {
+                    element.placeholder = translations[currentLang][key];
+                }
+            });
+
+            // Update Select Options
+            updateModalOptions();
         }
+
+        // --- Modal Control Logic ---
+        function openModal() {
+            const modal = document.getElementById('download-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Adding a small delay for smooth fade-in effect if needed
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('download-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close on escape key press
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
 
         // --- Init ---
         lucide.createIcons();
         fetchGitHubStats();
+        updateModalOptions(); // initial load of select options
 
     </script>
 </body>
