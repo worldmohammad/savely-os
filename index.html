@@ -85,6 +85,16 @@
     <section class="pt-32 pb-20 hero-bg relative overflow-hidden min-h-screen flex flex-col justify-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             
+            <!-- Version Badge (Auto-updated from GitHub) -->
+            <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-orange-100 text-orange-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group animate-fade-in-up">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                </span>
+                <span data-i18n="hero_badge">Latest Stable Release:</span>
+                <span class="font-bold font-mono version-text">v1.76.0</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform rtl:group-hover:-translate-x-1"></i>
+            </a>
 
             <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">
                 <span data-i18n="hero_title" class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600">Take Back Your Digital Life</span>
@@ -95,7 +105,7 @@
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                 <!-- Download Link updates automatically -->
-                <a id="download-btn-hero" href="https://forms.gle/VqtyGe9RBCoLxZbp6" class="download-link w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1">
+                <a id="download-btn-hero" href="https://github.com/worldmohammad/savely-os/releases/latest" class="download-link w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1">
                     <i data-lucide="download" class="w-5 h-5"></i>
                     <span data-i18n="btn_download">Download for Windows</span>
                 </a>
@@ -107,12 +117,16 @@
 
             <!-- Stats Bar (Auto-updated from GitHub) -->
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16 border-t border-slate-200/60 pt-8">
-                               <div class="text-center">
+                <div class="text-center">
+                    <div id="stat-downloads" class="text-3xl font-bold text-slate-900 mb-1">...</div>
+                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_downloads">Total Downloads</div>
+                </div>
+                <div class="text-center">
                     <div id="stat-stars" class="text-3xl font-bold text-slate-900 mb-1">...</div>
                     <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_stars">GitHub Stars</div>
                 </div>
                 <div class="text-center col-span-2 md:col-span-1">
-                    <div class="text-3xl font-bold text-slate-900 mb-1 version-text">v2.2.0</div>
+                    <div class="text-3xl font-bold text-slate-900 mb-1 version-text">v1.76.0</div>
                     <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_version">Latest Version</div>
                 </div>
             </div>
@@ -309,7 +323,7 @@
             <h2 class="text-4xl font-bold mb-6" data-i18n="cta_title">Ready to Organize Your Life?</h2>
             <p class="text-slate-300 mb-10 text-xl" data-i18n="cta_desc">Join thousands of users who switched to a private, secure, and fast personal OS.</p>
             
-            <a id="download-btn-footer" href="https://forms.gle/VqtyGe9RBCoLxZbp6" class="download-link inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50">
+            <a id="download-btn-footer" href="https://github.com/worldmohammad/savely-os/releases/latest" class="download-link inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50">
                 <i data-lucide="download" class="w-7 h-7"></i>
                 <span data-i18n="btn_download_full">Download Installer</span>
                 <span class="bg-orange-800 text-orange-100 text-xs px-2 py-1 rounded version-text">v1.76.0</span>
