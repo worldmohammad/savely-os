@@ -1,579 +1,2999 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Savely - Your Personal Digital OS</title>
-<meta name="description" content="Savely is the ultimate secure, offline-first dashboard to manage your life, finances, tasks, and privacy. No subscriptions, no tracking.">
-<!-- Favicon -->
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="%23ffedd5"/><text x="12" y="16" font-family="sans-serif" font-size="14" font-weight="bold" fill="%23ea580c" stroke="none" text-anchor="middle">S</text></svg>'>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-<style>
-    /* Custom Font Setup */
-    :root { --font-en: 'Inter', sans-serif; --font-fa: 'Vazirmatn', sans-serif; }
-    body.lang-en { font-family: var(--font-en); direction: ltr; }
-    body.lang-fa { font-family: var(--font-fa); direction: rtl; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    <title>Savely OS — Your Personal Digital Life, Organized</title>
 
-    /* Animations */
-    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-    .animate-float { animation: float 6s ease-in-out infinite; }
-    
-    .glass-card {
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    }
-    
-    /* Orange/Amber Gradient */
-    .hero-bg {
-        background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.1) 0%, rgba(17, 24, 39, 0) 70%),
-                    radial-gradient(circle at 80% 0%, rgba(245, 158, 11, 0.1) 0%, rgba(255, 255, 255, 0) 50%);
-    }
+    <meta name="description"
+          content="Savely is a free Personal OS for Windows that helps you manage notes, tasks, bookmarks, passwords, finance, contacts, calendar, goals, habits and more in one place.">
+    <meta name="keywords"
+          content="Savely, Personal OS, personal information management, second brain, productivity, notes, tasks, password manager, bookmarks, finance, Windows">
 
-    /* Image Styling */
-    .app-screenshot {
-        box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
-        border-radius: 16px;
-        border: 6px solid rgba(255,255,255,0.9);
-        overflow: hidden;
-        transition: transform 0.5s ease;
-    }
-    .app-screenshot:hover { transform: scale(1.02); }
-    
-    /* RTL Adjustments */
-    body.lang-fa .lucide-arrow-right { transform: rotate(180deg); }
-    body.lang-fa .font-mono { font-family: 'Inter', monospace; direction: ltr; display: inline-block; }
-</style>
+    <meta property="og:title" content="Savely OS — Your Personal Digital Life, Organized">
+    <meta property="og:description"
+          content="A free Personal OS for Windows to organize your digital life in one place.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://worldmohammad.github.io/savely-os/">
+
+    <link rel="canonical" href="https://worldmohammad.github.io/savely-os/">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Vazirmatn', sans-serif;
+            background: #020617;
+            color: #e2e8f0;
+        }
+
+        html[dir="rtl"] body {
+            font-family: 'Vazirmatn', 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #38bdf8,
+                #818cf8,
+                #c084fc
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-glow {
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(59,130,246,.18),
+                    transparent 55%
+                );
+        }
+
+        .card {
+            background: rgba(15, 23, 42, .72);
+            border: 1px solid rgba(148, 163, 184, .12);
+            backdrop-filter: blur(14px);
+        }
+
+        .card:hover {
+            border-color: rgba(96, 165, 250, .35);
+            transform: translateY(-3px);
+        }
+
+        .transition-card {
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(
+                    rgba(148,163,184,.045) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(148,163,184,.045) 1px,
+                    transparent 1px
+                );
+
+            background-size: 40px 40px;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(148,163,184,.18),
+                transparent
+            );
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: rgba(59,130,246,.10);
+            color: #60a5fa;
+        }
+
+        .module-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(99,102,241,.10);
+            color: #818cf8;
+            flex-shrink: 0;
+        }
+
+        .download-btn {
+            box-shadow:
+                0 10px 30px rgba(37,99,235,.20);
+        }
+
+        .download-btn:hover {
+            box-shadow:
+                0 15px 40px rgba(37,99,235,.32);
+        }
+
+        .selfhost-card {
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(99,102,241,.15),
+                    transparent 35%
+                ),
+                rgba(15,23,42,.85);
+        }
+
+        [dir="rtl"] .hero-text {
+            text-align: right;
+        }
+
+        [dir="ltr"] .hero-text {
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text {
+                text-align: center !important;
+            }
+        }
+
+    </style>
 </head>
-<body class="lang-en bg-slate-50 text-slate-900 transition-colors duration-300 overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-card border-b border-slate-200/50 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="relative w-10 h-10 flex items-center justify-center bg-orange-100 rounded-xl shadow-sm overflow-hidden">
-                        <i data-lucide="shield" class="w-8 h-8 text-orange-500 fill-orange-200/50 absolute"></i>
-                        <span class="relative z-10 font-bold text-orange-600 text-lg leading-none mt-0.5">S</span>
+<body class="min-h-screen">
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="fixed top-0 left-0 right-0 z-50
+            border-b border-slate-800/60
+            bg-slate-950/80 backdrop-blur-xl">
+
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+
+        <div class="h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+
+            <a href="#home"
+               class="flex items-center gap-3">
+
+                <div class="w-11 h-11 rounded-xl
+                            bg-gradient-to-br from-blue-500 to-indigo-600
+                            flex items-center justify-center
+                            shadow-lg shadow-blue-500/20">
+
+                    <i data-lucide="layers"
+                       class="w-6 h-6 text-white"></i>
+
+                </div>
+
+                <div>
+                    <div class="font-extrabold text-xl text-white">
+                        Savely
                     </div>
-                    <span class="font-bold text-xl tracking-tight text-slate-800">Savely</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <button onclick="toggleLang()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors text-sm font-medium border border-slate-200 text-slate-600">
-                        <i data-lucide="globe" class="w-4 h-4"></i>
-                        <span id="lang-label">FA</span>
-                    </button>
-                    <a href="https://github.com/worldmohammad/savely-os" target="_blank" class="hidden sm:flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-all text-sm font-medium shadow-md">
-                        <i data-lucide="github" class="w-4 h-4"></i>
-                        <span class="hidden md:inline" data-i18n="nav_github">GitHub</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 hero-bg relative overflow-hidden min-h-screen flex flex-col justify-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            
-            <!-- Version Badge (Auto-updated from GitHub) -->
-            <a href="https://github.com/worldmohammad/savely-os/releases/latest" target="_blank" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-orange-100 text-orange-700 px-4 py-1.5 rounded-full text-sm font-medium mb-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group animate-fade-in-up">
-                <span class="flex h-2 w-2 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                    <div class="text-[10px] text-slate-500 tracking-widest uppercase">
+                        Personal OS
+                    </div>
+                </div>
+
+            </a>
+
+
+            <!-- Desktop navigation -->
+
+            <div class="hidden md:flex items-center gap-7">
+
+                <a href="#features"
+                   data-i18n="nav_features"
+                   class="text-sm text-slate-400 hover:text-white transition">
+                    Features
+                </a>
+
+                <a href="#modules"
+                   data-i18n="nav_modules"
+                   class="text-sm text-slate-400 hover:text-white transition">
+                    Modules
+                </a>
+
+                <a href="#selfhosted"
+                   data-i18n="nav_selfhost"
+                   class="text-sm text-slate-400 hover:text-white transition">
+                    Self-Hosted
+                </a>
+
+                <a href="#download"
+                   data-i18n="nav_download"
+                   class="text-sm text-slate-400 hover:text-white transition">
+                    Download
+                </a>
+
+            </div>
+
+
+            <!-- Right controls -->
+
+            <div class="flex items-center gap-3">
+
+                <button
+                    onclick="toggleLanguage()"
+                    class="flex items-center gap-2 px-3 py-2
+                           rounded-lg border border-slate-700
+                           hover:border-slate-500
+                           text-sm text-slate-300
+                           transition">
+
+                    <i data-lucide="languages"
+                       class="w-4 h-4"></i>
+
+                    <span id="lang-label">فارسی</span>
+
+                </button>
+
+                <a
+                    id="nav-download-btn"
+                    href="#download"
+                    class="hidden sm:inline-flex
+                           items-center gap-2
+                           px-4 py-2.5
+                           rounded-lg
+                           bg-blue-600
+                           hover:bg-blue-500
+                           text-white
+                           text-sm font-semibold
+                           transition">
+
+                    <i data-lucide="download"
+                       class="w-4 h-4"></i>
+
+                    <span data-i18n="nav_download_button">
+                        Download Free
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section id="home"
+         class="relative min-h-screen pt-32 pb-20
+                overflow-hidden grid-bg">
+
+    <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 relative">
+
+        <div class="max-w-5xl mx-auto text-center">
+
+            <!-- Badge -->
+
+            <div class="inline-flex items-center gap-2
+                        px-4 py-2
+                        rounded-full
+                        border border-blue-500/20
+                        bg-blue-500/5
+                        text-blue-400
+                        text-sm
+                        mb-8">
+
+                <span class="w-2 h-2 rounded-full bg-green-400"></span>
+
+                <span data-i18n="hero_badge">
+                    Free & Open Source for Windows
                 </span>
-                <span data-i18n="hero_badge">Latest Stable Release:</span>
-                <span class="font-bold font-mono version-text">v1.76.0</span>
-                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform rtl:group-hover:-translate-x-1"></i>
-            </a>
 
-            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">
-                <span data-i18n="hero_title" class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600">Take Back Your Digital Life</span>
+            </div>
+
+
+            <!-- Main heading -->
+
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl
+                       font-extrabold
+                       tracking-tight
+                       text-white
+                       leading-tight">
+
+                <span data-i18n="hero_title_1">
+                    Your Digital Life.
+                </span>
+
+                <br>
+
+                <span class="gradient-text"
+                      data-i18n="hero_title_2">
+                    One Personal OS.
+                </span>
+
             </h1>
-            <p class="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed" data-i18n="hero_subtitle">
-                Your personal Digital HQ. Manage finances, tasks, health, and notes in one secure, offline-first dashboard. No subscriptions, no data tracking.
+
+
+            <p class="mt-7 text-lg sm:text-xl
+                      text-slate-400
+                      leading-8
+                      max-w-3xl mx-auto">
+
+                <span data-i18n="hero_description">
+                    Savely brings your notes, tasks, bookmarks,
+                    passwords, finances, contacts, calendar,
+                    goals and more into one simple personal workspace.
+                </span>
+
             </p>
-            
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <!-- Download Link updates automatically -->
-                <a id="download-btn-hero" href="https://github.com/worldmohammad/savely-os/releases/latest" class="download-link w-full sm:w-auto flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-500/30 text-lg font-bold hover:-translate-y-1">
-                    <i data-lucide="download" class="w-5 h-5"></i>
-                    <span data-i18n="btn_download">Download for Windows</span>
+
+
+            <!-- Hero buttons -->
+
+            <div class="mt-10 flex flex-col sm:flex-row
+                        items-center justify-center
+                        gap-4">
+
+                <a
+                    href="https://github.com/worldmohammad/savely-os/releases/latest"
+                    target="_blank"
+                    rel="noopener"
+                    class="download-btn
+                           inline-flex items-center justify-center gap-3
+                           px-7 py-4
+                           rounded-xl
+                           bg-blue-600
+                           hover:bg-blue-500
+                           text-white
+                           font-bold
+                           transition">
+
+                    <i data-lucide="download"
+                       class="w-5 h-5"></i>
+
+                    <span data-i18n="hero_download">
+                        Download Free for Windows
+                    </span>
+
                 </a>
-                <a href="https://github.com/worldmohammad/savely-os" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl hover:bg-amber-50 hover:border-amber-200 hover:text-amber-600 transition-all shadow-sm text-lg font-medium group">
-                    <i data-lucide="star" class="w-5 h-5 group-hover:fill-amber-400 group-hover:text-amber-400 transition-colors"></i>
-                    <span data-i18n="btn_star_github">Star on GitHub</span>
+
+
+                <a
+                    href="#selfhosted"
+                    class="inline-flex items-center justify-center gap-3
+                           px-7 py-4
+                           rounded-xl
+                           border border-slate-700
+                           bg-slate-900/50
+                           hover:bg-slate-800
+                           text-white
+                           font-semibold
+                           transition">
+
+                    <span data-i18n="hero_selfhost">
+                        Explore Self-Hosted
+                    </span>
+
+                    <i data-lucide="arrow-right"
+                       class="w-5 h-5"></i>
+
                 </a>
+
             </div>
 
-            <!-- Stats Bar (Auto-updated from GitHub) -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16 border-t border-slate-200/60 pt-8">
-                <div class="text-center">
-                    <div id="stat-downloads" class="text-3xl font-bold text-slate-900 mb-1">...</div>
-                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_downloads">Total Downloads</div>
-                </div>
-                <div class="text-center">
-                    <div id="stat-stars" class="text-3xl font-bold text-slate-900 mb-1">...</div>
-                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_stars">GitHub Stars</div>
-                </div>
-                <div class="text-center col-span-2 md:col-span-1">
-                    <div class="text-3xl font-bold text-slate-900 mb-1 version-text">v1.76.0</div>
-                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider" data-i18n="stat_version">Latest Version</div>
-                </div>
-            </div>
 
-            <!-- Dashboard Screenshot -->
-            <div class="relative max-w-6xl mx-auto animate-float px-4">
-                <div class="absolute inset-0 bg-orange-500 blur-[120px] opacity-15 rounded-full pointer-events-none"></div>
-                <!-- Corrected Image Name: Using hyphens and .PNG -->
-                <img src="screenshots/savely-dashboard.PNG" alt="Savely Dashboard" class="relative rounded-2xl shadow-2xl border-4 border-white/80 w-full app-screenshot">
-            </div>
+            <p class="mt-5 text-sm text-slate-600"
+               data-i18n="hero_note">
+
+                Windows 10/11 • Free • No subscription • No data tracking
+            </p>
+
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-24 bg-white overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
-            
-            <!-- Notes Module -->
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="flex-1 space-y-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-sm font-bold shadow-sm">
-                        <i data-lucide="brain-circuit" class="w-4 h-4"></i>
-                        <span data-i18n="tag_productivity">Second Brain</span>
+
+        <!-- Dashboard visual -->
+
+        <div class="mt-20 max-w-6xl mx-auto">
+
+            <div class="card rounded-3xl p-3
+                        shadow-2xl shadow-blue-950/30">
+
+                <div class="rounded-2xl
+                            bg-slate-950
+                            border border-slate-800
+                            overflow-hidden">
+
+                    <!-- fake browser bar -->
+
+                    <div class="h-12
+                                border-b border-slate-800
+                                flex items-center gap-2 px-5">
+
+                        <span class="w-3 h-3 rounded-full bg-red-400/60"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-400/60"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-400/60"></span>
+
+                        <div class="ml-4 h-7 flex-1 max-w-xl
+                                    rounded-md bg-slate-900
+                                    border border-slate-800"></div>
+
                     </div>
-                    <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_notes_title">Pro Notes & Knowledge Base</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_notes_desc">
-                        A powerful editor supporting both Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                         <div class="flex items-center gap-3 text-slate-700 bg-slate-50 p-3 rounded-lg">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500"></i>
-                            <span data-i18n="feat_notes_li1" class="font-medium">Markdown Support</span>
+
+
+                    <!-- fake dashboard -->
+
+                    <div class="p-6">
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
+                            <div class="rounded-xl bg-slate-900 p-5">
+                                <div class="text-slate-500 text-xs mb-2"
+                                     data-i18n="mock_notes">
+                                    Notes
+                                </div>
+                                <div class="text-2xl font-bold text-white">
+                                    128
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl bg-slate-900 p-5">
+                                <div class="text-slate-500 text-xs mb-2"
+                                     data-i18n="mock_tasks">
+                                    Tasks
+                                </div>
+                                <div class="text-2xl font-bold text-white">
+                                    24
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl bg-slate-900 p-5">
+                                <div class="text-slate-500 text-xs mb-2"
+                                     data-i18n="mock_bookmarks">
+                                    Bookmarks
+                                </div>
+                                <div class="text-2xl font-bold text-white">
+                                    356
+                                </div>
+                            </div>
+
+                            <div class="rounded-xl bg-slate-900 p-5">
+                                <div class="text-slate-500 text-xs mb-2"
+                                     data-i18n="mock_goals">
+                                    Goals
+                                </div>
+                                <div class="text-2xl font-bold text-white">
+                                    12
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="flex items-center gap-3 text-slate-700 bg-slate-50 p-3 rounded-lg">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-500"></i>
-                            <span data-i18n="feat_notes_li2" class="font-medium">Wiki Linking</span>
+
+
+                        <div class="grid md:grid-cols-3 gap-4 mt-4">
+
+                            <div class="md:col-span-2
+                                        h-48 rounded-xl
+                                        bg-slate-900
+                                        p-5">
+
+                                <div class="text-sm text-slate-400 mb-5"
+                                     data-i18n="mock_activity">
+                                    Recent Activity
+                                </div>
+
+                                <div class="space-y-4">
+
+                                    <div class="h-3 rounded bg-slate-800 w-5/6"></div>
+                                    <div class="h-3 rounded bg-slate-800 w-4/6"></div>
+                                    <div class="h-3 rounded bg-slate-800 w-3/6"></div>
+                                    <div class="h-3 rounded bg-slate-800 w-4/5"></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="h-48 rounded-xl
+                                        bg-slate-900
+                                        p-5">
+
+                                <div class="text-sm text-slate-400 mb-5"
+                                     data-i18n="mock_quick">
+                                    Quick Access
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-3">
+
+                                    <div class="h-14 rounded-lg bg-slate-800"></div>
+                                    <div class="h-14 rounded-lg bg-slate-800"></div>
+                                    <div class="h-14 rounded-lg bg-slate-800"></div>
+                                    <div class="h-14 rounded-lg bg-slate-800"></div>
+
+                                </div>
+
+                            </div>
+
                         </div>
-                    </div>
-                </div>
-                <div class="flex-1 relative">
-                    <div class="absolute -inset-4 bg-orange-500/10 rounded-full blur-3xl"></div>
-                    <!-- Corrected Image Name: Using hyphens and .PNG -->
-                    <img src="screenshots/savely-note-module.PNG" alt="Notes" class="relative app-screenshot w-full transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                </div>
-            </div>
 
-            <!-- Finance Module -->
-            <div class="flex flex-col md:flex-row-reverse items-center gap-16">
-                <div class="flex-1 space-y-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-bold shadow-sm">
-                        <i data-lucide="wallet" class="w-4 h-4"></i>
-                        <span data-i18n="tag_finance">Financial Freedom</span>
                     </div>
-                    <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_finance_title">Financial Command Center</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_finance_desc">
-                        Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <div class="bg-blue-100 p-1.5 rounded-md text-blue-600"><i data-lucide="pie-chart" class="w-5 h-5"></i></div>
-                            <span data-i18n="feat_finance_li2">Budgeting & Progress Bars</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <div class="bg-blue-100 p-1.5 rounded-md text-blue-600"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
-                            <span data-i18n="feat_finance_li3">Secure & Offline Data</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex-1 relative">
-                    <div class="absolute -inset-4 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <!-- Corrected Image Name: Using hyphens and .PNG -->
-                    <img src="screenshots/savely-financial-module.PNG" alt="Finance" class="relative app-screenshot w-full transform -rotate-1 hover:rotate-0 transition-transform duration-500">
-                </div>
-            </div>
 
-            <!-- Web & Weather Combo -->
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="flex-1 space-y-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-sm font-bold shadow-sm">
-                        <i data-lucide="globe" class="w-4 h-4"></i>
-                        <span data-i18n="tag_web">Web & Utilities</span>
-                    </div>
-                    <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" data-i18n="feat_web_title">Smart Bookmarks & Weather</h2>
-                    <p class="text-xl text-slate-600 leading-relaxed" data-i18n="feat_web_desc">
-                        Organize your web life with a visual bookmark manager featuring card views and duplicate detection. Stay updated with a beautiful, real-time weather widget.
-                    </p>
-                    
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                         <div class="flex items-center gap-4 mb-3">
-                            <div class="bg-purple-100 p-2 rounded-lg text-purple-600"><i data-lucide="bookmark" class="w-6 h-6"></i></div>
-                            <h4 class="font-bold text-lg" data-i18n="feat_web_sub1">Visual Bookmarks</h4>
-                         </div>
-                         <p class="text-slate-600" data-i18n="feat_web_sub1_desc">Moodboard & Card views with auto-tagging.</p>
-                    </div>
                 </div>
-                <div class="flex-1 relative space-y-8">
-                    <!-- Corrected Image Names: Using hyphens and .PNG -->
-                    <img src="screenshots/savely-bookmark-module.PNG" alt="Bookmarks" class="relative app-screenshot w-full hover:scale-[1.01] transition-transform duration-500 shadow-xl z-10">
-                    <img src="screenshots/savely-weather-module.PNG" alt="Weather" class="relative app-screenshot w-3/4 ml-auto -mt-20 border-slate-200 z-20">
-                </div>
+
             </div>
 
         </div>
-    </section>
 
-    <!-- Complete Module Grid -->
-    <section class="py-24 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4" data-i18n="grid_title">A Complete OS for Your Life</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto" data-i18n="grid_subtitle">More than 13 integrated modules to handle every aspect of your digital routine.</p>
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================================================
+     WHY SAVELY
+========================================================= -->
+
+<section id="features"
+         class="py-24">
+
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+
+        <div class="max-w-3xl mx-auto text-center">
+
+            <div class="text-blue-400 text-sm font-semibold mb-3"
+                 data-i18n="features_badge">
+                WHY SAVELY
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Tasks -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="check-square" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_tasks_title">Advanced Tasks</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_tasks_desc">Kanban boards, subtasks, and Eisenhower matrix prioritization.</p>
-                </div>
+            <h2 class="text-3xl sm:text-4xl
+                       font-extrabold text-white">
 
-                <!-- Focus -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="timer" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_focus_title">Focus Room</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_focus_desc">Pomodoro timer with built-in ambient soundscapes (Rain, White Noise).</p>
-                </div>
+                <span data-i18n="features_title">
+                    A simpler way to manage your digital life
+                </span>
 
-                <!-- Health -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="heart-pulse" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_health_title">Health Tracker</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_health_desc">Track water, sleep, weight, blood pressure, and medication reminders.</p>
-                </div>
+            </h2>
 
-                <!-- Journal -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="book-heart" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_journal_title">Mood Journal</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_journal_desc">Daily diary with mood tracking, photo gallery, and "On This Day" flashbacks.</p>
-                </div>
+            <p class="mt-5 text-slate-400 leading-7"
+               data-i18n="features_description">
 
-                <!-- Goals -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="target" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_goals_title">Goals & Habits</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_goals_desc">Vision boards, habit streaks, milestones, and gratitude logging.</p>
-                </div>
+                Instead of spreading your information across
+                dozens of disconnected applications, Savely
+                gives you one organized personal workspace.
+            </p>
 
-                <!-- Contacts -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="users" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_contacts_title">Contact 360 CRM</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_contacts_desc">Full relationship view: linked tasks, finance history, and notes per person.</p>
-                </div>
-
-                <!-- Calendar -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="calendar" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_calendar_title">Universal Calendar</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_calendar_desc">Month/Week/Day views. Supports Jalali & Gregorian.</p>
-                </div>
-
-                <!-- Passwords -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:-translate-y-1">
-                    <div class="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="key" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2" data-i18n="mod_vault_title">Password Vault</h3>
-                    <p class="text-sm text-slate-600" data-i18n="mod_vault_desc">AES Encrypted offline storage for credentials with a strong password generator.</p>
-                </div>
-            </div>
         </div>
-    </section>
 
-    <!-- Download CTA -->
-    <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-orange-600/10 blur-3xl rounded-full transform scale-150"></div>
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <h2 class="text-4xl font-bold mb-6" data-i18n="cta_title">Ready to Organize Your Life?</h2>
-            <p class="text-slate-300 mb-10 text-xl" data-i18n="cta_desc">Join thousands of users who switched to a private, secure, and fast personal OS.</p>
-            
-            <a id="download-btn-footer" href="https://github.com/worldmohammad/savely-os/releases/latest" class="download-link inline-flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all transform hover:scale-105 shadow-2xl shadow-orange-900/50">
-                <i data-lucide="download" class="w-7 h-7"></i>
-                <span data-i18n="btn_download_full">Download Installer</span>
-                <span class="bg-orange-800 text-orange-100 text-xs px-2 py-1 rounded version-text">v1.76.0</span>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+
+
+            <!-- Feature 1 -->
+
+            <div class="card transition-card rounded-2xl p-7">
+
+                <div class="feature-icon mb-6">
+                    <i data-lucide="layout-dashboard"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-3"
+                    data-i18n="feature1_title">
+                    One Personal Workspace
+                </h3>
+
+                <p class="text-slate-400 leading-7"
+                   data-i18n="feature1_description">
+                    Bring the important parts of your digital
+                    life together instead of switching between
+                    countless applications.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 2 -->
+
+            <div class="card transition-card rounded-2xl p-7">
+
+                <div class="feature-icon mb-6">
+                    <i data-lucide="shield-check"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-3"
+                    data-i18n="feature2_title">
+                    Privacy First
+                </h3>
+
+                <p class="text-slate-400 leading-7"
+                   data-i18n="feature2_description">
+                    Savely is designed around personal ownership
+                    and privacy, without requiring a subscription
+                    or advertising ecosystem.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 3 -->
+
+            <div class="card transition-card rounded-2xl p-7">
+
+                <div class="feature-icon mb-6">
+                    <i data-lucide="search"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-3"
+                    data-i18n="feature3_title">
+                    Find What Matters
+                </h3>
+
+                <p class="text-slate-400 leading-7"
+                   data-i18n="feature3_description">
+                    Keep your information organized and make
+                    it easier to find the things you need.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 4 -->
+
+            <div class="card transition-card rounded-2xl p-7">
+
+                <div class="feature-icon mb-6">
+                    <i data-lucide="languages"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-3"
+                    data-i18n="feature4_title">
+                    Multilingual
+                </h3>
+
+                <p class="text-slate-400 leading-7"
+                   data-i18n="feature4_description">
+                    Savely supports multiple languages and
+                    includes Persian and RTL support.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 5 -->
+
+            <div class="card transition-card rounded-2xl p-7">
+
+                <div class="feature-icon mb-6">
+                    <i data-lucide="calendar-days"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-3"
+                    data-i18n="feature5_title">
+                    Your Time, Organized
+                </h3>
+
+                <p class="text-slate-400 leading-7"
+                   data-i18n="feature5_description">
+                    Manage events, tasks, goals and habits
+                    from a connected personal system.
+                </p>
+
+            </div>
+
+
+            <!-- Feature 6 -->
+
+            <div class="card transition-card rounded-2xl p-7">
+
+                <div class="feature-icon mb-6">
+                    <i data-lucide="infinity"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-3"
+                    data-i18n="feature6_title">
+                    Built to Grow
+                </h3>
+
+                <p class="text-slate-400 leading-7"
+                   data-i18n="feature6_description">
+                    Start with the features you need today
+                    and gradually build your own personal system.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================================================
+     MODULES
+========================================================= -->
+
+<section id="modules"
+         class="py-24 bg-slate-950/40">
+
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+
+        <div class="max-w-3xl mx-auto text-center">
+
+            <div class="text-indigo-400 text-sm font-semibold mb-3"
+                 data-i18n="modules_badge">
+                INTEGRATED MODULES
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl
+                       font-extrabold text-white">
+
+                <span data-i18n="modules_title">
+                    More than just a notes app
+                </span>
+
+            </h2>
+
+            <p class="mt-5 text-slate-400 leading-7"
+               data-i18n="modules_description">
+
+                Savely combines multiple areas of personal
+                information management into a single system.
+            </p>
+
+        </div>
+
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4
+                    gap-4 mt-14">
+
+
+            <!-- Module -->
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="notebook-pen"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_notes">
+                        Notes
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_notes_desc">
+                        Capture and organize ideas
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="check-square"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_tasks">
+                        Tasks
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_tasks_desc">
+                        Manage tasks and priorities
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="target"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_goals">
+                        Goals & Habits
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_goals_desc">
+                        Build routines and track goals
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="focus"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_focus">
+                        Focus Room
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_focus_desc">
+                        Stay focused on what matters
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="bookmark"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_bookmarks">
+                        Bookmarks
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_bookmarks_desc">
+                        Save useful websites
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="key-round"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_passwords">
+                        Password Vault
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_passwords_desc">
+                        Keep credentials organized
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="wallet"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_finance">
+                        Finance
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_finance_desc">
+                        Track personal finances
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="calendar"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_calendar">
+                        Calendar
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_calendar_desc">
+                        Organize your events
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="users"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_contacts">
+                        Contacts 360
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_contacts_desc">
+                        Manage people and contacts
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_health">
+                        Health Tracker
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_health_desc">
+                        Track personal health data
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="smile"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_mood">
+                        Mood Journal
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_mood_desc">
+                        Record moods and reflections
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="cloud-sun"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_weather">
+                        Weather
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_weather_desc">
+                        Keep weather information nearby
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="file-box"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_files">
+                        File Manager
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_files_desc">
+                        Organize important files
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="link"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_links">
+                        URL Shortener
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_links_desc">
+                        Create and manage short links
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="mail"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_email">
+                        Email
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_email_desc">
+                        Keep email workflows organized
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="card transition-card rounded-2xl p-5 flex gap-4">
+
+                <div class="module-icon">
+                    <i data-lucide="file-text"></i>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white"
+                        data-i18n="module_templates">
+                        Templates
+                    </h3>
+
+                    <p class="text-sm text-slate-500 mt-1"
+                       data-i18n="module_templates_desc">
+                        Reuse your personal templates
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GITHUB STATS
+========================================================= -->
+
+<section class="py-20">
+
+    <div class="max-w-5xl mx-auto px-5 lg:px-8">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl font-extrabold text-white"
+                data-i18n="github_title">
+                Open Source & Community
+            </h2>
+
+            <p class="mt-4 text-slate-400"
+               data-i18n="github_description">
+                Savely OS is available on GitHub for free.
+            </p>
+
+        </div>
+
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+
+            <div class="card rounded-2xl p-6 text-center">
+
+                <i data-lucide="star"
+                   class="w-6 h-6 mx-auto text-yellow-400 mb-3"></i>
+
+                <div id="github-stars"
+                     class="text-3xl font-extrabold text-white">
+                    —
+                </div>
+
+                <div class="text-sm text-slate-500 mt-2"
+                     data-i18n="github_stars">
+                    GitHub Stars
+                </div>
+
+            </div>
+
+
+            <div class="card rounded-2xl p-6 text-center">
+
+                <i data-lucide="git-fork"
+                   class="w-6 h-6 mx-auto text-blue-400 mb-3"></i>
+
+                <div id="github-forks"
+                     class="text-3xl font-extrabold text-white">
+                    —
+                </div>
+
+                <div class="text-sm text-slate-500 mt-2"
+                     data-i18n="github_forks">
+                    Forks
+                </div>
+
+            </div>
+
+
+            <div class="card rounded-2xl p-6 text-center">
+
+                <i data-lucide="download"
+                   class="w-6 h-6 mx-auto text-green-400 mb-3"></i>
+
+                <div id="github-downloads"
+                     class="text-3xl font-extrabold text-white">
+                    —
+                </div>
+
+                <div class="text-sm text-slate-500 mt-2"
+                     data-i18n="github_downloads">
+                    Downloads
+                </div>
+
+            </div>
+
+
+            <div class="card rounded-2xl p-6 text-center">
+
+                <i data-lucide="tag"
+                   class="w-6 h-6 mx-auto text-purple-400 mb-3"></i>
+
+                <div id="github-version"
+                     class="text-3xl font-extrabold text-white">
+                    —
+                </div>
+
+                <div class="text-sm text-slate-500 mt-2"
+                     data-i18n="github_version">
+                    Latest Version
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="text-center mt-10">
+
+            <a
+                href="https://github.com/worldmohammad/savely-os"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-3
+                       px-6 py-3
+                       rounded-xl
+                       border border-slate-700
+                       hover:bg-slate-800
+                       text-white
+                       font-semibold
+                       transition">
+
+                <i data-lucide="github"
+                   class="w-5 h-5"></i>
+
+                <span data-i18n="github_button">
+                    View on GitHub
+                </span>
+
             </a>
-            <div class="mt-8 flex justify-center gap-6 text-sm text-slate-400">
-                <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub1">Free & Open Source</span></span>
-                <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub2">Windows 10/11</span></span>
-                <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> <span data-i18n="cta_sub3">No Credit Card</span></span>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="flex justify-center items-center gap-2 mb-6">
-                <div class="relative w-8 h-8 flex items-center justify-center bg-orange-600 rounded-lg overflow-hidden">
-                    <i data-lucide="shield" class="w-6 h-6 text-white fill-orange-500 absolute"></i>
-                    <span class="relative z-10 font-bold text-orange-900 text-sm leading-none mt-0.5">S</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================================================
+     DOWNLOAD
+========================================================= -->
+
+<section id="download"
+         class="py-24">
+
+    <div class="max-w-5xl mx-auto px-5 lg:px-8">
+
+        <div class="card rounded-3xl p-8 sm:p-12
+                    text-center">
+
+            <div class="w-16 h-16 mx-auto rounded-2xl
+                        bg-blue-500/10
+                        flex items-center justify-center
+                        text-blue-400 mb-7">
+
+                <i data-lucide="monitor-down"
+                   class="w-8 h-8"></i>
+
+            </div>
+
+
+            <h2 class="text-3xl sm:text-4xl
+                       font-extrabold text-white">
+
+                <span data-i18n="download_title">
+                    Start with Savely for Windows
+                </span>
+
+            </h2>
+
+
+            <p class="mt-5 text-slate-400
+                      max-w-2xl mx-auto
+                      leading-7">
+
+                <span data-i18n="download_description">
+                    Download the free Windows edition and
+                    explore the Savely experience before deciding
+                    whether the complete Self-Hosted edition is right for you.
+                </span>
+
+            </p>
+
+
+            <div class="mt-8 flex flex-col sm:flex-row
+                        justify-center gap-4">
+
+                <a
+                    href="https://github.com/worldmohammad/savely-os/releases/latest"
+                    target="_blank"
+                    rel="noopener"
+                    class="download-btn
+                           inline-flex items-center justify-center gap-3
+                           px-7 py-4
+                           rounded-xl
+                           bg-blue-600
+                           hover:bg-blue-500
+                           text-white
+                           font-bold
+                           transition">
+
+                    <i data-lucide="download"
+                       class="w-5 h-5"></i>
+
+                    <span data-i18n="download_button">
+                        Download Latest Version
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="https://github.com/worldmohammad/savely-os"
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center justify-center gap-3
+                           px-7 py-4
+                           rounded-xl
+                           border border-slate-700
+                           hover:bg-slate-800
+                           text-white
+                           font-semibold
+                           transition">
+
+                    <i data-lucide="github"
+                       class="w-5 h-5"></i>
+
+                    <span data-i18n="source_button">
+                        View Source Code
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SELF HOSTED CTA
+========================================================= -->
+
+<section id="selfhosted"
+         class="py-24 relative overflow-hidden">
+
+    <div class="absolute inset-0 pointer-events-none">
+
+        <div class="absolute
+                    w-[500px] h-[500px]
+                    bg-indigo-600/10
+                    blur-3xl
+                    rounded-full
+                    -top-40
+                    left-1/2
+                    -translate-x-1/2">
+        </div>
+
+    </div>
+
+
+    <div class="max-w-6xl mx-auto px-5 lg:px-8 relative">
+
+        <div class="selfhost-card
+                    border border-indigo-500/20
+                    rounded-3xl
+                    p-8 sm:p-12
+                    shadow-2xl shadow-indigo-950/20">
+
+
+            <!-- Badge -->
+
+            <div class="text-center">
+
+                <div class="inline-flex items-center gap-2
+                            px-4 py-2
+                            rounded-full
+                            border border-indigo-400/20
+                            bg-indigo-500/10
+                            text-indigo-300
+                            text-sm font-semibold">
+
+                    <i data-lucide="sparkles"
+                       class="w-4 h-4"></i>
+
+                    <span data-i18n="selfhost_badge">
+                        Full Self-Hosted Edition
+                    </span>
+
                 </div>
-                <span class="font-bold text-white tracking-tight text-xl">Savely</span>
+
+
+                <h2 class="mt-6
+                           text-3xl sm:text-5xl
+                           font-extrabold
+                           text-white">
+
+                    <span data-i18n="selfhost_title">
+                        Want the Complete Savely Experience?
+                    </span>
+
+                </h2>
+
+
+                <p class="mt-6
+                          max-w-3xl mx-auto
+                          text-slate-400
+                          leading-8
+                          text-lg">
+
+                    <span data-i18n="selfhost_desc">
+                        The free Windows edition is a great way to
+                        explore Savely. For the full web-based experience,
+                        install the Self-Hosted edition on your own hosting
+                        and access a broader set of features and capabilities.
+                    </span>
+
+                </p>
+
             </div>
-            <p class="text-sm mb-8 max-w-md mx-auto leading-relaxed" data-i18n="footer_copy">© 2026 Savely. Open Source Software. Developed by Mohammad Alipour.</p>
-            <div class="flex justify-center gap-8">
-                <a href="https://github.com/worldmohammad/savely-os" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" target="_blank"><i data-lucide="github" class="w-6 h-6"></i></a>
-                <a href="mailto:worldmohammad@gmail.com" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"><i data-lucide="mail" class="w-6 h-6"></i></a>
-                <a href="https://digitalyar.company/" class="hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-i18n-href="company_url" target="_blank"><i data-lucide="globe" class="w-6 h-6"></i></a>
+
+
+            <!-- Benefits -->
+
+            <div class="grid md:grid-cols-3 gap-5 mt-12">
+
+
+                <div class="rounded-2xl
+                            border border-slate-800
+                            bg-slate-950/50
+                            p-6">
+
+                    <div class="feature-icon mb-5">
+                        <i data-lucide="boxes"></i>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-white mb-3"
+                        data-i18n="selfhost_feature1_title">
+                        More Features
+                    </h3>
+
+                    <p class="text-slate-400 leading-7"
+                       data-i18n="selfhost_feature1_desc">
+                        Access capabilities and modules that are
+                        not available in the Windows edition.
+                    </p>
+
+                </div>
+
+
+                <div class="rounded-2xl
+                            border border-slate-800
+                            bg-slate-950/50
+                            p-6">
+
+                    <div class="feature-icon mb-5">
+                        <i data-lucide="globe-2"></i>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-white mb-3"
+                        data-i18n="selfhost_feature2_title">
+                        Web-Based
+                    </h3>
+
+                    <p class="text-slate-400 leading-7"
+                       data-i18n="selfhost_feature2_desc">
+                        Access Savely through your browser
+                        on your own hosting environment.
+                    </p>
+
+                </div>
+
+
+                <div class="rounded-2xl
+                            border border-slate-800
+                            bg-slate-950/50
+                            p-6">
+
+                    <div class="feature-icon mb-5">
+                        <i data-lucide="server"></i>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-white mb-3"
+                        data-i18n="selfhost_feature3_title">
+                        Your Own Instance
+                    </h3>
+
+                    <p class="text-slate-400 leading-7"
+                       data-i18n="selfhost_feature3_desc">
+                        Keep your Savely installation under
+                        your own control.
+                    </p>
+
+                </div>
+
             </div>
+
+
+            <!-- CTA -->
+
+            <div class="mt-12 text-center">
+
+                <a
+                    id="selfhost-buy-btn"
+                    href="https://digitalyar.company/product/savely-personal-information-management-system/"
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center justify-center gap-3
+                           px-8 py-4
+                           rounded-xl
+                           bg-indigo-600
+                           hover:bg-indigo-500
+                           text-white
+                           font-bold
+                           text-lg
+                           shadow-xl shadow-indigo-950/30
+                           transition">
+
+                    <span data-i18n="selfhost_button">
+                        Buy Self-Hosted Edition
+                    </span>
+
+                    <i data-lucide="arrow-up-right"
+                       class="w-5 h-5"></i>
+
+                </a>
+
+
+                <p class="mt-5 text-sm text-slate-500"
+                   data-i18n="selfhost_note">
+
+                    Windows is free to try. The Self-Hosted edition
+                    provides the complete experience.
+                </p>
+
+            </div>
+
         </div>
-    </footer>
 
-    <script>
-        // --- Translations ---
-        const translations = {
-            en: {
-                nav_github: "GitHub",
-                hero_badge: "Latest Stable Release:",
-                hero_title: "Take Back Your Digital Life",
-                hero_subtitle: "Your personal Digital HQ. Manage finances, tasks, health, and notes in one secure, offline-first dashboard. No subscriptions, no data tracking.",
-                btn_download: "Download for Windows",
-                btn_star_github: "Star on GitHub",
-                
-                stat_downloads: "Total Downloads",
-                stat_stars: "GitHub Stars",
-                stat_version: "Latest Version",
+    </div>
 
-                feat_notes_title: "Pro Notes & Knowledge Base",
-                feat_notes_desc: "A powerful editor supporting both Rich Text and Markdown. Link notes together like a personal Wiki using [[wiki-links]]. Organize with a nested folder tree and color tags.",
-                feat_notes_li1: "Markdown Support",
-                feat_notes_li2: "Wiki Linking",
-                tag_productivity: "Second Brain",
+</section>
 
-                feat_finance_title: "Financial Command Center",
-                feat_finance_desc: "Manage all your assets in one place. Track income, expenses, and transfers across multiple accounts (Bank, Cash, Crypto). Set monthly budgets and visualize your spending habits.",
-                feat_finance_li2: "Budgeting & Progress Bars",
-                feat_finance_li3: "Secure & Offline Data",
-                tag_finance: "Financial Freedom",
 
-                feat_web_title: "Smart Bookmarks & Weather",
-                feat_web_desc: "Organize your web life with a visual bookmark manager featuring card views and duplicate detection. Stay updated with a beautiful, real-time weather widget.",
-                feat_web_sub1: "Visual Bookmarks",
-                feat_web_sub1_desc: "Moodboard & Card views with auto-tagging.",
-                tag_web: "Web & Utilities",
+<!-- =========================================================
+     COMPARISON
+========================================================= -->
 
-                grid_title: "A Complete OS for Your Life",
-                grid_subtitle: "More than 13 integrated modules to handle every aspect of your digital routine.",
+<section class="py-24 bg-slate-950/40">
 
-                mod_tasks_title: "Advanced Tasks",
-                mod_tasks_desc: "Kanban boards, subtasks, and Eisenhower matrix prioritization.",
-                mod_focus_title: "Focus Room",
-                mod_focus_desc: "Pomodoro timer with built-in ambient soundscapes (Rain, White Noise).",
-                mod_health_title: "Health Tracker",
-                mod_health_desc: "Track water, sleep, weight, blood pressure, and medication reminders.",
-                mod_journal_title: "Mood Journal",
-                mod_journal_desc: "Daily diary with mood tracking, photo gallery, and 'On This Day' flashbacks.",
-                mod_goals_title: "Goals & Habits",
-                mod_goals_desc: "Vision boards, habit streaks, milestones, and gratitude logging.",
-                mod_contacts_title: "Contact 360 CRM",
-                mod_contacts_desc: "Full relationship view: linked tasks, finance history, and notes per person.",
-                mod_calendar_title: "Universal Calendar",
-                mod_calendar_desc: "Month/Week/Day views. Supports Jalali & Gregorian.",
-                mod_vault_title: "Password Vault",
-                mod_vault_desc: "AES Encrypted offline storage for credentials with a strong password generator.",
+    <div class="max-w-5xl mx-auto px-5 lg:px-8">
 
-                cta_title: "Ready to Organize Your Life?",
-                cta_desc: "Join thousands of users who switched to a private, secure, and fast personal OS.",
-                btn_download_full: "Download Installer",
-                cta_sub1: "Free & Open Source",
-                cta_sub2: "Windows 10/11",
-                cta_sub3: "No Credit Card",
+        <div class="text-center">
 
-                btn_visit_site: "Website",
-                company_url: "https://digitalyar.company/",
-                footer_copy: "© 2026 Savely. Open Source Software. Developed by Mohammad Alipour."
-            },
-            fa: {
-                nav_github: "گیت‌هاب",
-                hero_badge: "آخرین نسخه پایدار:",
-                hero_title: "زندگی دیجیتال خود را بازپس بگیرید",
-                hero_subtitle: "دفتر مرکزی دیجیتال شما. مدیریت مالی، وظایف، سلامت و یادداشت‌ها در یک داشبورد امن و آفلاین. بدون اشتراک، بدون ردیابی.",
-                btn_download: "دانلود نسخه ویندوز",
-                btn_star_github: "ستاره دادن در گیت‌هاب",
+            <h2 class="text-3xl sm:text-4xl
+                       font-extrabold text-white">
 
-                stat_downloads: "مجموع دانلودها",
-                stat_stars: "ستاره‌های گیت‌هاب",
-                stat_version: "آخرین نسخه",
+                <span data-i18n="compare_title">
+                    Which version is right for you?
+                </span>
 
-                feat_notes_title: "یادداشت‌های حرفه‌ای و پایگاه دانش",
-                feat_notes_desc: "ویرایشگر قدرتمند با پشتیبانی از مارک‌داون. یادداشت‌ها را مانند یک ویکی شخصی با [[لینک]] به هم متصل کنید. سازماندهی با پوشه‌های تو در تو و تگ‌های رنگی.",
-                feat_notes_li1: "پشتیبانی از مارک‌داون",
-                feat_notes_li2: "لینک‌دهی ویکی",
-                tag_productivity: "مغز دوم",
+            </h2>
 
-                feat_finance_title: "مرکز فرماندهی مالی",
-                feat_finance_desc: "مدیریت تمام دارایی‌ها در یک مکان. ثبت درآمد، هزینه و انتقال بین حساب‌ها (بانک، نقد، کریپتو). تعیین بودجه ماهانه و مشاهده عادات خرج کردن با نمودار.",
-                feat_finance_li2: "بودجه‌بندی و نوار پیشرفت",
-                feat_finance_li3: "داده‌های امن و آفلاین",
-                tag_finance: "آزادی مالی",
+            <p class="mt-4 text-slate-400"
+               data-i18n="compare_description">
+                Start free with Windows, or choose Self-Hosted
+                when you need the broader Savely experience.
+            </p>
 
-                feat_web_title: "بوک‌مارک هوشمند و آب‌وهوا",
-                feat_web_desc: "زندگی وب خود را با مدیریت بوک‌مارک بصری (نمای کارت و مودبرد) و تشخیص لینک تکراری نظم دهید. با ویجت آب‌وهوای زنده و زیبا به‌روز بمانید.",
-                feat_web_sub1: "بوک‌مارک بصری",
-                feat_web_sub1_desc: "نمای کارتی و مودبرد با تگ‌گذاری خودکار.",
-                tag_web: "وب و ابزارها",
+        </div>
 
-                grid_title: "سیستم‌عاملی کامل برای زندگی",
-                grid_subtitle: "بیش از ۱۳ ماژول یکپارچه برای مدیریت تمام جنبه‌های روتین دیجیتال شما.",
 
-                mod_tasks_title: "مدیریت وظایف پیشرفته",
-                mod_tasks_desc: "تابلو کانبان، زیر-وظایف و اولویت‌بندی ماتریس آیزنهاور.",
-                mod_focus_title: "اتاق تمرکز",
-                mod_focus_desc: "تایمر پومودورو با صداهای محیطی داخلی (باران، نویز سفید).",
-                mod_health_title: "ردیاب سلامت",
-                mod_health_desc: "ردیابی آب، خواب، وزن، فشار خون و یادآور دارو.",
-                mod_journal_title: "ژورنال و خلق‌وقو",
-                mod_journal_desc: "خاطرات روزانه با ردیابی حال (Mood)، گالری عکس و فلش‌بک.",
-                mod_goals_title: "اهداف و عادت‌ها",
-                mod_goals_desc: "ویژن‌برد، زنجیره عادت (Streak)، مایل‌ستون‌ها و شکرگزاری.",
-                mod_contacts_title: "مدیریت مخاطبین ۳۶۰",
-                mod_contacts_desc: "نمای کامل روابط: تسک‌ها، تاریخچه مالی و یادداشت‌های مرتبط با هر فرد.",
-                mod_calendar_title: "تقویم جهانی",
-                mod_calendar_desc: "نمای ماهانه/هفتگی/روزانه. پشتیبانی از تقویم شمسی و میلادی.",
-                mod_vault_title: "صندوق امانات رمز",
-                mod_vault_desc: "ذخیره آفلاین رمزها با رمزنگاری AES و تولیدکننده رمز قوی.",
+        <div class="grid md:grid-cols-2 gap-6 mt-12">
 
-                cta_title: "برای نظم دادن به زندگی آماده‌اید؟",
-                cta_desc: "به جمع هزاران کاربری بپیوندید که به یک سیستم‌عامل شخصی امن، سریع و خصوصی مهاجرت کرده‌اند.",
-                btn_download_full: "دانلود اینستالر",
-                cta_sub1: "رایگان و متن‌باز",
-                cta_sub2: "ویندوز ۱۰ و ۱۱",
-                cta_sub3: "بدون نیاز به کارت اعتباری",
 
-                btn_visit_site: "دیجیتال‌یار",
-                company_url: "https://digitalyarco.ir/",
-                footer_copy: "© ۲۰۲۶ سیولی. نرم‌افزار متن‌باز. توسعه داده شده توسط دیجیتال‌یار."
+            <!-- Windows -->
+
+            <div class="card rounded-2xl p-7">
+
+                <div class="flex items-center justify-between">
+
+                    <h3 class="text-xl font-bold text-white"
+                        data-i18n="compare_windows_title">
+                        Savely Windows
+                    </h3>
+
+                    <span class="px-3 py-1 rounded-full
+                                 bg-green-500/10
+                                 text-green-400
+                                 text-xs font-semibold"
+                          data-i18n="compare_free">
+                        FREE
+                    </span>
+
+                </div>
+
+
+                <p class="text-slate-400 mt-3 leading-7"
+                   data-i18n="compare_windows_desc">
+                    A free desktop edition for Windows 10/11
+                    that lets you explore the Savely experience.
+                </p>
+
+
+                <ul class="mt-7 space-y-4 text-sm">
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-green-400 shrink-0"></i>
+
+                        <span data-i18n="compare_win_1">
+                            Free to use
+                        </span>
+                    </li>
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-green-400 shrink-0"></i>
+
+                        <span data-i18n="compare_win_2">
+                            Windows 10/11
+                        </span>
+                    </li>
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-green-400 shrink-0"></i>
+
+                        <span data-i18n="compare_win_3">
+                            Core Savely modules
+                        </span>
+                    </li>
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-green-400 shrink-0"></i>
+
+                        <span data-i18n="compare_win_4">
+                            Great for trying Savely
+                        </span>
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="https://github.com/worldmohammad/savely-os/releases/latest"
+                    target="_blank"
+                    rel="noopener"
+                    class="mt-8 inline-flex items-center gap-2
+                           text-blue-400
+                           hover:text-blue-300
+                           font-semibold">
+
+                    <span data-i18n="compare_win_button">
+                        Download Free
+                    </span>
+
+                    <i data-lucide="arrow-right"
+                       class="w-4 h-4"></i>
+
+                </a>
+
+            </div>
+
+
+            <!-- Self Hosted -->
+
+            <div class="rounded-2xl p-7
+                        border border-indigo-500/30
+                        bg-indigo-500/5
+                        relative overflow-hidden">
+
+                <div class="absolute top-0 right-0
+                            px-4 py-1.5
+                            bg-indigo-600
+                            text-white
+                            text-xs font-bold
+                            rounded-bl-xl"
+                     data-i18n="compare_recommended">
+                    RECOMMENDED
+                </div>
+
+
+                <h3 class="text-xl font-bold text-white">
+                    Self-Hosted
+                </h3>
+
+
+                <p class="text-slate-400 mt-3 leading-7"
+                   data-i18n="compare_selfhost_desc">
+                    The complete web-based Savely experience
+                    installed on your own hosting.
+                </p>
+
+
+                <ul class="mt-7 space-y-4 text-sm">
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-indigo-400 shrink-0"></i>
+
+                        <span data-i18n="compare_self_1">
+                            Full Savely experience
+                        </span>
+                    </li>
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-indigo-400 shrink-0"></i>
+
+                        <span data-i18n="compare_self_2">
+                            Web-based access
+                        </span>
+                    </li>
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-indigo-400 shrink-0"></i>
+
+                        <span data-i18n="compare_self_3">
+                            More integrated capabilities
+                        </span>
+                    </li>
+
+                    <li class="flex gap-3">
+                        <i data-lucide="check"
+                           class="w-5 h-5 text-indigo-400 shrink-0"></i>
+
+                        <span data-i18n="compare_self_4">
+                            Your own hosting and instance
+                        </span>
+                    </li>
+
+                </ul>
+
+
+                <a
+                    id="compare-selfhost-btn"
+                    href="https://digitalyar.company/product/savely-personal-information-management-system/"
+                    target="_blank"
+                    rel="noopener"
+                    class="mt-8 inline-flex items-center gap-2
+                           text-indigo-400
+                           hover:text-indigo-300
+                           font-semibold">
+
+                    <span data-i18n="compare_self_button">
+                        Get Self-Hosted
+                    </span>
+
+                    <i data-lucide="arrow-up-right"
+                       class="w-4 h-4"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="py-24">
+
+    <div class="max-w-5xl mx-auto px-5 lg:px-8 text-center">
+
+        <div class="w-16 h-16 mx-auto rounded-2xl
+                    bg-gradient-to-br from-blue-500 to-indigo-600
+                    flex items-center justify-center
+                    shadow-xl shadow-blue-950/30">
+
+            <i data-lucide="layers"
+               class="w-8 h-8 text-white"></i>
+
+        </div>
+
+
+        <h2 class="mt-7
+                   text-3xl sm:text-5xl
+                   font-extrabold text-white">
+
+            <span data-i18n="final_title">
+                Take control of your digital life.
+            </span>
+
+        </h2>
+
+
+        <p class="mt-5
+                  text-lg text-slate-400
+                  max-w-2xl mx-auto
+                  leading-8">
+
+            <span data-i18n="final_description">
+                Try Savely for free on Windows,
+                and upgrade to Self-Hosted when you're ready
+                for the complete experience.
+            </span>
+
+        </p>
+
+
+        <div class="mt-9 flex flex-col sm:flex-row
+                    justify-center gap-4">
+
+            <a
+                href="https://github.com/worldmohammad/savely-os/releases/latest"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-3
+                       px-7 py-4
+                       rounded-xl
+                       bg-blue-600
+                       hover:bg-blue-500
+                       text-white
+                       font-bold
+                       transition">
+
+                <i data-lucide="download"
+                   class="w-5 h-5"></i>
+
+                <span data-i18n="final_download">
+                    Try Savely Free
+                </span>
+
+            </a>
+
+
+            <a
+                id="final-selfhost-btn"
+                href="https://digitalyar.company/product/savely-personal-information-management-system/"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-3
+                       px-7 py-4
+                       rounded-xl
+                       border border-slate-700
+                       hover:bg-slate-800
+                       text-white
+                       font-semibold
+                       transition">
+
+                <span data-i18n="final_selfhost">
+                    Buy Self-Hosted
+                </span>
+
+                <i data-lucide="arrow-up-right"
+                   class="w-5 h-5"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="border-t border-slate-800/70
+               bg-slate-950">
+
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+
+        <div class="py-14
+                    grid md:grid-cols-3
+                    gap-10">
+
+
+            <!-- Brand -->
+
+            <div>
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-10 h-10 rounded-xl
+                                bg-gradient-to-br
+                                from-blue-500 to-indigo-600
+                                flex items-center justify-center">
+
+                        <i data-lucide="layers"
+                           class="w-5 h-5 text-white"></i>
+
+                    </div>
+
+                    <div class="font-bold text-white text-lg">
+                        Savely
+                    </div>
+
+                </div>
+
+
+                <p class="mt-5
+                          text-slate-500
+                          leading-7
+                          max-w-sm"
+                   data-i18n="footer_description">
+
+                    A Personal OS for organizing your
+                    digital life in one place.
+                </p>
+
+            </div>
+
+
+            <!-- Links -->
+
+            <div>
+
+                <h3 class="font-bold text-white mb-5"
+                    data-i18n="footer_links">
+                    Links
+                </h3>
+
+                <div class="space-y-3 text-sm">
+
+                    <a href="#features"
+                       class="block text-slate-500 hover:text-white transition"
+                       data-i18n="footer_features">
+                        Features
+                    </a>
+
+                    <a href="#modules"
+                       class="block text-slate-500 hover:text-white transition"
+                       data-i18n="footer_modules">
+                        Modules
+                    </a>
+
+                    <a href="#selfhosted"
+                       class="block text-slate-500 hover:text-white transition"
+                       data-i18n="footer_selfhost">
+                        Self-Hosted
+                    </a>
+
+                    <a
+                        href="https://github.com/worldmohammad/savely-os"
+                        target="_blank"
+                        rel="noopener"
+                        class="block text-slate-500 hover:text-white transition">
+                        GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Project -->
+
+            <div>
+
+                <h3 class="font-bold text-white mb-5"
+                    data-i18n="footer_project">
+                    Savely Project
+                </h3>
+
+                <p class="text-sm
+                          text-slate-500
+                          leading-7"
+                   data-i18n="footer_project_desc">
+
+                    Explore the free Windows edition
+                    or choose the complete Self-Hosted
+                    version for your own environment.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="section-divider"></div>
+
+
+        <div class="py-7
+                    flex flex-col sm:flex-row
+                    items-center justify-between
+                    gap-4
+                    text-sm text-slate-600">
+
+            <div>
+                © <span id="current-year"></span>
+                Savely. All rights reserved.
+            </div>
+
+            <div data-i18n="footer_made">
+                Built for personal productivity and digital ownership.
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     TRANSLATIONS + JAVASCRIPT
+========================================================= -->
+
+<script>
+
+const translations = {
+
+    en: {
+
+        nav_features: "Features",
+        nav_modules: "Modules",
+        nav_selfhost: "Self-Hosted",
+        nav_download: "Download",
+        nav_download_button: "Download Free",
+
+        hero_badge: "Free & Open Source for Windows",
+        hero_title_1: "Your Digital Life.",
+        hero_title_2: "One Personal OS.",
+
+        hero_description:
+            "Savely brings your notes, tasks, bookmarks, passwords, finances, contacts, calendar, goals and more into one simple personal workspace.",
+
+        hero_download:
+            "Download Free for Windows",
+
+        hero_selfhost:
+            "Explore Self-Hosted",
+
+        hero_note:
+            "Windows 10/11 • Free • No subscription • No data tracking",
+
+        mock_notes: "Notes",
+        mock_tasks: "Tasks",
+        mock_bookmarks: "Bookmarks",
+        mock_goals: "Goals",
+        mock_activity: "Recent Activity",
+        mock_quick: "Quick Access",
+
+        features_badge: "WHY SAVELY",
+
+        features_title:
+            "A simpler way to manage your digital life",
+
+        features_description:
+            "Instead of spreading your information across dozens of disconnected applications, Savely gives you one organized personal workspace.",
+
+        feature1_title:
+            "One Personal Workspace",
+
+        feature1_description:
+            "Bring the important parts of your digital life together instead of switching between countless applications.",
+
+        feature2_title:
+            "Privacy First",
+
+        feature2_description:
+            "Savely is designed around personal ownership and privacy, without requiring a subscription or advertising ecosystem.",
+
+        feature3_title:
+            "Find What Matters",
+
+        feature3_description:
+            "Keep your information organized and make it easier to find the things you need.",
+
+        feature4_title:
+            "Multilingual",
+
+        feature4_description:
+            "Savely supports multiple languages and includes Persian and RTL support.",
+
+        feature5_title:
+            "Your Time, Organized",
+
+        feature5_description:
+            "Manage events, tasks, goals and habits from a connected personal system.",
+
+        feature6_title:
+            "Built to Grow",
+
+        feature6_description:
+            "Start with the features you need today and gradually build your own personal system.",
+
+
+        modules_badge:
+            "INTEGRATED MODULES",
+
+        modules_title:
+            "More than just a notes app",
+
+        modules_description:
+            "Savely combines multiple areas of personal information management into a single system.",
+
+
+        module_notes: "Notes",
+        module_notes_desc: "Capture and organize ideas",
+
+        module_tasks: "Tasks",
+        module_tasks_desc: "Manage tasks and priorities",
+
+        module_goals: "Goals & Habits",
+        module_goals_desc: "Build routines and track goals",
+
+        module_focus: "Focus Room",
+        module_focus_desc: "Stay focused on what matters",
+
+        module_bookmarks: "Bookmarks",
+        module_bookmarks_desc: "Save useful websites",
+
+        module_passwords: "Password Vault",
+        module_passwords_desc: "Keep credentials organized",
+
+        module_finance: "Finance",
+        module_finance_desc: "Track personal finances",
+
+        module_calendar: "Calendar",
+        module_calendar_desc: "Organize your events",
+
+        module_contacts: "Contacts 360",
+        module_contacts_desc: "Manage people and contacts",
+
+        module_health: "Health Tracker",
+        module_health_desc: "Track personal health data",
+
+        module_mood: "Mood Journal",
+        module_mood_desc: "Record moods and reflections",
+
+        module_weather: "Weather",
+        module_weather_desc: "Keep weather information nearby",
+
+        module_files: "File Manager",
+        module_files_desc: "Organize important files",
+
+        module_links: "URL Shortener",
+        module_links_desc: "Create and manage short links",
+
+        module_email: "Email",
+        module_email_desc: "Keep email workflows organized",
+
+        module_templates: "Templates",
+        module_templates_desc: "Reuse your personal templates",
+
+
+        github_title:
+            "Open Source & Community",
+
+        github_description:
+            "Savely OS is available on GitHub for free.",
+
+        github_stars:
+            "GitHub Stars",
+
+        github_forks:
+            "Forks",
+
+        github_downloads:
+            "Downloads",
+
+        github_version:
+            "Latest Version",
+
+        github_button:
+            "View on GitHub",
+
+
+        download_title:
+            "Start with Savely for Windows",
+
+        download_description:
+            "Download the free Windows edition and explore the Savely experience before deciding whether the complete Self-Hosted edition is right for you.",
+
+        download_button:
+            "Download Latest Version",
+
+        source_button:
+            "View Source Code",
+
+
+        selfhost_badge:
+            "Full Self-Hosted Edition",
+
+        selfhost_title:
+            "Want the Complete Savely Experience?",
+
+        selfhost_desc:
+            "The free Windows edition is a great way to explore Savely. For the full web-based experience, install the Self-Hosted edition on your own hosting and access a broader set of features and capabilities.",
+
+        selfhost_feature1_title:
+            "More Features",
+
+        selfhost_feature1_desc:
+            "Access capabilities and modules that are not available in the Windows edition.",
+
+        selfhost_feature2_title:
+            "Web-Based",
+
+        selfhost_feature2_desc:
+            "Access Savely through your browser on your own hosting environment.",
+
+        selfhost_feature3_title:
+            "Your Own Instance",
+
+        selfhost_feature3_desc:
+            "Keep your Savely installation under your own control.",
+
+        selfhost_button:
+            "Buy Self-Hosted Edition",
+
+        selfhost_note:
+            "Windows is free to try. The Self-Hosted edition provides the complete experience.",
+
+
+        compare_title:
+            "Which version is right for you?",
+
+        compare_description:
+            "Start free with Windows, or choose Self-Hosted when you need the broader Savely experience.",
+
+        compare_windows_title:
+            "Savely Windows",
+
+        compare_free:
+            "FREE",
+
+        compare_windows_desc:
+            "A free desktop edition for Windows 10/11 that lets you explore the Savely experience.",
+
+        compare_win_1:
+            "Free to use",
+
+        compare_win_2:
+            "Windows 10/11",
+
+        compare_win_3:
+            "Core Savely modules",
+
+        compare_win_4:
+            "Great for trying Savely",
+
+        compare_win_button:
+            "Download Free",
+
+
+        compare_recommended:
+            "RECOMMENDED",
+
+        compare_selfhost_desc:
+            "The complete web-based Savely experience installed on your own hosting.",
+
+        compare_self_1:
+            "Full Savely experience",
+
+        compare_self_2:
+            "Web-based access",
+
+        compare_self_3:
+            "More integrated capabilities",
+
+        compare_self_4:
+            "Your own hosting and instance",
+
+        compare_self_button:
+            "Get Self-Hosted",
+
+
+        final_title:
+            "Take control of your digital life.",
+
+        final_description:
+            "Try Savely for free on Windows, and upgrade to Self-Hosted when you're ready for the complete experience.",
+
+        final_download:
+            "Try Savely Free",
+
+        final_selfhost:
+            "Buy Self-Hosted",
+
+
+        footer_description:
+            "A Personal OS for organizing your digital life in one place.",
+
+        footer_links:
+            "Links",
+
+        footer_features:
+            "Features",
+
+        footer_modules:
+            "Modules",
+
+        footer_selfhost:
+            "Self-Hosted",
+
+        footer_project:
+            "Savely Project",
+
+        footer_project_desc:
+            "Explore the free Windows edition or choose the complete Self-Hosted version for your own environment.",
+
+        footer_made:
+            "Built for personal productivity and digital ownership."
+
+    },
+
+
+    fa: {
+
+        nav_features: "ویژگی‌ها",
+        nav_modules: "ماژول‌ها",
+        nav_selfhost: "نسخه Self-Hosted",
+        nav_download: "دانلود",
+        nav_download_button: "دانلود رایگان",
+
+        hero_badge:
+            "رایگان و متن‌باز برای ویندوز",
+
+        hero_title_1:
+            "زندگی دیجیتال شما.",
+
+        hero_title_2:
+            "یک Personal OS.",
+
+        hero_description:
+            "Savely یادداشت‌ها، وظایف، بوکمارک‌ها، رمزهای عبور، امور مالی، مخاطبین، تقویم، اهداف و موارد دیگر را در یک فضای شخصی و یکپارچه در اختیار شما قرار می‌دهد.",
+
+        hero_download:
+            "دانلود رایگان برای ویندوز",
+
+        hero_selfhost:
+            "مشاهده نسخه Self-Hosted",
+
+        hero_note:
+            "ویندوز ۱۰ و ۱۱ • رایگان • بدون اشتراک • بدون ردیابی اطلاعات",
+
+        mock_notes: "یادداشت‌ها",
+        mock_tasks: "وظایف",
+        mock_bookmarks: "بوکمارک‌ها",
+        mock_goals: "اهداف",
+        mock_activity: "فعالیت‌های اخیر",
+        mock_quick: "دسترسی سریع",
+
+
+        features_badge:
+            "چرا Savely؟",
+
+        features_title:
+            "راهی ساده‌تر برای مدیریت زندگی دیجیتال",
+
+        features_description:
+            "به‌جای پراکنده کردن اطلاعات در ده‌ها برنامه مختلف، Savely یک فضای شخصی و منظم برای مدیریت بخش‌های مختلف زندگی دیجیتال شما فراهم می‌کند.",
+
+        feature1_title:
+            "یک فضای شخصی یکپارچه",
+
+        feature1_description:
+            "بخش‌های مهم زندگی دیجیتال خود را در یک محیط جمع کنید و دیگر مجبور نباشید دائماً بین برنامه‌های مختلف جابه‌جا شوید.",
+
+        feature2_title:
+            "حریم خصوصی در اولویت",
+
+        feature2_description:
+            "Savely با تمرکز بر مالکیت شخصی و حریم خصوصی طراحی شده و برای استفاده از آن نیازی به اشتراک ماهانه یا اکوسیستم تبلیغاتی ندارید.",
+
+        feature3_title:
+            "پیدا کردن اطلاعات مهم",
+
+        feature3_description:
+            "اطلاعات خود را منظم نگه دارید و موارد موردنیازتان را سریع‌تر پیدا کنید.",
+
+        feature4_title:
+            "چندزبانه",
+
+        feature4_description:
+            "Savely از چند زبان پشتیبانی می‌کند و زبان فارسی و محیط راست‌به‌چپ را نیز در اختیار شما قرار می‌دهد.",
+
+        feature5_title:
+            "مدیریت زمان",
+
+        feature5_description:
+            "رویدادها، وظایف، اهداف و عادت‌های خود را در یک سیستم شخصی و مرتبط مدیریت کنید.",
+
+        feature6_title:
+            "قابل توسعه",
+
+        feature6_description:
+            "با امکانات موردنیاز خود شروع کنید و به‌مرور سیستم شخصی مدیریت اطلاعات خود را توسعه دهید.",
+
+
+        modules_badge:
+            "ماژول‌های یکپارچه",
+
+        modules_title:
+            "فراتر از یک برنامه یادداشت‌برداری",
+
+        modules_description:
+            "Savely بخش‌های مختلف مدیریت اطلاعات شخصی را در قالب یک سیستم یکپارچه کنار هم قرار می‌دهد.",
+
+
+        module_notes: "یادداشت‌ها",
+        module_notes_desc: "ثبت و سازماندهی ایده‌ها",
+
+        module_tasks: "وظایف",
+        module_tasks_desc: "مدیریت وظایف و اولویت‌ها",
+
+        module_goals: "اهداف و عادت‌ها",
+        module_goals_desc: "ساخت عادت و پیگیری اهداف",
+
+        module_focus: "اتاق تمرکز",
+        module_focus_desc: "تمرکز روی کارهای مهم",
+
+        module_bookmarks: "بوکمارک‌ها",
+        module_bookmarks_desc: "ذخیره و مدیریت سایت‌های مفید",
+
+        module_passwords: "خزانه رمز عبور",
+        module_passwords_desc: "مدیریت و سازماندهی اطلاعات ورود",
+
+        module_finance: "امور مالی",
+        module_finance_desc: "پیگیری امور مالی شخصی",
+
+        module_calendar: "تقویم",
+        module_calendar_desc: "مدیریت رویدادها و برنامه‌ها",
+
+        module_contacts: "مخاطبین ۳۶۰",
+        module_contacts_desc: "مدیریت افراد و مخاطبین",
+
+        module_health: "ردیاب سلامت",
+        module_health_desc: "ثبت اطلاعات شخصی مرتبط با سلامت",
+
+        module_mood: "دفترچه احساسات",
+        module_mood_desc: "ثبت احساسات و یادداشت‌های شخصی",
+
+        module_weather: "آب‌وهوا",
+        module_weather_desc: "مشاهده اطلاعات آب‌وهوا",
+
+        module_files: "مدیریت فایل",
+        module_files_desc: "سازماندهی فایل‌های مهم",
+
+        module_links: "کوتاه‌کننده لینک",
+        module_links_desc: "ساخت و مدیریت لینک‌های کوتاه",
+
+        module_email: "ایمیل",
+        module_email_desc: "سازماندهی گردش کار ایمیل",
+
+        module_templates: "قالب‌ها",
+        module_templates_desc: "استفاده مجدد از قالب‌های شخصی",
+
+
+        github_title:
+            "متن‌باز و مبتنی بر جامعه",
+
+        github_description:
+            "نسخه Savely OS برای ویندوز به‌صورت رایگان در GitHub منتشر شده است.",
+
+        github_stars:
+            "ستاره‌های GitHub",
+
+        github_forks:
+            "Fork",
+
+        github_downloads:
+            "دانلودها",
+
+        github_version:
+            "آخرین نسخه",
+
+        github_button:
+            "مشاهده در GitHub",
+
+
+        download_title:
+            "با نسخه ویندوز Savely شروع کنید",
+
+        download_description:
+            "نسخه رایگان ویندوز را دانلود کنید و ابتدا با محیط و تجربه Savely آشنا شوید؛ سپس اگر امکانات کامل‌تر می‌خواهید، نسخه Self-Hosted را انتخاب کنید.",
+
+        download_button:
+            "دانلود آخرین نسخه",
+
+        source_button:
+            "مشاهده کد منبع",
+
+
+        selfhost_badge:
+            "نسخه کامل Self-Hosted",
+
+        selfhost_title:
+            "تجربه کامل Savely را می‌خواهید؟",
+
+        selfhost_desc:
+            "نسخه رایگان ویندوز راهی مناسب برای آشنایی و آزمایش Savely است. برای تجربه کامل‌تر تحت وب، نسخه Self-Hosted را روی هاست خود نصب کنید و به مجموعه گسترده‌تری از امکانات دسترسی داشته باشید.",
+
+        selfhost_feature1_title:
+            "امکانات بیشتر",
+
+        selfhost_feature1_desc:
+            "دسترسی به قابلیت‌ها و ماژول‌هایی که در نسخه ویندوز ارائه نمی‌شوند.",
+
+        selfhost_feature2_title:
+            "تحت وب",
+
+        selfhost_feature2_desc:
+            "از طریق مرورگر و روی هاست شخصی خود به Savely دسترسی داشته باشید.",
+
+        selfhost_feature3_title:
+            "سیستم اختصاصی شما",
+
+        selfhost_feature3_desc:
+            "نصب Savely در محیطی که خودتان کنترل و مدیریت می‌کنید.",
+
+        selfhost_button:
+            "خرید نسخه Self-Hosted",
+
+        selfhost_note:
+            "نسخه ویندوز برای تست رایگان است؛ نسخه Self-Hosted تجربه کامل‌تری ارائه می‌دهد.",
+
+
+        compare_title:
+            "کدام نسخه برای شما مناسب است؟",
+
+        compare_description:
+            "با نسخه ویندوز به‌صورت رایگان شروع کنید یا برای تجربه کامل‌تر Savely، نسخه Self-Hosted را انتخاب کنید.",
+
+        compare_windows_title:
+            "Savely برای ویندوز",
+
+        compare_free:
+            "رایگان",
+
+        compare_windows_desc:
+            "نسخه رایگان دسکتاپ برای ویندوز ۱۰ و ۱۱ که امکان آشنایی و استفاده از Savely را فراهم می‌کند.",
+
+        compare_win_1:
+            "رایگان",
+
+        compare_win_2:
+            "ویندوز ۱۰ و ۱۱",
+
+        compare_win_3:
+            "ماژول‌های اصلی Savely",
+
+        compare_win_4:
+            "مناسب برای تست Savely",
+
+        compare_win_button:
+            "دانلود رایگان",
+
+
+        compare_recommended:
+            "پیشنهاد ما",
+
+        compare_selfhost_desc:
+            "تجربه کامل تحت وب Savely که روی هاست شخصی شما نصب می‌شود.",
+
+        compare_self_1:
+            "تجربه کامل Savely",
+
+        compare_self_2:
+            "دسترسی تحت وب",
+
+        compare_self_3:
+            "امکانات یکپارچه بیشتر",
+
+        compare_self_4:
+            "هاست و سیستم اختصاصی شما",
+
+        compare_self_button:
+            "دریافت نسخه Self-Hosted",
+
+
+        final_title:
+            "کنترل زندگی دیجیتال خود را در دست بگیرید.",
+
+        final_description:
+            "Savely را ابتدا به‌صورت رایگان روی ویندوز امتحان کنید و هر زمان برای تجربه کامل‌تر آماده بودید، به نسخه Self-Hosted بروید.",
+
+        final_download:
+            "تست رایگان Savely",
+
+        final_selfhost:
+            "خرید نسخه Self-Hosted",
+
+
+        footer_description:
+            "یک Personal OS برای سازماندهی زندگی دیجیتال شما در یک مکان.",
+
+        footer_links:
+            "لینک‌ها",
+
+        footer_features:
+            "ویژگی‌ها",
+
+        footer_modules:
+            "ماژول‌ها",
+
+        footer_selfhost:
+            "نسخه Self-Hosted",
+
+        footer_project:
+            "پروژه Savely",
+
+        footer_project_desc:
+            "نسخه رایگان ویندوز را امتحان کنید یا برای استفاده از تجربه کامل‌تر، نسخه Self-Hosted را در محیط شخصی خود نصب کنید.",
+
+        footer_made:
+            "ساخته‌شده برای بهره‌وری شخصی و مالکیت دیجیتال."
+
+    }
+
+};
+
+
+/* =========================================================
+   CURRENT LANGUAGE
+========================================================= */
+
+let currentLang =
+    navigator.language &&
+    navigator.language.toLowerCase().startsWith('fa')
+        ? 'fa'
+        : 'en';
+
+
+/* =========================================================
+   SELF-HOSTED URLS
+========================================================= */
+
+const selfHostedUrls = {
+
+    en:
+        "https://digitalyar.company/product/savely-personal-information-management-system/",
+
+    fa:
+        "https://digifilestore.ir/downloads/savely-personal-information-management-system/"
+
+};
+
+
+/* =========================================================
+   APPLY LANGUAGE
+========================================================= */
+
+function applyLanguage() {
+
+    const lang = translations[currentLang];
+
+    document.documentElement.lang = currentLang;
+
+    document.documentElement.dir =
+        currentLang === 'fa'
+            ? 'rtl'
+            : 'ltr';
+
+
+    /* Text */
+
+    document
+        .querySelectorAll('[data-i18n]')
+        .forEach(element => {
+
+            const key = element.getAttribute('data-i18n');
+
+            if (lang[key]) {
+                element.textContent = lang[key];
             }
-        };
 
-        // --- GitHub API Logic ---
-        const REPO_OWNER = 'worldmohammad';
-        const REPO_NAME = 'savely-os';
+        });
 
-        async function fetchGitHubStats() {
-            try {
-                // 1. Fetch Repository Info (Stars)
-                const repoRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`);
-                if (repoRes.ok) {
-                    const repoData = await repoRes.json();
-                    document.getElementById('stat-stars').textContent = (repoData.stargazers_count || 0).toLocaleString();
-                } else {
-                    document.getElementById('stat-stars').textContent = "0";
-                }
 
-                // 2. Fetch Releases (Downloads & Latest Version)
-                const releasesRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases`);
-                if (releasesRes.ok) {
-                    const releases = await releasesRes.json();
-                    
-                    // Calculate Total Downloads (Iterates all assets in all releases)
-                    let totalDownloads = 0;
-                    releases.forEach(release => {
-                        release.assets.forEach(asset => {
-                            totalDownloads += asset.download_count;
-                        });
-                    });
-                    document.getElementById('stat-downloads').textContent = totalDownloads.toLocaleString();
+    /* Language button */
 
-                    // Get Latest Release Info
-                    if (releases.length > 0) {
-                        const latestRelease = releases[0];
-                        const version = latestRelease.tag_name;
-                        
-                        // Update version text everywhere
-                        document.querySelectorAll('.version-text').forEach(el => {
-                            el.textContent = version;
-                        });
+    const langLabel =
+        document.getElementById('lang-label');
 
-                        // Update download links to the first .exe asset of the latest release
-                        const exeAsset = latestRelease.assets.find(asset => asset.name.endsWith('.exe')) || latestRelease.assets[0];
-                        if (exeAsset) {
-                            const downloadUrl = exeAsset.browser_download_url;
-                            document.querySelectorAll('.download-link').forEach(link => {
-                                link.href = downloadUrl;
-                            });
-                        }
-                    }
-                }
-            } catch (error) {
-                console.warn("Failed to fetch GitHub stats:", error);
-                // Fallback values handled in HTML
-            }
+    if (langLabel) {
+
+        langLabel.textContent =
+            currentLang === 'fa'
+                ? 'English'
+                : 'فارسی';
+
+    }
+
+
+    /* Self-hosted links */
+
+    const url =
+        selfHostedUrls[currentLang];
+
+
+    const links = [
+        'selfhost-buy-btn',
+        'compare-selfhost-btn',
+        'final-selfhost-btn'
+    ];
+
+
+    links.forEach(id => {
+
+        const element =
+            document.getElementById(id);
+
+        if (element) {
+            element.href = url;
         }
 
-        // --- Language Logic ---
-        let currentLang = 'en';
+    });
 
-        function toggleLang() {
-            currentLang = currentLang === 'en' ? 'fa' : 'en';
-            const body = document.body;
-            const langLabel = document.getElementById('lang-label');
-            
+
+    /* Direction for arrows */
+
+    document
+        .querySelectorAll('[data-lucide="arrow-right"]')
+        .forEach(icon => {
+
             if (currentLang === 'fa') {
-                body.classList.remove('lang-en');
-                body.classList.add('lang-fa');
-                langLabel.textContent = "EN";
+                icon.style.transform = 'rotate(180deg)';
             } else {
-                body.classList.remove('lang-fa');
-                body.classList.add('lang-en');
-                langLabel.textContent = "FA";
+                icon.style.transform = 'none';
             }
 
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    element.textContent = translations[currentLang][key];
-                }
-            });
+        });
 
-            document.querySelectorAll('[data-i18n-href]').forEach(element => {
-                const key = element.getAttribute('data-i18n-href');
-                if (translations[currentLang][key]) {
-                    element.href = translations[currentLang][key];
-                }
-            });
+
+    /* Page title */
+
+    document.title =
+        currentLang === 'fa'
+            ? 'Savely OS — مدیریت یکپارچه زندگی دیجیتال شما'
+            : 'Savely OS — Your Personal Digital Life, Organized';
+
+
+    /* Meta description */
+
+    const metaDescription =
+        document.querySelector('meta[name="description"]');
+
+    if (metaDescription) {
+
+        metaDescription.content =
+            currentLang === 'fa'
+
+                ? 'Savely یک Personal OS برای مدیریت یادداشت‌ها، وظایف، بوکمارک‌ها، رمزهای عبور، امور مالی، مخاطبین، تقویم، اهداف و عادت‌ها در یک محیط یکپارچه است.'
+
+                : 'Savely is a free Personal OS for Windows that helps you manage notes, tasks, bookmarks, passwords, finance, contacts, calendar, goals, habits and more in one place.';
+
+    }
+
+}
+
+
+/* =========================================================
+   TOGGLE LANGUAGE
+========================================================= */
+
+function toggleLanguage() {
+
+    currentLang =
+        currentLang === 'en'
+            ? 'fa'
+            : 'en';
+
+    applyLanguage();
+
+    lucide.createIcons();
+
+}
+
+
+/* =========================================================
+   GITHUB API
+========================================================= */
+
+async function fetchGitHubStats() {
+
+    const repo =
+        'worldmohammad/savely-os';
+
+
+    try {
+
+        const response =
+            await fetch(
+                `https://api.github.com/repos/${repo}`
+            );
+
+
+        if (!response.ok) {
+            throw new Error('GitHub API error');
         }
 
-        // --- Init ---
+
+        const data =
+            await response.json();
+
+
+        const stars =
+            document.getElementById('github-stars');
+
+        const forks =
+            document.getElementById('github-forks');
+
+
+        if (stars) {
+
+            stars.textContent =
+                formatNumber(data.stargazers_count);
+
+        }
+
+
+        if (forks) {
+
+            forks.textContent =
+                formatNumber(data.forks_count);
+
+        }
+
+
+        /* Latest release */
+
+        const releaseResponse =
+            await fetch(
+                `https://api.github.com/repos/${repo}/releases/latest`
+            );
+
+
+        if (releaseResponse.ok) {
+
+            const release =
+                await releaseResponse.json();
+
+
+            const version =
+                document.getElementById('github-version');
+
+
+            if (version) {
+
+                version.textContent =
+                    release.tag_name || '—';
+
+            }
+
+
+            let totalDownloads = 0;
+
+
+            if (Array.isArray(release.assets)) {
+
+                release.assets.forEach(asset => {
+
+                    totalDownloads +=
+                        asset.download_count || 0;
+
+                });
+
+            }
+
+
+            const downloads =
+                document.getElementById('github-downloads');
+
+
+            if (downloads) {
+
+                downloads.textContent =
+                    formatNumber(totalDownloads);
+
+            }
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.log(
+            'Unable to load GitHub statistics:',
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   NUMBER FORMAT
+========================================================= */
+
+function formatNumber(number) {
+
+    if (!Number.isFinite(number)) {
+        return '—';
+    }
+
+
+    if (number >= 1000000) {
+
+        return (
+            (number / 1000000)
+                .toFixed(1)
+                .replace('.0', '')
+            + 'M'
+        );
+
+    }
+
+
+    if (number >= 1000) {
+
+        return (
+            (number / 1000)
+                .toFixed(1)
+                .replace('.0', '')
+            + 'K'
+        );
+
+    }
+
+
+    return number.toLocaleString();
+
+}
+
+
+/* =========================================================
+   INIT
+========================================================= */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+
+        document.getElementById(
+            'current-year'
+        ).textContent =
+            new Date().getFullYear();
+
+
         lucide.createIcons();
+
+
+        applyLanguage();
+
+
         fetchGitHubStats();
 
-    </script>
+    }
+);
+
+</script>
+
 </body>
 </html>
