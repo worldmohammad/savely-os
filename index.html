@@ -1,171 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Savely — Your Personal OS | Free for Windows</title>
 
-  <meta name="description"
-        content="Savely is your personal operating system for managing notes, tasks, bookmarks, passwords, files, finance, calendar and more. Free and open-source for Windows.">
+  <meta
+    name="description"
+    content="Savely is your personal operating system for managing notes, tasks, bookmarks, passwords, files, finance, calendar and more."
+  >
 
-  <meta name="keywords"
-        content="Savely, Personal OS, Personal Information Management, PIM, Windows productivity, notes, tasks, password manager, file manager">
+  <meta
+    name="keywords"
+    content="Savely, Personal OS, Personal Information Management, PIM, Windows productivity, notes, tasks, password manager, file manager"
+  >
 
   <meta name="theme-color" content="#020617">
 
-  <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233b82f6'/%3E%3Cpath d='M28 34h44v9H38v9h27c6 0 10 5 10 11v4c0 8-6 13-14 13H28v-9h32c3 0 5-2 5-4s-2-4-5-4H38c-6 0-10-5-10-11v-5c0-7 5-13 13-13z' fill='white'/%3E%3C/svg%3E">
+  <!-- =====================================================
+       TAILWIND
+  ====================================================== -->
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Lucide -->
+
+  <!-- =====================================================
+       LUCIDE
+  ====================================================== -->
+
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Fonts -->
+
+  <!-- =====================================================
+       FONTS
+  ====================================================== -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
 
   <style>
 
-    /* =========================================================
+    /* =====================================================
        GLOBAL
-    ========================================================= */
+    ====================================================== */
 
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: Inter, Vazirmatn, sans-serif;
+      margin: 0;
+
+      font-family:
+        Inter,
+        Vazirmatn,
+        sans-serif;
+
+      color: #e2e8f0;
+
       background:
         radial-gradient(
-          circle at 50% -10%,
-          rgba(59,130,246,.12),
-          transparent 35%
+          circle at 50% -15%,
+          rgba(59,130,246,.16),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 10% 35%,
+          rgba(168,85,247,.07),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 55%,
+          rgba(20,184,166,.06),
+          transparent 25%
         ),
         #020617;
-      color: #e2e8f0;
     }
 
     html[dir="rtl"] body {
-      font-family: Vazirmatn, Inter, sans-serif;
+      font-family:
+        Vazirmatn,
+        Inter,
+        sans-serif;
     }
 
     ::selection {
-      background: rgba(59,130,246,.35);
-      color: white;
+      background: rgba(96,165,250,.35);
+      color: #fff;
     }
 
-    .glass {
-      background: rgba(15,23,42,.72);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(148,163,184,.10);
-    }
 
-    .gradient-text {
-      background: linear-gradient(
-        135deg,
-        #60a5fa,
-        #818cf8 45%,
-        #c084fc
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      left: 50%;
-      top: -250px;
-      transform: translateX(-50%);
-      background: radial-gradient(
-        circle,
-        rgba(59,130,246,.17),
-        transparent 68%
-      );
-      filter: blur(25px);
-      pointer-events: none;
-    }
+    /* =====================================================
+       BACKGROUND
+    ====================================================== */
 
     .grid-bg {
+
       background-image:
+
         linear-gradient(
           rgba(148,163,184,.035) 1px,
           transparent 1px
         ),
+
         linear-gradient(
           90deg,
           rgba(148,163,184,.035) 1px,
           transparent 1px
         );
+
       background-size: 48px 48px;
-    }
 
-    .soft-border {
-      border: 1px solid rgba(148,163,184,.10);
-    }
-
-    .section-line {
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(148,163,184,.12),
-        transparent
-      );
     }
 
 
-    /* =========================================================
-       NAVBAR
-    ========================================================= */
+    .glass {
+
+      background:
+        rgba(15,23,42,.72);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      border:
+        1px solid rgba(148,163,184,.10);
+
+    }
+
+
+    .gradient-text {
+
+      background:
+        linear-gradient(
+          135deg,
+          #60a5fa 0%,
+          #818cf8 35%,
+          #c084fc 65%,
+          #22d3ee 100%
+        );
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
+
+    }
+
+
+    .hero-glow {
+
+      position:
+        absolute;
+
+      width:
+        650px;
+
+      height:
+        650px;
+
+      left:
+        50%;
+
+      top:
+        -300px;
+
+      transform:
+        translateX(-50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(59,130,246,.18),
+          rgba(139,92,246,.08) 40%,
+          transparent 70%
+        );
+
+      filter:
+        blur(20px);
+
+      pointer-events:
+        none;
+
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ====================================================== */
 
     .nav-link {
-      color: #94a3b8;
-      transition: .2s ease;
+
+      color:
+        #94a3b8;
+
+      transition:
+        .2s ease;
+
     }
 
     .nav-link:hover {
-      color: white;
+
+      color:
+        #fff;
+
     }
 
 
-    /* =========================================================
-       HERO
-    ========================================================= */
+    /* =====================================================
+       HERO BADGE
+    ====================================================== */
 
     .hero-badge {
-      background: rgba(59,130,246,.08);
-      border: 1px solid rgba(96,165,250,.18);
-      box-shadow: 0 0 30px rgba(59,130,246,.06);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(59,130,246,.10),
+          rgba(168,85,247,.08)
+        );
+
+      border:
+        1px solid rgba(96,165,250,.18);
+
+      box-shadow:
+        0 0 40px rgba(59,130,246,.06);
+
     }
 
-    .hero-title {
-      letter-spacing: -0.045em;
-    }
 
-    html[dir="rtl"] .hero-title {
-      letter-spacing: 0;
-    }
-
-
-    /* =========================================================
-       DASHBOARD MOCKUP
-    ========================================================= */
+    /* =====================================================
+       DASHBOARD
+    ====================================================== */
 
     .savely-window {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        26px;
 
       background:
         linear-gradient(
@@ -174,138 +268,289 @@
           rgba(2,6,23,.98)
         );
 
-      border: 1px solid rgba(148,163,184,.16);
+      border:
+        1px solid rgba(148,163,184,.16);
 
       box-shadow:
-        0 40px 100px rgba(0,0,0,.55),
-        0 0 80px rgba(37,99,235,.10);
+
+        0 40px 100px
+        rgba(0,0,0,.55),
+
+        0 0 100px
+        rgba(59,130,246,.10);
+
     }
+
 
     .window-topbar {
-      height: 58px;
-      border-bottom: 1px solid rgba(148,163,184,.08);
-      background: rgba(2,6,23,.88);
+
+      height:
+        58px;
+
+      border-bottom:
+        1px solid rgba(148,163,184,.08);
+
+      background:
+        rgba(2,6,23,.88);
+
     }
+
 
     .window-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+
+      width:
+        10px;
+
+      height:
+        10px;
+
+      border-radius:
+        50%;
+
     }
+
 
     .window-address {
-      height: 30px;
-      min-width: 220px;
-      max-width: 360px;
-      border-radius: 8px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
+      height:
+        30px;
 
-      font-size: 10px;
-      color: #64748b;
+      min-width:
+        220px;
 
-      background: rgba(15,23,42,.8);
-      border: 1px solid rgba(148,163,184,.08);
+      border-radius:
+        8px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        7px;
+
+      font-size:
+        10px;
+
+      color:
+        #64748b;
+
+      background:
+        rgba(15,23,42,.8);
+
+      border:
+        1px solid rgba(148,163,184,.08);
+
     }
+
 
     .mock-sidebar {
-      width: 220px;
-      background: rgba(2,6,23,.72);
-      border-right: 1px solid rgba(148,163,184,.08);
+
+      width:
+        220px;
+
+      background:
+        rgba(2,6,23,.72);
+
+      border-right:
+        1px solid rgba(148,163,184,.08);
+
     }
+
 
     html[dir="rtl"] .mock-sidebar {
-      border-right: 0;
-      border-left: 1px solid rgba(148,163,184,.08);
+
+      border-right:
+        0;
+
+      border-left:
+        1px solid rgba(148,163,184,.08);
+
     }
+
 
     .mock-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
     }
 
-    .mock-logo-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .mock-logo-icon {
+
+      width:
+        36px;
+
+      height:
+        36px;
+
+      border-radius:
+        10px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       background:
         linear-gradient(
           135deg,
           #3b82f6,
-          #6366f1
+          #6366f1,
+          #a855f7
         );
 
-      box-shadow: 0 8px 25px rgba(59,130,246,.25);
+      box-shadow:
+        0 8px 25px
+        rgba(59,130,246,.25);
+
     }
+
 
     .mock-nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
 
-      padding: 9px 10px;
-      border-radius: 9px;
+      display:
+        flex;
 
-      color: #64748b;
-      font-size: 11px;
+      align-items:
+        center;
 
-      transition: .2s ease;
+      gap:
+        10px;
+
+      padding:
+        9px 10px;
+
+      border-radius:
+        9px;
+
+      color:
+        #64748b;
+
+      font-size:
+        11px;
+
+      transition:
+        .2s ease;
+
     }
+
 
     .mock-nav svg {
-      width: 15px;
-      height: 15px;
+
+      width:
+        15px;
+
+      height:
+        15px;
+
     }
+
 
     .mock-nav.active {
-      color: #60a5fa;
-      background: rgba(59,130,246,.11);
+
+      color:
+        #93c5fd;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(59,130,246,.14),
+          rgba(99,102,241,.07)
+        );
+
     }
+
 
     .mock-nav:hover {
-      color: #cbd5e1;
-      background: rgba(148,163,184,.05);
+
+      color:
+        #e2e8f0;
+
+      background:
+        rgba(148,163,184,.05);
+
     }
+
 
     .mock-main {
+
       background:
+
         radial-gradient(
           circle at 80% 0%,
-          rgba(59,130,246,.05),
+          rgba(59,130,246,.07),
           transparent 30%
         ),
+
+        radial-gradient(
+          circle at 20% 100%,
+          rgba(168,85,247,.04),
+          transparent 25%
+        ),
+
         rgba(15,23,42,.50);
+
     }
+
 
     .mock-search {
-      height: 38px;
-      border-radius: 10px;
 
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      height:
+        38px;
 
-      padding: 0 12px;
+      border-radius:
+        10px;
 
-      color: #64748b;
-      font-size: 10px;
+      display:
+        flex;
 
-      background: rgba(2,6,23,.45);
-      border: 1px solid rgba(148,163,184,.08);
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+      padding:
+        0 12px;
+
+      color:
+        #64748b;
+
+      font-size:
+        10px;
+
+      background:
+        rgba(2,6,23,.45);
+
+      border:
+        1px solid rgba(148,163,184,.08);
+
     }
 
+
     .mock-stat {
-      padding: 14px;
-      border-radius: 14px;
+
+      padding:
+        14px;
+
+      border-radius:
+        14px;
 
       background:
         linear-gradient(
@@ -314,63 +559,132 @@
           rgba(15,23,42,.65)
         );
 
-      border: 1px solid rgba(148,163,184,.08);
+      border:
+        1px solid rgba(148,163,184,.08);
 
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.025);
     }
+
 
     .mock-stat-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        34px;
+
+      height:
+        34px;
+
+      border-radius:
+        10px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
     }
+
 
     .mock-stat-icon svg {
-      width: 16px;
-      height: 16px;
+
+      width:
+        16px;
+
+      height:
+        16px;
+
     }
 
-    .mock-stat-icon.blue {
-      background: rgba(59,130,246,.12);
-      color: #60a5fa;
+
+    .blue {
+      background:
+        rgba(59,130,246,.12);
+      color:
+        #60a5fa;
     }
 
-    .mock-stat-icon.purple {
-      background: rgba(139,92,246,.12);
-      color: #a78bfa;
+
+    .purple {
+      background:
+        rgba(168,85,247,.12);
+      color:
+        #c084fc;
     }
 
-    .mock-stat-icon.green {
-      background: rgba(16,185,129,.12);
-      color: #34d399;
+
+    .green {
+      background:
+        rgba(16,185,129,.12);
+      color:
+        #34d399;
     }
 
-    .mock-stat-icon.orange {
-      background: rgba(249,115,22,.12);
-      color: #fb923c;
+
+    .orange {
+      background:
+        rgba(249,115,22,.12);
+      color:
+        #fb923c;
     }
+
+
+    .cyan {
+      background:
+        rgba(6,182,212,.12);
+      color:
+        #22d3ee;
+    }
+
+
+    .pink {
+      background:
+        rgba(236,72,153,.12);
+      color:
+        #f472b6;
+    }
+
 
     .mock-stat-label {
-      color: #64748b;
-      font-size: 9px;
-      margin-top: 10px;
+
+      color:
+        #64748b;
+
+      font-size:
+        9px;
+
+      margin-top:
+        10px;
+
     }
+
 
     .mock-stat-number {
-      color: white;
-      font-size: 18px;
-      font-weight: 700;
-      margin-top: 2px;
+
+      color:
+        white;
+
+      font-size:
+        18px;
+
+      font-weight:
+        700;
+
+      margin-top:
+        2px;
+
     }
 
+
     .mock-panel {
-      padding: 16px;
-      border-radius: 15px;
+
+      padding:
+        16px;
+
+      border-radius:
+        15px;
 
       background:
         linear-gradient(
@@ -379,143 +693,231 @@
           rgba(15,23,42,.70)
         );
 
-      border: 1px solid rgba(148,163,184,.08);
+      border:
+        1px solid rgba(148,163,184,.08);
+
     }
+
 
     .mock-panel-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
 
-      color: #cbd5e1;
-      font-size: 11px;
-      font-weight: 600;
+      display:
+        flex;
 
-      margin-bottom: 14px;
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      color:
+        #cbd5e1;
+
+      font-size:
+        11px;
+
+      font-weight:
+        600;
+
+      margin-bottom:
+        14px;
+
     }
+
 
     .mock-note {
-      display: flex;
-      align-items: center;
-      gap: 10px;
 
-      padding: 9px;
-      border-radius: 10px;
+      display:
+        flex;
 
-      background: rgba(30,41,59,.42);
-      border: 1px solid rgba(148,163,184,.05);
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      padding:
+        9px;
+
+      border-radius:
+        10px;
+
+      background:
+        rgba(30,41,59,.42);
+
+      border:
+        1px solid rgba(148,163,184,.05);
+
     }
+
 
     .mock-note-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        30px;
 
-      background: rgba(99,102,241,.10);
-      color: #818cf8;
-      flex-shrink: 0;
+      height:
+        30px;
+
+      border-radius:
+        8px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      flex-shrink:
+        0;
+
     }
+
 
     .mock-note-title {
-      color: #cbd5e1;
-      font-size: 10px;
-      font-weight: 600;
+
+      color:
+        #cbd5e1;
+
+      font-size:
+        10px;
+
+      font-weight:
+        600;
+
     }
+
 
     .mock-note-meta {
-      color: #475569;
-      font-size: 8px;
-      margin-top: 3px;
+
+      color:
+        #475569;
+
+      font-size:
+        8px;
+
+      margin-top:
+        3px;
+
     }
+
 
     .mock-task {
-      display: flex;
-      align-items: center;
-      gap: 8px;
 
-      color: #94a3b8;
-      font-size: 10px;
+      display:
+        flex;
 
-      padding: 7px 0;
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+      color:
+        #94a3b8;
+
+      font-size:
+        10px;
+
+      padding:
+        7px 0;
+
     }
+
 
     .mock-checkbox {
-      width: 16px;
-      height: 16px;
-      border-radius: 5px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        16px;
 
-      border: 1px solid #334155;
-      flex-shrink: 0;
+      height:
+        16px;
+
+      border-radius:
+        5px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border:
+        1px solid #334155;
+
+      flex-shrink:
+        0;
+
     }
+
 
     .mock-checkbox.checked {
-      background: #2563eb;
-      border-color: #2563eb;
-      color: white;
+
+      background:
+        #2563eb;
+
+      border-color:
+        #2563eb;
+
+      color:
+        white;
+
     }
+
 
     .mock-progress {
-      height: 5px;
-      border-radius: 999px;
-      background: #1e293b;
-      overflow: hidden;
+
+      height:
+        5px;
+
+      border-radius:
+        999px;
+
+      background:
+        #1e293b;
+
+      overflow:
+        hidden;
+
     }
 
+
     .mock-progress > div {
-      height: 100%;
-      border-radius: inherit;
+
+      height:
+        100%;
+
+      border-radius:
+        inherit;
+
       background:
         linear-gradient(
           90deg,
           #3b82f6,
-          #6366f1
+          #8b5cf6,
+          #06b6d4
         );
-    }
 
-    .mock-mini-chart {
-      height: 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mock-chart-line {
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          145deg,
-          transparent 45%,
-          rgba(96,165,250,.8) 46%,
-          rgba(96,165,250,.8) 48%,
-          transparent 49%
-        ),
-        linear-gradient(
-          155deg,
-          transparent 55%,
-          rgba(129,140,248,.7) 56%,
-          rgba(129,140,248,.7) 58%,
-          transparent 59%
-        );
-      opacity: .55;
     }
 
 
-    /* =========================================================
+    /* =====================================================
        FEATURE CARDS
-    ========================================================= */
+    ====================================================== */
 
     .feature-card {
-      position: relative;
-      padding: 24px;
+
+      padding:
+        24px;
+
+      border-radius:
+        18px;
 
       background:
         linear-gradient(
@@ -524,83 +926,138 @@
           rgba(15,23,42,.52)
         );
 
-      border: 1px solid rgba(148,163,184,.08);
-      border-radius: 18px;
+      border:
+        1px solid rgba(148,163,184,.08);
 
       transition:
-        transform .25s ease,
-        border-color .25s ease,
-        background .25s ease;
+        .25s ease;
+
     }
+
 
     .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(96,165,250,.18);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(15,23,42,.98),
-          rgba(15,23,42,.68)
-        );
+
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(96,165,250,.20);
+
+      box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.20);
+
     }
+
 
     .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        46px;
 
-      background: rgba(59,130,246,.09);
-      color: #60a5fa;
+      height:
+        46px;
+
+      border-radius:
+        13px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(59,130,246,.13),
+          rgba(168,85,247,.10)
+        );
+
+      color:
+        #93c5fd;
+
     }
 
 
-    /* =========================================================
+    /* =====================================================
        MODULE CARDS
-    ========================================================= */
+    ====================================================== */
 
     .module-card {
-      min-height: 130px;
 
-      padding: 20px;
-      border-radius: 16px;
+      min-height:
+        130px;
 
-      background: rgba(15,23,42,.55);
-      border: 1px solid rgba(148,163,184,.07);
+      padding:
+        20px;
 
-      transition: .2s ease;
+      border-radius:
+        16px;
+
+      background:
+        rgba(15,23,42,.55);
+
+      border:
+        1px solid rgba(148,163,184,.07);
+
+      transition:
+        .22s ease;
+
     }
+
 
     .module-card:hover {
-      background: rgba(15,23,42,.82);
-      border-color: rgba(96,165,250,.16);
-      transform: translateY(-3px);
+
+      transform:
+        translateY(-4px);
+
+      background:
+        rgba(15,23,42,.82);
+
+      border-color:
+        rgba(96,165,250,.16);
+
     }
+
 
     .module-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        40px;
 
-      background: rgba(59,130,246,.08);
-      color: #60a5fa;
+      height:
+        40px;
+
+      border-radius:
+        11px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
     }
 
 
-    /* =========================================================
-       STATS
-    ========================================================= */
+    /* =====================================================
+       GITHUB STATS
+    ====================================================== */
 
     .github-stat {
-      padding: 25px;
-      border-radius: 18px;
+
+      padding:
+        25px;
+
+      border-radius:
+        18px;
 
       background:
         linear-gradient(
@@ -609,94 +1066,127 @@
           rgba(15,23,42,.50)
         );
 
-      border: 1px solid rgba(148,163,184,.08);
+      border:
+        1px solid rgba(148,163,184,.08);
+
     }
 
 
-    /* =========================================================
+    /* =====================================================
        COMPARISON
-    ========================================================= */
+    ====================================================== */
 
     .comparison-row {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
 
-      border-bottom: 1px solid rgba(148,163,184,.07);
+      display:
+        grid;
+
+      grid-template-columns:
+        1.3fr 1fr 1fr;
+
+      border-bottom:
+        1px solid rgba(148,163,184,.07);
+
     }
+
 
     .comparison-row > div {
-      padding: 15px;
-      font-size: 13px;
+
+      padding:
+        15px;
+
+      font-size:
+        13px;
+
     }
 
-    @media(max-width: 700px) {
+
+    @media(max-width:700px) {
+
       .comparison-row {
-        grid-template-columns: 1.2fr .8fr .8fr;
+
+        grid-template-columns:
+          1.2fr .8fr .8fr;
+
       }
 
       .comparison-row > div {
-        padding: 12px 8px;
-        font-size: 11px;
+
+        padding:
+          12px 8px;
+
+        font-size:
+          11px;
+
       }
+
     }
 
 
-    /* =========================================================
-       ANIMATIONS
-    ========================================================= */
+    /* =====================================================
+       FLOAT
+    ====================================================== */
 
     @keyframes floatSoft {
+
       0%,100% {
-        transform: translateY(0);
+        transform:
+          translateY(0);
       }
 
       50% {
-        transform: translateY(-8px);
+        transform:
+          translateY(-7px);
       }
+
     }
+
 
     .float-soft {
-      animation: floatSoft 5s ease-in-out infinite;
+
+      animation:
+        floatSoft 5s ease-in-out infinite;
+
     }
 
-    @keyframes pulseSoft {
-      0%,100% {
-        opacity: .55;
-      }
-
-      50% {
-        opacity: 1;
-      }
-    }
-
-    .pulse-soft {
-      animation: pulseSoft 2.5s ease-in-out infinite;
-    }
 
   </style>
+
 </head>
 
 
 <body>
 
-<!-- =========================================================
+
+<!-- =====================================================
      NAVBAR
-========================================================= -->
+====================================================== -->
 
 <header class="fixed top-0 left-0 right-0 z-50">
 
   <nav class="glass mx-auto mt-3 max-w-7xl rounded-2xl">
 
-    <div class="px-5 sm:px-7 h-16 flex items-center justify-between">
+    <div
+      class="px-5 sm:px-7 h-16
+             flex items-center
+             justify-between"
+    >
 
-      <!-- Logo -->
-
-      <a href="#" class="flex items-center gap-3">
+      <a href="#"
+         class="flex items-center gap-3">
 
         <div
-          class="w-9 h-9 rounded-xl flex items-center justify-center
-                 bg-gradient-to-br from-blue-500 to-indigo-600
-                 shadow-lg shadow-blue-500/20">
+          class="w-9 h-9
+                 rounded-xl
+                 flex items-center
+                 justify-center
+                 bg-gradient-to-br
+                 from-blue-500
+                 via-indigo-500
+                 to-purple-600
+                 shadow-lg
+                 shadow-blue-500/20"
+        >
 
           <i
             data-lucide="layers"
@@ -705,63 +1195,94 @@
 
         </div>
 
+
         <div>
-          <div class="font-bold text-white leading-none">
-            Savely
-          </div>
 
           <div
-            class="text-[9px] text-slate-500 mt-1"
-            data-i18n="brand_subtitle">
-            Personal OS
+            class="font-bold
+                   text-white
+                   leading-none">
+
+            Savely
+
           </div>
+
+
+          <div
+            class="text-[9px]
+                   text-slate-500
+                   mt-1"
+            data-i18n="brand_subtitle">
+
+            Personal OS
+
+          </div>
+
         </div>
 
       </a>
 
 
-      <!-- Desktop Navigation -->
+      <div
+        class="hidden md:flex
+               items-center
+               gap-7"
+      >
 
-      <div class="hidden md:flex items-center gap-7">
+        <a
+          href="#features"
+          class="nav-link text-sm"
+          data-i18n="nav_features">
 
-        <a href="#features"
-           class="nav-link text-sm"
-           data-i18n="nav_features">
           Features
+
         </a>
 
-        <a href="#modules"
-           class="nav-link text-sm"
-           data-i18n="nav_modules">
+
+        <a
+          href="#modules"
+          class="nav-link text-sm"
+          data-i18n="nav_modules">
+
           Modules
+
         </a>
 
-        <a href="#github"
-           class="nav-link text-sm"
-           data-i18n="nav_github">
+
+        <a
+          href="#github"
+          class="nav-link text-sm"
+          data-i18n="nav_github">
+
           GitHub
+
         </a>
 
-        <a href="#compare"
-           class="nav-link text-sm"
-           data-i18n="nav_compare">
+
+        <a
+          href="#compare"
+          class="nav-link text-sm"
+          data-i18n="nav_compare">
+
           Compare
+
         </a>
 
       </div>
 
 
-      <!-- Right -->
-
-      <div class="flex items-center gap-3">
+      <div
+        class="flex items-center gap-3">
 
         <button
           id="lang-toggle"
-          class="w-9 h-9 rounded-lg
+          class="w-9 h-9
+                 rounded-lg
                  bg-slate-900/70
                  border border-slate-800
                  text-slate-300
-                 text-xs font-semibold
+                 text-xs
+                 font-semibold
                  hover:text-white
                  hover:border-slate-700
                  transition">
@@ -775,13 +1296,22 @@
           href="https://github.com/worldmohammad/savely-os"
           target="_blank"
           rel="noopener"
-          class="hidden sm:inline-flex items-center gap-2
-                 px-4 py-2 rounded-lg
-                 bg-white text-slate-950
-                 text-sm font-semibold
-                 hover:bg-slate-200 transition">
+          class="hidden sm:inline-flex
+                 items-center
+                 gap-2
+                 px-4 py-2
+                 rounded-lg
+                 bg-white
+                 text-slate-950
+                 text-sm
+                 font-semibold
+                 hover:bg-slate-200
+                 transition"
+        >
 
-          <i data-lucide="github" class="w-4 h-4"></i>
+          <i data-lucide="github"
+             class="w-4 h-4">
+          </i>
 
           GitHub
 
@@ -797,96 +1327,130 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      HERO
-========================================================= -->
+====================================================== -->
 
 <section
-  class="relative min-h-screen pt-36 pb-20 overflow-hidden grid-bg">
+  class="relative
+         min-h-screen
+         pt-36 pb-20
+         overflow-hidden
+         grid-bg"
+>
 
   <div class="hero-glow"></div>
 
 
-  <div class="relative max-w-7xl mx-auto px-5 text-center">
+  <div
+    class="relative
+           max-w-7xl
+           mx-auto
+           px-5
+           text-center"
+  >
 
-
-    <!-- Badge -->
 
     <div
-      class="hero-badge inline-flex items-center gap-2
-             px-4 py-2 rounded-full
-             text-xs font-medium text-blue-300">
+      class="hero-badge
+             inline-flex
+             items-center
+             gap-2
+             px-4 py-2
+             rounded-full
+             text-xs
+             font-medium
+             text-blue-300"
+    >
 
       <span
-        class="w-2 h-2 rounded-full
+        class="w-2 h-2
+               rounded-full
                bg-emerald-400
-               shadow-lg shadow-emerald-400/50
-               pulse-soft">
-      </span>
+               shadow-lg
+               shadow-emerald-400/50"
+      ></span>
+
 
       <span data-i18n="hero_badge">
+
         Free & Open Source for Windows
+
       </span>
 
     </div>
 
 
-    <!-- Heading -->
-
     <h1
-      class="hero-title
-             mt-8
-             text-5xl sm:text-6xl lg:text-7xl
+      class="mt-8
+             text-5xl
+             sm:text-6xl
+             lg:text-7xl
              font-extrabold
              leading-[1.05]
              text-white
              max-w-5xl
-             mx-auto">
+             mx-auto"
+    >
 
       <span data-i18n="hero_title_1">
+
         Your Digital Life.
+
       </span>
+
 
       <br>
 
-      <span class="gradient-text"
-            data-i18n="hero_title_2">
+
+      <span
+        class="gradient-text"
+        data-i18n="hero_title_2">
+
         One Personal OS.
+
       </span>
 
     </h1>
 
 
-    <!-- Description -->
-
     <p
       class="mt-7
-             text-base sm:text-lg
+             text-base
+             sm:text-lg
              leading-8
              text-slate-400
              max-w-2xl
              mx-auto"
-      data-i18n="hero_description">
+      data-i18n="hero_description"
+    >
 
-      Savely brings your notes, tasks, bookmarks, passwords,
-      files, finance, calendar and more into one beautiful
-      personal workspace.
+      Savely brings your notes, tasks, bookmarks,
+      passwords, files, finance, calendar and more
+      into one beautiful personal workspace.
+
     </p>
 
 
-    <!-- Hero Meta -->
+    <!-- HERO FEATURES -->
 
     <div
       class="mt-7
              flex flex-wrap
              items-center
              justify-center
-             gap-x-5 gap-y-3
+             gap-x-5
+             gap-y-3
              text-sm
              font-medium
-             text-slate-300">
+             text-slate-300"
+    >
 
-      <span class="inline-flex items-center gap-2">
+      <span
+        class="inline-flex
+               items-center
+               gap-2"
+      >
 
         <i
           data-lucide="monitor"
@@ -905,11 +1469,15 @@
       </span>
 
 
-      <span class="inline-flex items-center gap-2">
+      <span
+        class="inline-flex
+               items-center
+               gap-2"
+      >
 
         <i
           data-lucide="badge-check"
-          class="w-4 h-4 text-green-400">
+          class="w-4 h-4 text-emerald-400">
         </i>
 
         <span data-i18n="hero_free">
@@ -924,11 +1492,15 @@
       </span>
 
 
-      <span class="inline-flex items-center gap-2">
+      <span
+        class="inline-flex
+               items-center
+               gap-2"
+      >
 
         <i
           data-lucide="credit-card"
-          class="w-4 h-4 text-indigo-400">
+          class="w-4 h-4 text-purple-400">
         </i>
 
         <span data-i18n="hero_no_subscription">
@@ -943,11 +1515,15 @@
       </span>
 
 
-      <span class="inline-flex items-center gap-2">
+      <span
+        class="inline-flex
+               items-center
+               gap-2"
+      >
 
         <i
           data-lucide="shield-check"
-          class="w-4 h-4 text-emerald-400">
+          class="w-4 h-4 text-cyan-400">
         </i>
 
         <span data-i18n="hero_no_tracking">
@@ -963,26 +1539,43 @@
 
     <div
       class="mt-9
-             flex flex-col sm:flex-row
-             items-center justify-center
-             gap-3">
+             flex flex-col
+             sm:flex-row
+             items-center
+             justify-center
+             gap-3"
+    >
 
       <a
         href="https://github.com/worldmohammad/savely-os/releases/latest"
         target="_blank"
         rel="noopener"
-        class="w-full sm:w-auto
-               inline-flex items-center justify-center gap-2
+        class="w-full
+               sm:w-auto
+               inline-flex
+               items-center
+               justify-center
+               gap-2
                px-6 py-3.5
                rounded-xl
-               bg-blue-500
-               hover:bg-blue-400
+               bg-gradient-to-r
+               from-blue-500
+               via-indigo-500
+               to-purple-500
+               hover:from-blue-400
+               hover:via-indigo-400
+               hover:to-purple-400
                text-white
                font-semibold
-               shadow-xl shadow-blue-500/20
-               transition">
+               shadow-xl
+               shadow-blue-500/20
+               transition"
+      >
 
-        <i data-lucide="download" class="w-5 h-5"></i>
+        <i
+          data-lucide="download"
+          class="w-5 h-5">
+        </i>
 
         <span data-i18n="hero_download">
           Download for Windows
@@ -995,8 +1588,12 @@
         href="https://github.com/worldmohammad/savely-os"
         target="_blank"
         rel="noopener"
-        class="w-full sm:w-auto
-               inline-flex items-center justify-center gap-2
+        class="w-full
+               sm:w-auto
+               inline-flex
+               items-center
+               justify-center
+               gap-2
                px-6 py-3.5
                rounded-xl
                bg-slate-900
@@ -1004,9 +1601,13 @@
                border border-slate-700
                text-white
                font-semibold
-               transition">
+               transition"
+      >
 
-        <i data-lucide="github" class="w-5 h-5"></i>
+        <i
+          data-lucide="github"
+          class="w-5 h-5">
+        </i>
 
         <span data-i18n="hero_github">
           View on GitHub
@@ -1017,48 +1618,84 @@
     </div>
 
 
-    <!-- Dashboard -->
 
-    <div class="mt-16 relative float-soft">
+    <!-- =================================================
+         REALISTIC DASHBOARD MOCKUP
+    ================================================== -->
+
+    <div
+      class="mt-16
+             relative
+             float-soft"
+    >
 
       <div
-        class="absolute -inset-10
+        class="absolute
+               -inset-10
                bg-blue-500/5
                blur-3xl
-               rounded-full
-               pointer-events-none">
+               rounded-full">
       </div>
 
 
-      <div class="savely-window max-w-6xl mx-auto">
+      <div
+        class="savely-window
+               max-w-6xl
+               mx-auto"
+      >
 
 
-        <!-- Window Topbar -->
+        <!-- WINDOW BAR -->
 
         <div
           class="window-topbar
                  px-4 sm:px-5
                  flex items-center
-                 justify-between">
+                 justify-between"
+        >
 
-          <div class="flex items-center gap-4">
+          <div
+            class="flex
+                   items-center
+                   gap-4"
+          >
 
-            <div class="flex gap-1.5">
+            <div
+              class="flex gap-1.5">
 
-              <span class="window-dot bg-red-400"></span>
-              <span class="window-dot bg-yellow-400"></span>
-              <span class="window-dot bg-green-400"></span>
+              <span
+                class="window-dot
+                       bg-red-400">
+              </span>
+
+              <span
+                class="window-dot
+                       bg-yellow-400">
+              </span>
+
+              <span
+                class="window-dot
+                       bg-green-400">
+              </span>
 
             </div>
 
-            <div class="hidden sm:block text-[10px] text-slate-500">
+
+            <div
+              class="hidden sm:block
+                     text-[10px]
+                     text-slate-500">
+
               Savely — Personal OS
+
             </div>
 
           </div>
 
 
-          <div class="window-address hidden sm:flex">
+          <div
+            class="window-address
+                   hidden sm:flex">
 
             <i
               data-lucide="lock"
@@ -1070,7 +1707,10 @@
           </div>
 
 
-          <div class="flex items-center gap-3">
+          <div
+            class="flex
+                   items-center
+                   gap-3">
 
             <i
               data-lucide="search"
@@ -1078,9 +1718,12 @@
             </i>
 
             <div
-              class="w-7 h-7 rounded-full
+              class="w-7 h-7
+                     rounded-full
                      bg-gradient-to-br
-                     from-blue-500 to-indigo-600">
+                     from-blue-500
+                     via-indigo-500
+                     to-purple-600">
             </div>
 
           </div>
@@ -1088,21 +1731,29 @@
         </div>
 
 
-        <!-- Application -->
+        <!-- APPLICATION -->
 
-        <div class="flex min-h-[560px] text-left">
+        <div
+          class="flex
+                 min-h-[560px]"
+        >
 
 
-          <!-- Sidebar -->
+          <!-- SIDEBAR -->
 
           <aside
             class="mock-sidebar
                    hidden md:flex
                    shrink-0
                    p-4
-                   flex-col">
+                   flex-col"
+          >
 
-            <div class="mock-logo mb-7 px-2">
+            <div
+              class="mock-logo
+                     mb-7
+                     px-2"
+            >
 
               <div class="mock-logo-icon">
 
@@ -1113,14 +1764,25 @@
 
               </div>
 
+
               <div>
 
-                <div class="text-white text-sm font-bold">
+                <div
+                  class="text-white
+                         text-sm
+                         font-bold">
+
                   Savely
+
                 </div>
 
-                <div class="text-[8px] text-slate-600 mt-0.5">
+                <div
+                  class="text-[8px]
+                         text-slate-600
+                         mt-0.5">
+
                   Personal OS
+
                 </div>
 
               </div>
@@ -1177,11 +1839,19 @@
               class="mt-auto
                      p-3
                      rounded-xl
-                     bg-blue-500/5
-                     border border-blue-500/10">
+                     bg-gradient-to-br
+                     from-blue-500/5
+                     to-purple-500/5
+                     border
+                     border-blue-500/10"
+            >
 
-              <div class="text-[9px] text-slate-600">
+              <div
+                class="text-[9px]
+                       text-slate-600">
+
                 Personal OS
+
               </div>
 
               <div
@@ -1199,24 +1869,25 @@
           </aside>
 
 
-          <!-- Main -->
+
+          <!-- MAIN -->
 
           <main
             class="mock-main
                    flex-1
                    p-4 sm:p-6
-                   overflow-hidden">
-
-
-            <!-- Header -->
+                   overflow-hidden"
+          >
 
             <div
               class="flex
-                     flex-col sm:flex-row
+                     flex-col
+                     sm:flex-row
                      sm:items-center
                      justify-between
                      gap-4
-                     mb-5">
+                     mb-5"
+            >
 
               <div>
 
@@ -1232,7 +1903,8 @@
                 </div>
 
                 <h3
-                  class="text-lg sm:text-xl
+                  class="text-lg
+                         sm:text-xl
                          font-bold
                          text-white">
 
@@ -1245,7 +1917,8 @@
 
               <div
                 class="mock-search
-                       w-full sm:w-56">
+                       w-full
+                       sm:w-56">
 
                 <i
                   data-lucide="search"
@@ -1259,21 +1932,25 @@
             </div>
 
 
-            <!-- Stats -->
+            <!-- STATS -->
 
             <div
               class="grid
                      grid-cols-2
                      lg:grid-cols-4
                      gap-3
-                     mb-4">
-
+                     mb-4"
+            >
 
               <div class="mock-stat">
 
-                <div class="mock-stat-icon blue">
+                <div
+                  class="mock-stat-icon
+                         blue">
 
-                  <i data-lucide="notebook-pen"></i>
+                  <i
+                    data-lucide="notebook-pen">
+                  </i>
 
                 </div>
 
@@ -1290,9 +1967,13 @@
 
               <div class="mock-stat">
 
-                <div class="mock-stat-icon purple">
+                <div
+                  class="mock-stat-icon
+                         purple">
 
-                  <i data-lucide="check-square"></i>
+                  <i
+                    data-lucide="check-square">
+                  </i>
 
                 </div>
 
@@ -1309,9 +1990,13 @@
 
               <div class="mock-stat">
 
-                <div class="mock-stat-icon green">
+                <div
+                  class="mock-stat-icon
+                         green">
 
-                  <i data-lucide="bookmark"></i>
+                  <i
+                    data-lucide="bookmark">
+                  </i>
 
                 </div>
 
@@ -1328,9 +2013,13 @@
 
               <div class="mock-stat">
 
-                <div class="mock-stat-icon orange">
+                <div
+                  class="mock-stat-icon
+                         orange">
 
-                  <i data-lucide="target"></i>
+                  <i
+                    data-lucide="target">
+                  </i>
 
                 </div>
 
@@ -1347,21 +2036,24 @@
             </div>
 
 
-            <!-- Content Grid -->
+            <!-- PANELS -->
 
             <div
               class="grid
                      lg:grid-cols-3
-                     gap-4">
+                     gap-4"
+            >
 
 
-              <!-- Notes -->
+              <!-- NOTES -->
 
               <div
                 class="mock-panel
-                       lg:col-span-2">
+                       lg:col-span-2"
+              >
 
-                <div class="mock-panel-header">
+                <div
+                  class="mock-panel-header">
 
                   <span>
                     Recent Notes
@@ -1379,7 +2071,9 @@
 
                   <div class="mock-note">
 
-                    <div class="mock-note-icon">
+                    <div
+                      class="mock-note-icon
+                             blue">
 
                       <i
                         data-lucide="lightbulb"
@@ -1388,7 +2082,7 @@
 
                     </div>
 
-                    <div class="min-w-0">
+                    <div>
 
                       <div class="mock-note-title">
                         Product roadmap
@@ -1405,7 +2099,9 @@
 
                   <div class="mock-note">
 
-                    <div class="mock-note-icon">
+                    <div
+                      class="mock-note-icon
+                             purple">
 
                       <i
                         data-lucide="briefcase"
@@ -1414,7 +2110,7 @@
 
                     </div>
 
-                    <div class="min-w-0">
+                    <div>
 
                       <div class="mock-note-title">
                         Project ideas
@@ -1431,7 +2127,9 @@
 
                   <div class="mock-note">
 
-                    <div class="mock-note-icon">
+                    <div
+                      class="mock-note-icon
+                             cyan">
 
                       <i
                         data-lucide="book-open"
@@ -1440,7 +2138,7 @@
 
                     </div>
 
-                    <div class="min-w-0">
+                    <div>
 
                       <div class="mock-note-title">
                         Research notes
@@ -1459,11 +2157,13 @@
               </div>
 
 
-              <!-- Tasks -->
+
+              <!-- TASKS -->
 
               <div class="mock-panel">
 
-                <div class="mock-panel-header">
+                <div
+                  class="mock-panel-header">
 
                   <span>
                     Today's Tasks
@@ -1481,9 +2181,12 @@
 
                   <div class="mock-task">
 
-                    <div class="mock-checkbox checked">
+                    <div
+                      class="mock-checkbox checked">
 
-                      <i data-lucide="check"></i>
+                      <i
+                        data-lucide="check">
+                      </i>
 
                     </div>
 
@@ -1494,9 +2197,12 @@
 
                   <div class="mock-task">
 
-                    <div class="mock-checkbox checked">
+                    <div
+                      class="mock-checkbox checked">
 
-                      <i data-lucide="check"></i>
+                      <i
+                        data-lucide="check">
+                      </i>
 
                     </div>
 
@@ -1507,7 +2213,9 @@
 
                   <div class="mock-task">
 
-                    <div class="mock-checkbox"></div>
+                    <div
+                      class="mock-checkbox">
+                    </div>
 
                     Prepare project
 
@@ -1516,7 +2224,9 @@
 
                   <div class="mock-task">
 
-                    <div class="mock-checkbox"></div>
+                    <div
+                      class="mock-checkbox">
+                    </div>
 
                     Read saved articles
 
@@ -1545,6 +2255,7 @@
 
                   </div>
 
+
                   <div class="mock-progress">
 
                     <div style="width:50%"></div>
@@ -1558,30 +2269,87 @@
             </div>
 
 
-            <!-- Bottom -->
+            <!-- BOTTOM PANELS -->
 
             <div
               class="grid
                      md:grid-cols-2
                      gap-4
-                     mt-4">
-
+                     mt-4"
+            >
 
               <div class="mock-panel">
 
-                <div class="mock-panel-header">
+                <div
+                  class="mock-panel-header">
 
                   <span>
                     Productivity
                   </span>
 
-                  <i data-lucide="activity"></i>
+                  <i
+                    data-lucide="activity">
+                  </i>
 
                 </div>
 
-                <div class="mock-mini-chart">
 
-                  <div class="mock-chart-line"></div>
+                <div
+                  class="h-20
+                         flex
+                         items-end
+                         gap-2
+                         px-2"
+                >
+
+                  <div
+                    class="w-full
+                           h-[35%]
+                           rounded-t
+                           bg-blue-500/30">
+                  </div>
+
+                  <div
+                    class="w-full
+                           h-[55%]
+                           rounded-t
+                           bg-indigo-500/40">
+                  </div>
+
+                  <div
+                    class="w-full
+                           h-[42%]
+                           rounded-t
+                           bg-purple-500/40">
+                  </div>
+
+                  <div
+                    class="w-full
+                           h-[70%]
+                           rounded-t
+                           bg-cyan-500/40">
+                  </div>
+
+                  <div
+                    class="w-full
+                           h-[82%]
+                           rounded-t
+                           bg-emerald-500/40">
+                  </div>
+
+                  <div
+                    class="w-full
+                           h-[65%]
+                           rounded-t
+                           bg-blue-400/40">
+                  </div>
+
+                  <div
+                    class="w-full
+                           h-[92%]
+                           rounded-t
+                           bg-purple-400/50">
+                  </div>
 
                 </div>
 
@@ -1590,69 +2358,85 @@
 
               <div class="mock-panel">
 
-                <div class="mock-panel-header">
+                <div
+                  class="mock-panel-header">
 
                   <span>
                     Quick Access
                   </span>
 
-                  <i data-lucide="zap"></i>
+                  <i
+                    data-lucide="zap">
+                  </i>
 
                 </div>
+
 
                 <div
                   class="grid
                          grid-cols-4
-                         gap-2">
+                         gap-2"
+                >
 
                   <div
-                    class="h-10 rounded-lg
-                           bg-slate-800/70
+                    class="h-10
+                           rounded-lg
+                           bg-blue-500/10
                            flex items-center
                            justify-center">
 
                     <i
                       data-lucide="plus"
-                      class="w-4 h-4 text-blue-400">
+                      class="w-4 h-4
+                             text-blue-400">
                     </i>
 
                   </div>
 
+
                   <div
-                    class="h-10 rounded-lg
-                           bg-slate-800/70
+                    class="h-10
+                           rounded-lg
+                           bg-purple-500/10
                            flex items-center
                            justify-center">
 
                     <i
                       data-lucide="notebook-pen"
-                      class="w-4 h-4 text-indigo-400">
+                      class="w-4 h-4
+                             text-purple-400">
                     </i>
 
                   </div>
 
+
                   <div
-                    class="h-10 rounded-lg
-                           bg-slate-800/70
+                    class="h-10
+                           rounded-lg
+                           bg-emerald-500/10
                            flex items-center
                            justify-center">
 
                     <i
                       data-lucide="check-square"
-                      class="w-4 h-4 text-emerald-400">
+                      class="w-4 h-4
+                             text-emerald-400">
                     </i>
 
                   </div>
 
+
                   <div
-                    class="h-10 rounded-lg
-                           bg-slate-800/70
+                    class="h-10
+                           rounded-lg
+                           bg-orange-500/10
                            flex items-center
                            justify-center">
 
                     <i
                       data-lucide="calendar"
-                      class="w-4 h-4 text-purple-400">
+                      class="w-4 h-4
+                             text-orange-400">
                     </i>
 
                   </div>
@@ -1671,44 +2455,28 @@
 
     </div>
 
-
-    <!-- Scroll hint -->
-
-    <div
-      class="mt-10
-             flex items-center
-             justify-center
-             gap-2
-             text-xs
-             text-slate-600">
-
-      <i
-        data-lucide="mouse"
-        class="w-4 h-4">
-      </i>
-
-      <span data-i18n="hero_scroll">
-        Explore Savely
-      </span>
-
-    </div>
-
   </div>
 
 </section>
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      FEATURES
-========================================================= -->
+====================================================== -->
 
 <section
   id="features"
-  class="py-24 border-t border-slate-900">
+  class="py-24
+         border-t
+         border-slate-900"
+>
 
-  <div class="max-w-7xl mx-auto px-5">
-
+  <div
+    class="max-w-7xl
+           mx-auto
+           px-5"
+  >
 
     <div class="max-w-2xl mb-14">
 
@@ -1723,16 +2491,18 @@
 
       </div>
 
+
       <h2
-        class="text-3xl sm:text-4xl
+        class="text-3xl
+               sm:text-4xl
                font-bold
-               text-white
-               tracking-tight"
+               text-white"
         data-i18n="features_title">
 
         Stop switching between dozens of apps.
 
       </h2>
+
 
       <p
         class="mt-4
@@ -1752,10 +2522,9 @@
       class="grid
              sm:grid-cols-2
              lg:grid-cols-3
-             gap-4">
+             gap-4"
+    >
 
-
-      <!-- Feature 1 -->
 
       <div class="feature-card">
 
@@ -1792,8 +2561,6 @@
       </div>
 
 
-      <!-- Feature 2 -->
-
       <div class="feature-card">
 
         <div class="feature-icon">
@@ -1829,8 +2596,6 @@
       </div>
 
 
-      <!-- Feature 3 -->
-
       <div class="feature-card">
 
         <div class="feature-icon">
@@ -1858,15 +2623,12 @@
           data-i18n="feature_3_text">
 
           Quickly find information across your
-          personal workspace instead of remembering
-          which app contains it.
+          personal workspace.
 
         </p>
 
       </div>
 
-
-      <!-- Feature 4 -->
 
       <div class="feature-card">
 
@@ -1895,15 +2657,12 @@
           data-i18n="feature_4_text">
 
           Events, tasks and important dates
-          stay connected with the rest of
-          your personal information.
+          stay connected with your information.
 
         </p>
 
       </div>
 
-
-      <!-- Feature 5 -->
 
       <div class="feature-card">
 
@@ -1932,15 +2691,12 @@
           data-i18n="feature_5_text">
 
           Designed around ownership,
-          organization and control of
-          your personal information.
+          organization and control.
 
         </p>
 
       </div>
 
-
-      <!-- Feature 6 -->
 
       <div class="feature-card">
 
@@ -1969,8 +2725,7 @@
           data-i18n="feature_6_text">
 
           A focused personal workspace without
-          the complexity of managing a collection
-          of disconnected applications.
+          unnecessary complexity.
 
         </p>
 
@@ -1984,18 +2739,27 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      MODULES
-========================================================= -->
+====================================================== -->
 
 <section
   id="modules"
-  class="py-24 bg-slate-950/50">
+  class="py-24
+         bg-slate-950/50"
+>
 
-  <div class="max-w-7xl mx-auto px-5">
+  <div
+    class="max-w-7xl
+           mx-auto
+           px-5"
+  >
 
-
-    <div class="text-center max-w-2xl mx-auto">
+    <div
+      class="text-center
+             max-w-2xl
+             mx-auto"
+    >
 
       <div
         class="text-blue-400
@@ -2008,8 +2772,10 @@
 
       </div>
 
+
       <h2
-        class="text-3xl sm:text-4xl
+        class="text-3xl
+               sm:text-4xl
                font-bold
                text-white"
         data-i18n="modules_title">
@@ -2017,6 +2783,7 @@
         One system. Many parts of your life.
 
       </h2>
+
 
       <p
         class="mt-4
@@ -2039,234 +2806,449 @@
              grid-cols-2
              md:grid-cols-3
              lg:grid-cols-4
-             gap-3">
+             gap-3"
+    >
 
 
-      <!-- Module -->
+      <!-- NOTES -->
 
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-blue-500/10
+                 text-blue-400">
 
           <i data-lucide="notebook-pen"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_notes_title">
+
           Notes
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_notes_text">
+
           Capture ideas and information.
+
         </p>
 
       </div>
 
 
+      <!-- TASKS -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-purple-500/10
+                 text-purple-400">
 
           <i data-lucide="check-square"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_tasks_title">
+
           Tasks & Goals
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_tasks_text">
+
           Organize work and priorities.
+
         </p>
 
       </div>
 
 
+      <!-- BOOKMARKS -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-emerald-500/10
+                 text-emerald-400">
 
           <i data-lucide="bookmark"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_bookmarks_title">
+
           Bookmarks
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_bookmarks_text">
+
           Save useful websites.
+
         </p>
 
       </div>
 
 
+      <!-- PASSWORDS -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-orange-500/10
+                 text-orange-400">
 
           <i data-lucide="key-round"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_passwords_title">
+
           Passwords
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_passwords_text">
+
           Keep credentials organized.
+
         </p>
 
       </div>
 
 
+      <!-- FILES -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-cyan-500/10
+                 text-cyan-400">
 
           <i data-lucide="folder"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_files_title">
+
           Files
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_files_text">
+
           Manage your personal files.
+
         </p>
 
       </div>
 
 
+      <!-- FINANCE -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-pink-500/10
+                 text-pink-400">
 
           <i data-lucide="wallet"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_finance_title">
+
           Finance
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_finance_text">
+
           Track personal finances.
+
         </p>
 
       </div>
 
 
+      <!-- CALENDAR -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-indigo-500/10
+                 text-indigo-400">
 
           <i data-lucide="calendar"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_calendar_title">
+
           Calendar
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_calendar_text">
+
           Manage events and dates.
+
         </p>
 
       </div>
 
 
+      <!-- EMAIL -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-rose-500/10
+                 text-rose-400">
 
           <i data-lucide="mail"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_email_title">
+
           Email
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_email_text">
+
           Access your communication.
+
         </p>
 
       </div>
 
 
+      <!-- URL SHORTENER -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-violet-500/10
+                 text-violet-400">
 
           <i data-lucide="link"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_url_title">
+
           URL Shortener
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_url_text">
+
           Create short personal links.
+
         </p>
 
       </div>
 
 
+      <!-- WEATHER -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-sky-500/10
+                 text-sky-400">
 
           <i data-lucide="cloud-sun"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_weather_title">
+
           Weather
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_weather_text">
+
           See weather at a glance.
+
         </p>
 
       </div>
 
 
+      <!-- TEMPLATES -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-amber-500/10
+                 text-amber-400">
 
           <i data-lucide="layout-template"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_templates_title">
+
           Templates
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_templates_text">
+
           Reuse your workflows.
+
         </p>
 
       </div>
 
 
+      <!-- GOALS -->
+
       <div class="module-card">
 
-        <div class="module-icon">
+        <div
+          class="module-icon
+                 bg-lime-500/10
+                 text-lime-400">
 
           <i data-lucide="target"></i>
 
         </div>
 
-        <h3 class="mt-4 text-sm font-semibold text-white">
+        <h3
+          class="mt-4
+                 text-sm
+                 font-semibold
+                 text-white"
+          data-i18n="module_goals_title">
+
           Goals
+
         </h3>
 
-        <p class="mt-1 text-xs text-slate-600">
+        <p
+          class="mt-1
+                 text-xs
+                 text-slate-600"
+          data-i18n="module_goals_text">
+
           Build and track objectives.
+
         </p>
 
       </div>
@@ -2279,21 +3261,26 @@
 
 
 
-<!-- =========================================================
-     GITHUB STATS
-========================================================= -->
+<!-- =====================================================
+     GITHUB
+====================================================== -->
 
 <section
   id="github"
-  class="py-24">
+  class="py-24"
+>
 
-  <div class="max-w-7xl mx-auto px-5">
-
+  <div
+    class="max-w-7xl
+           mx-auto
+           px-5"
+  >
 
     <div
       class="max-w-2xl
              mx-auto
-             text-center">
+             text-center"
+    >
 
       <div
         class="inline-flex
@@ -2301,9 +3288,13 @@
                gap-2
                text-sm
                font-semibold
-               text-blue-400">
+               text-blue-400"
+      >
 
-        <i data-lucide="github" class="w-4 h-4"></i>
+        <i
+          data-lucide="github"
+          class="w-4 h-4">
+        </i>
 
         GitHub
 
@@ -2312,7 +3303,8 @@
 
       <h2
         class="mt-4
-               text-3xl sm:text-4xl
+               text-3xl
+               sm:text-4xl
                font-bold
                text-white"
         data-i18n="github_title">
@@ -2342,13 +3334,17 @@
              grid
              grid-cols-2
              lg:grid-cols-4
-             gap-4">
-
+             gap-4"
+    >
 
       <div class="github-stat">
 
-        <div class="text-slate-500 text-xs">
+        <div
+          class="text-slate-500
+                 text-xs">
+
           GitHub Stars
+
         </div>
 
         <div
@@ -2367,8 +3363,12 @@
 
       <div class="github-stat">
 
-        <div class="text-slate-500 text-xs">
+        <div
+          class="text-slate-500
+                 text-xs">
+
           Forks
+
         </div>
 
         <div
@@ -2387,8 +3387,12 @@
 
       <div class="github-stat">
 
-        <div class="text-slate-500 text-xs">
+        <div
+          class="text-slate-500
+                 text-xs">
+
           Downloads
+
         </div>
 
         <div
@@ -2417,8 +3421,12 @@
 
       <div class="github-stat">
 
-        <div class="text-slate-500 text-xs">
+        <div
+          class="text-slate-500
+                 text-xs">
+
           Latest Version
+
         </div>
 
         <div
@@ -2437,7 +3445,9 @@
     </div>
 
 
-    <div class="mt-8 text-center">
+    <div
+      class="mt-8
+             text-center">
 
       <a
         href="https://github.com/worldmohammad/savely-os"
@@ -2455,9 +3465,13 @@
                text-sm
                font-semibold
                text-white
-               transition">
+               transition"
+      >
 
-        <i data-lucide="github" class="w-4 h-4"></i>
+        <i
+          data-lucide="github"
+          class="w-4 h-4">
+        </i>
 
         <span data-i18n="github_button">
           Explore Repository
@@ -2473,17 +3487,22 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      DOWNLOAD
-========================================================= -->
+====================================================== -->
 
 <section
   class="py-24
          bg-gradient-to-b
          from-slate-950
-         to-blue-950/10">
+         to-blue-950/10"
+>
 
-  <div class="max-w-5xl mx-auto px-5">
+  <div
+    class="max-w-5xl
+           mx-auto
+           px-5"
+  >
 
     <div
       class="relative
@@ -2493,7 +3512,8 @@
              text-center
              border
              border-blue-500/10
-             bg-slate-900/70">
+             bg-slate-900/70"
+    >
 
       <div
         class="absolute
@@ -2513,12 +3533,15 @@
           class="mx-auto
                  w-16 h-16
                  rounded-2xl
-                 flex items-center justify-center
+                 flex items-center
+                 justify-center
                  bg-gradient-to-br
                  from-blue-500
-                 to-indigo-600
+                 via-indigo-500
+                 to-purple-600
                  shadow-xl
-                 shadow-blue-500/20">
+                 shadow-blue-500/20"
+        >
 
           <i
             data-lucide="monitor-down"
@@ -2530,7 +3553,8 @@
 
         <h2
           class="mt-7
-                 text-3xl sm:text-4xl
+                 text-3xl
+                 sm:text-4xl
                  font-bold
                  text-white"
           data-i18n="download_title">
@@ -2557,9 +3581,12 @@
 
         <div
           class="mt-7
-                 flex flex-col sm:flex-row
+                 flex
+                 flex-col
+                 sm:flex-row
                  justify-center
-                 gap-3">
+                 gap-3"
+        >
 
           <a
             href="https://github.com/worldmohammad/savely-os/releases/latest"
@@ -2571,13 +3598,19 @@
                    gap-2
                    px-6 py-3.5
                    rounded-xl
-                   bg-blue-500
-                   hover:bg-blue-400
+                   bg-gradient-to-r
+                   from-blue-500
+                   via-indigo-500
+                   to-purple-500
                    text-white
                    font-semibold
-                   transition">
+                   transition"
+          >
 
-            <i data-lucide="download" class="w-5 h-5"></i>
+            <i
+              data-lucide="download"
+              class="w-5 h-5">
+            </i>
 
             <span data-i18n="download_button">
               Download Latest Release
@@ -2602,9 +3635,13 @@
                    text-white
                    font-semibold
                    hover:bg-slate-900
-                   transition">
+                   transition"
+          >
 
-            <i data-lucide="history" class="w-5 h-5"></i>
+            <i
+              data-lucide="history"
+              class="w-5 h-5">
+            </i>
 
             <span data-i18n="download_releases">
               View All Releases
@@ -2618,13 +3655,10 @@
         <div
           class="mt-6
                  text-xs
-                 text-slate-600">
+                 text-slate-600"
+          data-i18n="download_meta">
 
-          Windows 10 / 11
-          <span class="mx-2">•</span>
-          Free
-          <span class="mx-2">•</span>
-          Open Source
+          Windows 10 / 11 • Free • Open Source
 
         </div>
 
@@ -2638,19 +3672,24 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      SELF HOSTED
-========================================================= -->
+====================================================== -->
 
 <section class="py-24">
 
-  <div class="max-w-7xl mx-auto px-5">
+  <div
+    class="max-w-7xl
+           mx-auto
+           px-5"
+  >
 
     <div
       class="grid
              lg:grid-cols-2
              gap-10
-             items-center">
+             items-center"
+    >
 
 
       <div>
@@ -2666,18 +3705,25 @@
                  border-indigo-500/10
                  text-indigo-300
                  text-xs
-                 font-semibold">
+                 font-semibold"
+        >
 
-          <i data-lucide="server" class="w-4 h-4"></i>
+          <i
+            data-lucide="server"
+            class="w-4 h-4">
+          </i>
 
-          Self-Hosted Edition
+          <span data-i18n="selfhost_badge">
+            Self-Hosted Edition
+          </span>
 
         </div>
 
 
         <h2
           class="mt-5
-                 text-3xl sm:text-4xl
+                 text-3xl
+                 sm:text-4xl
                  font-bold
                  text-white"
           data-i18n="selfhost_title">
@@ -2694,9 +3740,10 @@
                  max-w-xl"
           data-i18n="selfhost_description">
 
-          The Self-Hosted Edition lets you install Savely
-          on your own hosting environment and keep your
-          personal information under your own control.
+          The Self-Hosted Edition lets you install
+          Savely on your own hosting environment
+          and keep your personal information under
+          your own control.
 
         </p>
 
@@ -2705,7 +3752,8 @@
           class="mt-7
                  grid
                  sm:grid-cols-2
-                 gap-3">
+                 gap-3"
+        >
 
 
           <div
@@ -2714,9 +3762,10 @@
                    gap-3
                    p-3
                    rounded-xl
-                   bg-slate-900/60
+                   bg-blue-500/5
                    border
-                   border-slate-800">
+                   border-blue-500/10"
+          >
 
             <i
               data-lucide="server"
@@ -2724,8 +3773,12 @@
             </i>
 
             <span
-              class="text-sm text-slate-300">
+              class="text-sm
+                     text-slate-300"
+              data-i18n="selfhost_feature_1">
+
               Your own hosting
+
             </span>
 
           </div>
@@ -2737,9 +3790,10 @@
                    gap-3
                    p-3
                    rounded-xl
-                   bg-slate-900/60
+                   bg-emerald-500/5
                    border
-                   border-slate-800">
+                   border-emerald-500/10"
+          >
 
             <i
               data-lucide="shield"
@@ -2747,8 +3801,12 @@
             </i>
 
             <span
-              class="text-sm text-slate-300">
+              class="text-sm
+                     text-slate-300"
+              data-i18n="selfhost_feature_2">
+
               Greater control
+
             </span>
 
           </div>
@@ -2760,9 +3818,10 @@
                    gap-3
                    p-3
                    rounded-xl
-                   bg-slate-900/60
+                   bg-purple-500/5
                    border
-                   border-slate-800">
+                   border-purple-500/10"
+          >
 
             <i
               data-lucide="infinity"
@@ -2770,8 +3829,12 @@
             </i>
 
             <span
-              class="text-sm text-slate-300">
+              class="text-sm
+                     text-slate-300"
+              data-i18n="selfhost_feature_3">
+
               One-time purchase
+
             </span>
 
           </div>
@@ -2783,9 +3846,10 @@
                    gap-3
                    p-3
                    rounded-xl
-                   bg-slate-900/60
+                   bg-orange-500/5
                    border
-                   border-slate-800">
+                   border-orange-500/10"
+          >
 
             <i
               data-lucide="database"
@@ -2793,8 +3857,12 @@
             </i>
 
             <span
-              class="text-sm text-slate-300">
+              class="text-sm
+                     text-slate-300"
+              data-i18n="selfhost_feature_4">
+
               Personal data ownership
+
             </span>
 
           </div>
@@ -2817,7 +3885,8 @@
                  text-slate-950
                  font-semibold
                  hover:bg-slate-200
-                 transition">
+                 transition"
+        >
 
           <span data-i18n="selfhost_button">
             Get Self-Hosted Edition
@@ -2833,14 +3902,14 @@
       </div>
 
 
-      <!-- Visual -->
+      <!-- SELF HOST VISUAL -->
 
       <div class="relative">
 
         <div
           class="absolute
                  inset-0
-                 bg-indigo-500/10
+                 bg-purple-500/10
                  blur-3xl">
         </div>
 
@@ -2851,22 +3920,31 @@
                  p-6
                  border
                  border-slate-800
-                 bg-slate-900/80">
+                 bg-slate-900/80"
+        >
 
           <div
             class="flex
                    items-center
                    justify-between
-                   mb-5">
+                   mb-5"
+          >
 
-            <div class="flex items-center gap-3">
+            <div
+              class="flex
+                     items-center
+                     gap-3"
+            >
 
               <div
                 class="w-10 h-10
                        rounded-xl
-                       bg-indigo-500/10
+                       bg-gradient-to-br
+                       from-indigo-500/20
+                       to-purple-500/10
                        flex items-center
-                       justify-center">
+                       justify-center"
+              >
 
                 <i
                   data-lucide="server"
@@ -2876,6 +3954,7 @@
 
               </div>
 
+
               <div>
 
                 <div
@@ -2883,13 +3962,14 @@
                          font-semibold
                          text-white">
 
-                  Your Savely
+                  Savely
 
                 </div>
 
                 <div
                   class="text-xs
-                         text-slate-600">
+                         text-slate-600"
+                  data-i18n="selfhost_visual_subtitle">
 
                   Self-hosted environment
 
@@ -2913,7 +3993,9 @@
                        bg-emerald-400">
               </span>
 
-              Online
+              <span data-i18n="online">
+                Online
+              </span>
 
             </div>
 
@@ -2932,12 +4014,15 @@
                      flex
                      items-center
                      px-4
-                     gap-3">
+                     gap-3"
+            >
 
               <i
                 data-lucide="lock"
-                class="w-4 h-4 text-emerald-400">
+                class="w-4 h-4
+                       text-emerald-400">
               </i>
+
 
               <div class="flex-1">
 
@@ -2964,19 +4049,22 @@
             <div
               class="grid
                      grid-cols-3
-                     gap-3">
+                     gap-3"
+            >
 
               <div
                 class="h-24
                        rounded-xl
-                       bg-slate-950
+                       bg-blue-500/5
                        border
-                       border-slate-800
-                       p-3">
+                       border-blue-500/10
+                       p-3"
+              >
 
                 <i
                   data-lucide="notebook-pen"
-                  class="w-4 h-4 text-blue-400">
+                  class="w-4 h-4
+                         text-blue-400">
                 </i>
 
                 <div
@@ -2992,14 +4080,16 @@
               <div
                 class="h-24
                        rounded-xl
-                       bg-slate-950
+                       bg-purple-500/5
                        border
-                       border-slate-800
-                       p-3">
+                       border-purple-500/10
+                       p-3"
+              >
 
                 <i
                   data-lucide="check-square"
-                  class="w-4 h-4 text-purple-400">
+                  class="w-4 h-4
+                         text-purple-400">
                 </i>
 
                 <div
@@ -3015,14 +4105,16 @@
               <div
                 class="h-24
                        rounded-xl
-                       bg-slate-950
+                       bg-orange-500/5
                        border
-                       border-slate-800
-                       p-3">
+                       border-orange-500/10
+                       p-3"
+              >
 
                 <i
                   data-lucide="folder"
-                  class="w-4 h-4 text-orange-400">
+                  class="w-4 h-4
+                         text-orange-400">
                 </i>
 
                 <div
@@ -3050,16 +4142,21 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      COMPARISON
-========================================================= -->
+====================================================== -->
 
 <section
   id="compare"
-  class="py-24 bg-slate-950/60">
+  class="py-24
+         bg-slate-950/60"
+>
 
-  <div class="max-w-5xl mx-auto px-5">
-
+  <div
+    class="max-w-5xl
+           mx-auto
+           px-5"
+  >
 
     <div class="text-center">
 
@@ -3067,14 +4164,17 @@
         class="text-blue-400
                text-sm
                font-semibold
-               mb-3">
+               mb-3"
+        data-i18n="compare_label">
 
         Savely Editions
 
       </div>
 
+
       <h2
-        class="text-3xl sm:text-4xl
+        class="text-3xl
+               sm:text-4xl
                font-bold
                text-white"
         data-i18n="compare_title">
@@ -3092,35 +4192,57 @@
              rounded-2xl
              border
              border-slate-800
-             bg-slate-900/60">
+             bg-slate-900/60"
+    >
 
 
-      <!-- Header -->
+      <!-- TABLE HEADER -->
 
       <div
         class="comparison-row
                bg-slate-950/80
-               font-semibold">
+               font-semibold"
+      >
 
-        <div class="text-slate-500">
+        <div
+          class="text-slate-500"
+          data-i18n="compare_feature">
+
           Feature
+
         </div>
 
-        <div class="text-blue-400">
+
+        <div
+          class="text-blue-400"
+          data-i18n="compare_windows">
+
           Windows
+
         </div>
 
-        <div class="text-indigo-400">
+
+        <div
+          class="text-indigo-400"
+          data-i18n="compare_selfhost">
+
           Self-Hosted
+
         </div>
 
       </div>
 
 
+      <!-- FREE -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_free">
+
           Free
+
         </div>
 
         <div class="text-emerald-400">
@@ -3134,10 +4256,16 @@
       </div>
 
 
+      <!-- OPEN SOURCE -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_open_source">
+
           Open Source
+
         </div>
 
         <div class="text-emerald-400">
@@ -3151,10 +4279,16 @@
       </div>
 
 
+      <!-- WINDOWS -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_windows_run">
+
           Runs on Windows
+
         </div>
 
         <div class="text-emerald-400">
@@ -3168,10 +4302,16 @@
       </div>
 
 
+      <!-- HOSTING -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_hosting">
+
           Your own hosting
+
         </div>
 
         <div class="text-slate-500">
@@ -3185,10 +4325,16 @@
       </div>
 
 
+      <!-- SUBSCRIPTION -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_subscription">
+
           No monthly subscription
+
         </div>
 
         <div class="text-emerald-400">
@@ -3202,10 +4348,16 @@
       </div>
 
 
+      <!-- DATA -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_data">
+
           Data under your control
+
         </div>
 
         <div class="text-emerald-400">
@@ -3219,10 +4371,16 @@
       </div>
 
 
+      <!-- DEPLOYMENT -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_deployment">
+
           Advanced deployment
+
         </div>
 
         <div class="text-slate-500">
@@ -3236,10 +4394,16 @@
       </div>
 
 
+      <!-- PURCHASE -->
+
       <div class="comparison-row">
 
-        <div class="text-slate-400">
+        <div
+          class="text-slate-400"
+          data-i18n="compare_purchase">
+
           One-time purchase
+
         </div>
 
         <div class="text-slate-500">
@@ -3255,7 +4419,10 @@
     </div>
 
 
-    <div class="mt-7 text-center">
+    <div
+      class="mt-7
+             text-center"
+    >
 
       <a
         id="compare-selfhost-btn"
@@ -3268,7 +4435,8 @@
                text-sm
                font-semibold
                text-blue-400
-               hover:text-blue-300">
+               hover:text-blue-300"
+      >
 
         <span data-i18n="compare_button">
           Learn about Self-Hosted Edition
@@ -3289,14 +4457,18 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      FINAL CTA
-========================================================= -->
+====================================================== -->
 
 <section class="py-28">
 
-  <div class="max-w-4xl mx-auto px-5 text-center">
-
+  <div
+    class="max-w-4xl
+           mx-auto
+           px-5
+           text-center"
+  >
 
     <div
       class="mx-auto
@@ -3306,9 +4478,11 @@
              justify-center
              bg-gradient-to-br
              from-blue-500
-             to-indigo-600
+             via-indigo-500
+             to-purple-600
              shadow-xl
-             shadow-blue-500/20">
+             shadow-blue-500/20"
+    >
 
       <i
         data-lucide="layers"
@@ -3320,10 +4494,10 @@
 
     <h2
       class="mt-7
-             text-4xl sm:text-5xl
+             text-4xl
+             sm:text-5xl
              font-extrabold
-             text-white
-             tracking-tight"
+             text-white"
       data-i18n="final_title">
 
       Take back control of your digital life.
@@ -3350,10 +4524,11 @@
     <div
       class="mt-9
              flex
-             flex-col sm:flex-row
+             flex-col
+             sm:flex-row
              justify-center
-             gap-3">
-
+             gap-3"
+    >
 
       <a
         href="https://github.com/worldmohammad/savely-os/releases/latest"
@@ -3365,13 +4540,19 @@
                gap-2
                px-6 py-3.5
                rounded-xl
-               bg-blue-500
-               hover:bg-blue-400
+               bg-gradient-to-r
+               from-blue-500
+               via-indigo-500
+               to-purple-500
                text-white
                font-semibold
-               transition">
+               transition"
+      >
 
-        <i data-lucide="download" class="w-5 h-5"></i>
+        <i
+          data-lucide="download"
+          class="w-5 h-5">
+        </i>
 
         <span data-i18n="final_download">
           Download Free Version
@@ -3397,9 +4578,13 @@
                hover:bg-slate-800
                text-white
                font-semibold
-               transition">
+               transition"
+      >
 
-        <i data-lucide="server" class="w-5 h-5"></i>
+        <i
+          data-lucide="server"
+          class="w-5 h-5">
+        </i>
 
         <span data-i18n="final_selfhost">
           Self-Hosted Edition
@@ -3415,33 +4600,37 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+====================================================== -->
 
 <footer
   class="border-t
          border-slate-900
-         py-10">
+         py-10"
+>
 
   <div
     class="max-w-7xl
            mx-auto
-           px-5">
-
+           px-5"
+  >
 
     <div
       class="flex
-             flex-col md:flex-row
+             flex-col
+             md:flex-row
              items-center
              justify-between
-             gap-5">
+             gap-5"
+    >
 
 
       <div
         class="flex
                items-center
-               gap-3">
+               gap-3"
+      >
 
         <div
           class="w-9 h-9
@@ -3450,7 +4639,9 @@
                  justify-center
                  bg-gradient-to-br
                  from-blue-500
-                 to-indigo-600">
+                 via-indigo-500
+                 to-purple-600"
+        >
 
           <i
             data-lucide="layers"
@@ -3473,7 +4664,8 @@
 
           <div
             class="text-[10px]
-                   text-slate-600">
+                   text-slate-600"
+            data-i18n="footer_brand">
 
             Personal OS
 
@@ -3487,11 +4679,10 @@
       <div
         class="text-xs
                text-slate-600
-               text-center">
+               text-center"
+        data-i18n="footer_text">
 
-        <span data-i18n="footer_text">
-          Free & open-source personal workspace for Windows.
-        </span>
+        Free & open-source personal workspace for Windows.
 
       </div>
 
@@ -3499,8 +4690,8 @@
       <div
         class="flex
                items-center
-               gap-4">
-
+               gap-4"
+      >
 
         <a
           href="https://github.com/worldmohammad/savely-os"
@@ -3508,9 +4699,13 @@
           rel="noopener"
           class="text-slate-600
                  hover:text-white
-                 transition">
+                 transition"
+        >
 
-          <i data-lucide="github" class="w-4 h-4"></i>
+          <i
+            data-lucide="github"
+            class="w-4 h-4">
+          </i>
 
         </a>
 
@@ -3521,9 +4716,13 @@
           rel="noopener"
           class="text-slate-600
                  hover:text-white
-                 transition">
+                 transition"
+        >
 
-          <i data-lucide="download" class="w-4 h-4"></i>
+          <i
+            data-lucide="download"
+            class="w-4 h-4">
+          </i>
 
         </a>
 
@@ -3533,16 +4732,18 @@
 
 
     <div
-      class="section-line
-             mt-8
-             mb-6">
+      class="mt-8
+             mb-6
+             h-px
+             bg-slate-900">
     </div>
 
 
     <div
       class="text-center
              text-[10px]
-             text-slate-700">
+             text-slate-700"
+      data-i18n="copyright">
 
       © 2026 Savely. All rights reserved.
 
@@ -3554,17 +4755,23 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      JAVASCRIPT
-========================================================= -->
+====================================================== -->
 
 <script>
 
-/* =========================================================
+
+/* =====================================================
    TRANSLATIONS
-========================================================= */
+====================================================== */
 
 const translations = {
+
+
+  /* ===================================================
+     ENGLISH
+  ==================================================== */
 
   en: {
 
@@ -3614,9 +4821,6 @@ const translations = {
     hero_github:
       "View on GitHub",
 
-    hero_scroll:
-      "Explore Savely",
-
 
     features_label:
       "Why Savely?",
@@ -3646,29 +4850,31 @@ const translations = {
       "Search Across Your Life",
 
     feature_3_text:
-      "Quickly find information across your personal workspace instead of remembering which app contains it.",
+      "Quickly find information across your personal workspace.",
 
 
     feature_4_title:
       "One Connected Calendar",
 
     feature_4_text:
-      "Events, tasks and important dates stay connected with the rest of your personal information.",
+      "Events, tasks and important dates stay connected with your information.",
 
 
     feature_5_title:
       "Your Own Data",
 
     feature_5_text:
-      "Designed around ownership, organization and control of your personal information.",
+      "Designed around ownership, organization and control.",
 
 
     feature_6_title:
       "Fast & Lightweight",
 
     feature_6_text:
-      "A focused personal workspace without the complexity of managing a collection of disconnected applications.",
+      "A focused personal workspace without unnecessary complexity.",
 
+
+    /* MODULES */
 
     modules_label:
       "Integrated Modules",
@@ -3679,6 +4885,92 @@ const translations = {
     modules_description:
       "Instead of connecting multiple services, Savely brings essential personal tools together in one environment.",
 
+
+    module_notes_title:
+      "Notes",
+
+    module_notes_text:
+      "Capture ideas and information.",
+
+
+    module_tasks_title:
+      "Tasks & Goals",
+
+    module_tasks_text:
+      "Organize work and priorities.",
+
+
+    module_bookmarks_title:
+      "Bookmarks",
+
+    module_bookmarks_text:
+      "Save useful websites.",
+
+
+    module_passwords_title:
+      "Passwords",
+
+    module_passwords_text:
+      "Keep credentials organized.",
+
+
+    module_files_title:
+      "Files",
+
+    module_files_text:
+      "Manage your personal files.",
+
+
+    module_finance_title:
+      "Finance",
+
+    module_finance_text:
+      "Track personal finances.",
+
+
+    module_calendar_title:
+      "Calendar",
+
+    module_calendar_text:
+      "Manage events and dates.",
+
+
+    module_email_title:
+      "Email",
+
+    module_email_text:
+      "Access your communication.",
+
+
+    module_url_title:
+      "URL Shortener",
+
+    module_url_text:
+      "Create short personal links.",
+
+
+    module_weather_title:
+      "Weather",
+
+    module_weather_text:
+      "See weather at a glance.",
+
+
+    module_templates_title:
+      "Templates",
+
+    module_templates_text:
+      "Reuse your workflows.",
+
+
+    module_goals_title:
+      "Goals",
+
+    module_goals_text:
+      "Build and track objectives.",
+
+
+    /* GITHUB */
 
     github_title:
       "Built in the open.",
@@ -3693,6 +4985,8 @@ const translations = {
       "Explore Repository",
 
 
+    /* DOWNLOAD */
+
     download_title:
       "Get Savely for Windows",
 
@@ -3705,6 +4999,14 @@ const translations = {
     download_releases:
       "View All Releases",
 
+    download_meta:
+      "Windows 10 / 11 • Free • Open Source",
+
+
+    /* SELF HOSTED */
+
+    selfhost_badge:
+      "Self-Hosted Edition",
 
     selfhost_title:
       "Want more control?",
@@ -3712,16 +5014,74 @@ const translations = {
     selfhost_description:
       "The Self-Hosted Edition lets you install Savely on your own hosting environment and keep your personal information under your own control.",
 
+    selfhost_feature_1:
+      "Your own hosting",
+
+    selfhost_feature_2:
+      "Greater control",
+
+    selfhost_feature_3:
+      "One-time purchase",
+
+    selfhost_feature_4:
+      "Personal data ownership",
+
     selfhost_button:
       "Get Self-Hosted Edition",
 
+    selfhost_visual_subtitle:
+      "Self-hosted environment",
+
+    online:
+      "Online",
+
+
+    /* COMPARISON */
+
+    compare_label:
+      "Savely Editions",
 
     compare_title:
       "Choose how you want to use Savely.",
 
+    compare_feature:
+      "Feature",
+
+    compare_windows:
+      "Windows",
+
+    compare_selfhost:
+      "Self-Hosted",
+
+    compare_free:
+      "Free",
+
+    compare_open_source:
+      "Open Source",
+
+    compare_windows_run:
+      "Runs on Windows",
+
+    compare_hosting:
+      "Your own hosting",
+
+    compare_subscription:
+      "No monthly subscription",
+
+    compare_data:
+      "Data under your control",
+
+    compare_deployment:
+      "Advanced deployment",
+
+    compare_purchase:
+      "One-time purchase",
+
     compare_button:
       "Learn about Self-Hosted Edition",
 
+
+    /* FINAL */
 
     final_title:
       "Take back control of your digital life.",
@@ -3736,11 +5096,24 @@ const translations = {
       "Self-Hosted Edition",
 
 
+    /* FOOTER */
+
+    footer_brand:
+      "Personal OS",
+
     footer_text:
-      "Free & open-source personal workspace for Windows."
+      "Free & open-source personal workspace for Windows.",
+
+    copyright:
+      "© 2026 Savely. All rights reserved."
 
   },
 
+
+
+  /* ===================================================
+     PERSIAN
+  ==================================================== */
 
   fa: {
 
@@ -3770,7 +5143,7 @@ const translations = {
       "در یک سیستم‌عامل شخصی.",
 
     hero_description:
-      "ساولی یادداشت‌ها، وظایف، بوکمارک‌ها، رمزهای عبور، فایل‌ها، امور مالی، تقویم و بسیاری ابزارهای دیگر را در یک محیط یکپارچه و زیبا جمع می‌کند.",
+      "سِیولی یادداشت‌ها، وظایف، بوکمارک‌ها، رمزهای عبور، فایل‌ها، امور مالی، تقویم و ابزارهای مختلف دیگر را در یک فضای شخصی و یکپارچه در اختیار شما قرار می‌دهد.",
 
     hero_windows:
       "ویندوز ۱۰ و ۱۱",
@@ -3790,25 +5163,24 @@ const translations = {
     hero_github:
       "مشاهده در گیت‌هاب",
 
-    hero_scroll:
-      "مشاهده امکانات ساولی",
 
+    /* FEATURES */
 
     features_label:
-      "چرا Savely؟",
+      "چرا سِیولی؟",
 
     features_title:
       "دیگر بین ده‌ها برنامه جابه‌جا نشوید.",
 
     features_description:
-      "ساولی یک فضای یکپارچه، منظم و خصوصی برای مدیریت زندگی دیجیتال شما فراهم می‌کند.",
+      "سِیولی یک فضای واحد، منظم و خصوصی برای مدیریت زندگی دیجیتال شما فراهم می‌کند.",
 
 
     feature_1_title:
       "همه‌چیز در یکجا",
 
     feature_1_text:
-      "یادداشت‌ها، وظایف، فایل‌ها، بوکمارک‌ها، رمزهای عبور، امور مالی و تقویم در یک سیستم با هم کار می‌کنند.",
+      "یادداشت‌ها، وظایف، فایل‌ها، بوکمارک‌ها، رمزهای عبور، امور مالی و تقویم در یک سیستم با یکدیگر کار می‌کنند.",
 
 
     feature_2_title:
@@ -3822,29 +5194,33 @@ const translations = {
       "جستجو در تمام اطلاعات",
 
     feature_3_text:
-      "به‌جای اینکه به خاطر بیاورید اطلاعات را در کدام برنامه ذخیره کرده‌اید، آن‌ها را از یک محیط یکپارچه پیدا کنید.",
+      "اطلاعات موردنیاز خود را در فضای شخصی‌تان سریع پیدا کنید، بدون اینکه لازم باشد به خاطر بیاورید در کدام برنامه ذخیره شده است.",
 
 
     feature_4_title:
       "تقویم یکپارچه",
 
     feature_4_text:
-      "رویدادها، وظایف و تاریخ‌های مهم در کنار سایر اطلاعات شخصی شما مدیریت می‌شوند.",
+      "رویدادها، وظایف و تاریخ‌های مهم را در کنار سایر اطلاعات شخصی خود مدیریت کنید.",
 
 
     feature_5_title:
       "کنترل اطلاعات",
 
     feature_5_text:
-      "ساولی با تمرکز بر مالکیت، سازمان‌دهی و کنترل اطلاعات شخصی طراحی شده است.",
+      "سِیولی با تمرکز بر مالکیت، سازمان‌دهی و کنترل اطلاعات شخصی طراحی شده است.",
 
 
     feature_6_title:
       "سریع و سبک",
 
     feature_6_text:
-      "یک فضای متمرکز برای مدیریت اطلاعات شخصی، بدون پیچیدگی استفاده همزمان از مجموعه‌ای از برنامه‌های جداگانه.",
+      "یک فضای متمرکز برای مدیریت اطلاعات شخصی، بدون پیچیدگی و پراکندگی ابزارهای مختلف.",
 
+
+    /* =================================================
+       MODULES
+    ================================================== */
 
     modules_label:
       "ماژول‌های یکپارچه",
@@ -3853,14 +5229,102 @@ const translations = {
       "یک سیستم برای بخش‌های مختلف زندگی شما.",
 
     modules_description:
-      "به‌جای اتصال سرویس‌های مختلف، ساولی ابزارهای ضروری مدیریت اطلاعات شخصی را در یک محیط واحد کنار هم قرار می‌دهد.",
+      "به‌جای استفاده از سرویس‌های پراکنده، سِیولی ابزارهای ضروری مدیریت اطلاعات شخصی را در یک محیط واحد کنار هم قرار می‌دهد.",
 
+
+    module_notes_title:
+      "یادداشت‌ها",
+
+    module_notes_text:
+      "ایده‌ها و اطلاعات خود را ثبت و سازمان‌دهی کنید.",
+
+
+    module_tasks_title:
+      "وظایف و اهداف",
+
+    module_tasks_text:
+      "کارها و اولویت‌های خود را سازمان‌دهی کنید.",
+
+
+    module_bookmarks_title:
+      "بوکمارک‌ها",
+
+    module_bookmarks_text:
+      "وب‌سایت‌ها و صفحات مفید را ذخیره کنید.",
+
+
+    module_passwords_title:
+      "رمزهای عبور",
+
+    module_passwords_text:
+      "اطلاعات ورود و اعتبارنامه‌های خود را مدیریت کنید.",
+
+
+    module_files_title:
+      "فایل‌ها",
+
+    module_files_text:
+      "فایل‌های شخصی خود را مدیریت و سازمان‌دهی کنید.",
+
+
+    module_finance_title:
+      "امور مالی",
+
+    module_finance_text:
+      "درآمدها و هزینه‌های شخصی خود را پیگیری کنید.",
+
+
+    module_calendar_title:
+      "تقویم",
+
+    module_calendar_text:
+      "رویدادها و تاریخ‌های مهم خود را مدیریت کنید.",
+
+
+    module_email_title:
+      "ایمیل",
+
+    module_email_text:
+      "ارتباطات و پیام‌های ایمیلی خود را مدیریت کنید.",
+
+
+    module_url_title:
+      "کوتاه‌کننده لینک",
+
+    module_url_text:
+      "برای لینک‌های خود آدرس‌های کوتاه ایجاد کنید.",
+
+
+    module_weather_title:
+      "آب‌وهوا",
+
+    module_weather_text:
+      "وضعیت آب‌وهوا را در یک نگاه مشاهده کنید.",
+
+
+    module_templates_title:
+      "قالب‌ها",
+
+    module_templates_text:
+      "فرآیندها و الگوهای کاری خود را دوباره استفاده کنید.",
+
+
+    module_goals_title:
+      "اهداف",
+
+    module_goals_text:
+      "اهداف خود را ایجاد، پیگیری و مدیریت کنید.",
+
+
+    /* =================================================
+       GITHUB
+    ================================================== */
 
     github_title:
-      "متن‌باز و شفاف.",
+      "توسعه شفاف و متن‌باز.",
 
     github_description:
-      "کد منبع را ببینید، روند توسعه را دنبال کنید و آخرین نسخه را مستقیماً از گیت‌هاب دریافت کنید.",
+      "کد منبع را مشاهده کنید، روند توسعه را دنبال کنید و آخرین نسخه سِیولی را مستقیماً از گیت‌هاب دریافت کنید.",
 
     github_download_note:
       "مجموع دانلود تمام نسخه‌های منتشرشده",
@@ -3869,11 +5333,15 @@ const translations = {
       "مشاهده مخزن گیت‌هاب",
 
 
+    /* =================================================
+       DOWNLOAD
+    ================================================== */
+
     download_title:
-      "ساولی را برای ویندوز دریافت کنید",
+      "سِیولی را برای ویندوز دریافت کنید",
 
     download_description:
-      "آخرین نسخه رایگان ساولی را دانلود کنید و کامپیوتر ویندوزی خود را به یک فضای شخصی برای مدیریت اطلاعات تبدیل کنید.",
+      "آخرین نسخه رایگان سِیولی را دانلود کنید و کامپیوتر ویندوزی خود را به یک فضای شخصی برای مدیریت اطلاعات تبدیل کنید.",
 
     download_button:
       "دانلود آخرین نسخه",
@@ -3881,23 +5349,95 @@ const translations = {
     download_releases:
       "مشاهده تمام نسخه‌ها",
 
+    download_meta:
+      "ویندوز ۱۰ و ۱۱ • رایگان • متن‌باز",
+
+
+    /* =================================================
+       SELF HOSTED
+    ================================================== */
+
+    selfhost_badge:
+      "نسخه Self-Hosted",
 
     selfhost_title:
       "کنترل بیشتری می‌خواهید؟",
 
     selfhost_description:
-      "نسخه Self-Hosted به شما اجازه می‌دهد ساولی را روی هاست خود نصب کنید و کنترل بیشتری روی اطلاعات شخصی خود داشته باشید.",
+      "نسخه Self-Hosted به شما امکان می‌دهد سِیولی را روی هاست خود نصب کنید و کنترل بیشتری بر اطلاعات شخصی خود داشته باشید.",
+
+    selfhost_feature_1:
+      "هاست اختصاصی شما",
+
+    selfhost_feature_2:
+      "کنترل بیشتر",
+
+    selfhost_feature_3:
+      "خرید یک‌باره",
+
+    selfhost_feature_4:
+      "مالکیت اطلاعات شخصی",
 
     selfhost_button:
       "دریافت نسخه Self-Hosted",
 
+    selfhost_visual_subtitle:
+      "محیط نصب‌شده روی هاست شخصی",
+
+    online:
+      "آنلاین",
+
+
+    /* =================================================
+       COMPARISON
+    ================================================== */
+
+    compare_label:
+      "نسخه‌های سِیولی",
 
     compare_title:
-      "انتخاب کنید چگونه از ساولی استفاده کنید.",
+      "نحوه استفاده خود از سِیولی را انتخاب کنید.",
+
+    compare_feature:
+      "ویژگی",
+
+    compare_windows:
+      "ویندوز",
+
+    compare_selfhost:
+      "Self-Hosted",
+
+    compare_free:
+      "رایگان",
+
+    compare_open_source:
+      "متن‌باز",
+
+    compare_windows_run:
+      "قابل اجرا در ویندوز",
+
+    compare_hosting:
+      "هاست اختصاصی شما",
+
+    compare_subscription:
+      "بدون اشتراک ماهانه",
+
+    compare_data:
+      "کنترل اطلاعات توسط شما",
+
+    compare_deployment:
+      "استقرار پیشرفته",
+
+    compare_purchase:
+      "خرید یک‌باره",
 
     compare_button:
       "مشاهده نسخه Self-Hosted",
 
+
+    /* =================================================
+       FINAL CTA
+    ================================================== */
 
     final_title:
       "کنترل زندگی دیجیتال خود را دوباره به دست بگیرید.",
@@ -3912,8 +5452,18 @@ const translations = {
       "نسخه Self-Hosted",
 
 
+    /* =================================================
+       FOOTER
+    ================================================== */
+
+    footer_brand:
+      "سیستم‌عامل شخصی",
+
     footer_text:
-      "فضای شخصی رایگان و متن‌باز برای مدیریت اطلاعات در ویندوز."
+      "فضای شخصی رایگان و متن‌باز برای مدیریت اطلاعات در ویندوز.",
+
+    copyright:
+      "© ۲۰۲۶ سِیولی. تمامی حقوق محفوظ است."
 
   }
 
@@ -3921,9 +5471,9 @@ const translations = {
 
 
 
-/* =========================================================
-   LANGUAGE
-========================================================= */
+/* =====================================================
+   SELF HOSTED URLS
+====================================================== */
 
 const selfHostedUrls = {
 
@@ -3936,31 +5486,42 @@ const selfHostedUrls = {
 };
 
 
+
+/* =====================================================
+   CURRENT LANGUAGE
+====================================================== */
+
 let currentLang =
   localStorage.getItem("savely_lang") ||
   (
     navigator.language &&
-    navigator.language.toLowerCase().startsWith("fa")
+    navigator.language
+      .toLowerCase()
+      .startsWith("fa")
       ? "fa"
       : "en"
   );
 
 
 
-/* =========================================================
+/* =====================================================
    APPLY LANGUAGE
-========================================================= */
+====================================================== */
 
 function applyLanguage(lang) {
 
-  currentLang = lang;
+  currentLang =
+    lang;
 
   localStorage.setItem(
     "savely_lang",
     lang
   );
 
-  document.documentElement.lang = lang;
+
+  document.documentElement.lang =
+    lang;
+
 
   document.documentElement.dir =
     lang === "fa"
@@ -3968,16 +5529,17 @@ function applyLanguage(lang) {
       : "ltr";
 
 
-  /*
-   * Text translations
-   */
+  /* TEXT */
 
   document
     .querySelectorAll("[data-i18n]")
     .forEach(element => {
 
       const key =
-        element.getAttribute("data-i18n");
+        element.getAttribute(
+          "data-i18n"
+        );
+
 
       if (
         translations[lang] &&
@@ -3992,12 +5554,13 @@ function applyLanguage(lang) {
     });
 
 
-  /*
-   * Language button
-   */
+  /* LANGUAGE BUTTON */
 
   const languageButton =
-    document.getElementById("lang-toggle");
+    document.getElementById(
+      "lang-toggle"
+    );
+
 
   if (languageButton) {
 
@@ -4009,9 +5572,7 @@ function applyLanguage(lang) {
   }
 
 
-  /*
-   * Self-hosted URLs
-   */
+  /* SELF HOSTED LINKS */
 
   const selfHostedUrl =
     selfHostedUrls[lang];
@@ -4025,7 +5586,10 @@ function applyLanguage(lang) {
   ].forEach(id => {
 
     const element =
-      document.getElementById(id);
+      document.getElementById(
+        id
+      );
+
 
     if (element) {
 
@@ -4040,9 +5604,9 @@ function applyLanguage(lang) {
 
 
 
-/* =========================================================
+/* =====================================================
    LANGUAGE TOGGLE
-========================================================= */
+====================================================== */
 
 document
   .getElementById("lang-toggle")
@@ -4061,9 +5625,9 @@ document
 
 
 
-/* =========================================================
-   FORMAT NUMBER
-========================================================= */
+/* =====================================================
+   NUMBER FORMAT
+====================================================== */
 
 function formatNumber(number) {
 
@@ -4077,23 +5641,18 @@ function formatNumber(number) {
 
 
 
-/* =========================================================
-   GITHUB API
-========================================================= */
+/* =====================================================
+   GITHUB
+====================================================== */
 
 const GITHUB_REPO =
   "worldmohammad/savely-os";
 
 
 
-/*
- * GitHub allows a maximum of 100 releases
- * per page.
- *
- * We fetch every page so the download count
- * represents all published releases instead
- * of only the latest release.
- */
+/* =====================================================
+   FETCH ALL RELEASES
+====================================================== */
 
 async function fetchAllReleases(repo) {
 
@@ -4146,14 +5705,9 @@ async function fetchAllReleases(repo) {
     );
 
 
-    /*
-     * If GitHub returned fewer than
-     * perPage items, this was the
-     * last page.
-     */
-
     if (
-      releases.length < perPage
+      releases.length <
+      perPage
     ) {
 
       break;
@@ -4164,16 +5718,7 @@ async function fetchAllReleases(repo) {
     page++;
 
 
-    /*
-     * Safety limit.
-     * Prevents accidental infinite loops.
-     */
-
     if (page > 100) {
-
-      console.warn(
-        "GitHub release pagination stopped at 100 pages."
-      );
 
       break;
 
@@ -4188,18 +5733,16 @@ async function fetchAllReleases(repo) {
 
 
 
-/* =========================================================
-   FETCH GITHUB STATS
-========================================================= */
+/* =====================================================
+   GITHUB STATS
+====================================================== */
 
 async function fetchGitHubStats() {
 
   try {
 
 
-    /*
-     * Repository information
-     */
+    /* REPOSITORY */
 
     const repoResponse =
       await fetch(
@@ -4226,14 +5769,13 @@ async function fetchGitHubStats() {
       await repoResponse.json();
 
 
-    /*
-     * Stars
-     */
+    /* STARS */
 
     const stars =
       document.getElementById(
         "github-stars"
       );
+
 
     if (stars) {
 
@@ -4247,14 +5789,13 @@ async function fetchGitHubStats() {
     }
 
 
-    /*
-     * Forks
-     */
+    /* FORKS */
 
     const forks =
       document.getElementById(
         "github-forks"
       );
+
 
     if (forks) {
 
@@ -4268,9 +5809,7 @@ async function fetchGitHubStats() {
     }
 
 
-    /*
-     * ALL RELEASES
-     */
+    /* ALL RELEASES */
 
     const releases =
       await fetchAllReleases(
@@ -4278,11 +5817,10 @@ async function fetchGitHubStats() {
       );
 
 
-    /*
-     * Total downloads
-     */
+    /* DOWNLOADS */
 
-    let totalDownloads = 0;
+    let totalDownloads =
+      0;
 
 
     releases.forEach(
@@ -4314,10 +5852,6 @@ async function fetchGitHubStats() {
     );
 
 
-    /*
-     * Show downloads
-     */
-
     const downloads =
       document.getElementById(
         "github-downloads"
@@ -4334,12 +5868,7 @@ async function fetchGitHubStats() {
     }
 
 
-    /*
-     * Latest release
-     *
-     * GitHub returns releases sorted
-     * with the newest published release first.
-     */
+    /* LATEST RELEASE */
 
     const latestRelease =
       releases.find(
@@ -4366,45 +5895,14 @@ async function fetchGitHubStats() {
 
     }
 
+  }
 
-  } catch (error) {
 
+  catch (error) {
 
     console.error(
       "Unable to load GitHub statistics:",
       error
-    );
-
-
-    /*
-     * Friendly fallback
-     */
-
-    const ids = [
-      "github-stars",
-      "github-forks",
-      "github-downloads",
-      "github-version"
-    ];
-
-
-    ids.forEach(
-      id => {
-
-        const element =
-          document.getElementById(id);
-
-        if (
-          element &&
-          element.textContent === "—"
-        ) {
-
-          element.textContent =
-            "—";
-
-        }
-
-      }
     );
 
   }
@@ -4413,15 +5911,16 @@ async function fetchGitHubStats() {
 
 
 
-/* =========================================================
-   INIT LUCIDE
-========================================================= */
+/* =====================================================
+   LUCIDE
+====================================================== */
 
 function refreshIcons() {
 
   if (
     window.lucide &&
-    typeof lucide.createIcons === "function"
+    typeof lucide.createIcons ===
+      "function"
   ) {
 
     lucide.createIcons();
@@ -4432,9 +5931,9 @@ function refreshIcons() {
 
 
 
-/* =========================================================
-   INITIALIZE
-========================================================= */
+/* =====================================================
+   INITIALIZATION
+====================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -4453,5 +5952,7 @@ document.addEventListener(
 
 </script>
 
+
 </body>
+
 </html>
